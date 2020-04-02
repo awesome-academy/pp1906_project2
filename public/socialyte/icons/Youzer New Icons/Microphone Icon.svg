@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Microphone_Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	<g>
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#9A9FBF" points="11,18 11,15 9,15 9,18 5,18 5,20 15,20 15,18 		"/>
+	</g>
+</g>
+<path fill="#9A9FBF" d="M10,14c-3.309,0-6-2.691-6-6H2c0,4.418,3.582,8,8,8c4.418,0,8-3.582,8-8h-2C16,11.309,13.309,14,10,14z"/>
+<path fill="#9A9FBF" d="M8.278,9C8.625,9.595,9.263,10,10,10c1.104,0,2-0.897,2-2V4c0-1.103-0.896-2-2-2
+	C9.263,2,8.625,2.405,8.278,3H6.142C6.588,1.278,8.139,0,10,0c2.209,0,4,1.791,4,4v4c0,2.209-1.791,4-4,4
+	c-1.861,0-3.412-1.278-3.858-3H8.278z"/>
+<rect x="6" y="5" fill="#9A9FBF" width="2" height="2"/>
+</svg>
