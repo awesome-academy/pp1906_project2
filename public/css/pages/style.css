@@ -48,6 +48,10 @@
 Login and Register page
 -----------------------------------------------------------------*/
 
+.login.form-box {
+  height: 380px;
+}
+
 .register.form-box {
   height: 420px;
 }

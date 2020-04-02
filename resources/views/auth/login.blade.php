@@ -1,7 +1,7 @@
 @extends('auth.master')
 
 @section('content')
-<div class="form-box">
+<div class="login form-box">
     <div class="form-logo">
         <p class="text-center"><img src="{{ asset('img/auth/socialyte-logo.png') }}" alt="logo"></p>
     </div>

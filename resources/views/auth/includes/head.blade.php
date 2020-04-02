@@ -6,5 +6,5 @@
     <link rel="stylesheet" href="{{ asset('css/auth/bootstrap.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/auth/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/auth/style.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/style.css') }}">
 </head>
