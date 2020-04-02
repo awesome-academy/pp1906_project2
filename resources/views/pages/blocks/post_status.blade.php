@@ -15,14 +15,15 @@
         <div class="tab-content">
             <div class="tab-pane active" id="home-1" role="tabpanel" aria-expanded="true">
                 <form method="POST" action="{{ route('posts.store') }}">
+                    @csrf
                     <div class="author-thumb">
                         <img src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
                     </div>
                     <div class="form-group with-icon label-floating is-empty">
                         <label class="control-label">Share what you are thinking here...</label>
-                        <textarea class="form-control @error('post_content') is-invalid @enderror" name="post_content" placeholder=""></textarea>
+                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" placeholder=""></textarea>
 
-                        @error('post_content')
+                        @error('content')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -36,12 +37,18 @@
                             <img src="{{ asset('socialyte/svg-icons/center/tag.svg') }}">
                         </a>
                         <div class="form-group post-type">
-                            <select class="selectpicker form-control">
-                                <option selected="selected" disabled="disabled">Post type</option>
-                                <option value="public">Public</option>
-                                <option value="only_friend">Only friends</option>
-                                <option value="private">Private</option>
+                            <select class="selectpicker form-control" name="type">
+                                <option value="{{ config('post.type.public') }}" selected="selected">Public</option>
+                                <option value="{{ config('post.type.private') }}">Private</option>
+                                <option value="{{ config('post.type.only_friends') }}">Only Friends</option>
                             </select>
+                            @error('type')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>
+                                    {{ $message }}
+                                </strong>
+                            </span>
+                            @enderror
                         </div>
                         <button class="btn btn-primary btn-md-2">Post Status</button>
 
@@ -54,3 +61,13 @@
 
     <!-- ... end News Feed Form  -->
 </div>
+@if (session('error'))
+<div class="alert alert-danger" role="alert" style="text-align: center;">
+    {{ session('error') }}
+</div>
+@endif
+@if (session('success'))
+<div class="alert alert-success" role="alert" style="text-align: center;">
+    {{ session('success') }}
+</div>
+@endif

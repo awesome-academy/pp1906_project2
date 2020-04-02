@@ -1,5 +1,5 @@
+@foreach ($posts as $post)
 <div class="ui-block">
-
 
     <article class="hentry post">
 
@@ -7,10 +7,10 @@
             <img src="{{ asset('socialyte/img/avatar10-sm.jpg') }}" alt="author">
 
             <div class="author-date">
-                <a class="h6 post__author-name fn" href="#">Elaine Dreyfuss</a>
+                <a class="h6 post__author-name fn" href="#">{{ $post->user->name }}</a>
                 <div class="post__date">
                     <time class="published" datetime="2004-07-24T18:18">
-                        9 hours ago
+                        {{ \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() }}
                     </time>
                 </div>
             </div>
@@ -19,8 +19,7 @@
         </div>
 
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris consequat.
+            {{ $post->content }}
         </p>
         @include('pages.blocks.widgets.reacts_list')
 
@@ -60,3 +59,4 @@
 
     <!-- ... end Comment Form  -->
 </div>
+@endforeach

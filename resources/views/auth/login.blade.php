@@ -8,13 +8,13 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <!-- Username -->
-        <input id="login" type="text" class="form-control{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}" name="login" value="{{ old('username') ?: old('email') }}" autocomplete="login" placeholder="Username or Email" autofocus required>
+        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" required placeholder="Your Email">
 
-        @if ($errors->has('username') || $errors->has('email'))
+        @error('email')
         <span class="invalid-feedback">
-            <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
+            <strong>{{ $message }}</strong>
         </span>
-        @endif
+        @enderror
 
         <!-- Password -->
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">

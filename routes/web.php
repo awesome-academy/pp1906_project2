@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes(['verify' => true]);
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+Route::middleware(['verified'])->resource('home', 'HomeController');
 
 Route::get('/newsfeed', function () {
     return view('pages.newsfeed.index');
@@ -59,3 +61,5 @@ Route::get('/settings/notifications', function () {
 Route::get('/settings/requests', function () {
     return view('pages.settings.request.index');
 });
+
+Route::resource('posts', 'PostController');

@@ -4,9 +4,7 @@
 @include('pages.includes.head')
 
 <body class="page-has-left-panels page-has-right-panels">
-
     <!-- Preloader -->
-
     <div id="hellopreloader">
         <div class="preloader">
             <svg width="45" height="45" stroke="#fff">
