@@ -146,4 +146,5 @@
 </header>
 
 <!-- ... end Header-BP -->
-<div class="header-spacer"></div>
+<div class="header-spacer">
+</div>

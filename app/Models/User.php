@@ -40,4 +40,12 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the status posts of this user
+     */
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post');
+    }
 }
