@@ -47,9 +47,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="Log out">
+                    <a href="{{ route('logout') }}" title="Log out" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
                         <img src="{{ asset('socialyte/svg-icons/sidebar_left/logout.svg') }}">
                     </a>
+                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </div>
