@@ -12,42 +12,37 @@
         <div class="mCustomScrollbar" data-mcs-theme="dark">
             <ul class="left-menu">
                 <li>
-                    <a href="#" title="Menu">
-                        <img src="{{ asset('socialyte/svg-icons/sidebar_left/menu.svg') }}">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="News Feed">
+                    <a href="#" title="@lang('Newsfeed')">
                         <img src="{{ asset('socialyte/svg-icons/sidebar_left/newsfeed.svg') }}">
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="Profile">
+                    <a href="#" title="@lang('Profile')">
                         <img src="{{ asset('socialyte/svg-icons/sidebar_left/profile.svg') }}">
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="Friends">
+                    <a href="#" title="@lang('Friends')">
                         <img src="{{ asset('socialyte/svg-icons/sidebar_left/group.svg') }}">
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="Photos">
+                    <a href="#" title="@lang('Photos')">
                         <img src="{{ asset('socialyte/svg-icons/sidebar_left/picture.svg') }}">
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="Videos">
+                    <a href="#" title="@lang('Videos')">
                         <img src="{{ asset('socialyte/svg-icons/sidebar_left/video.svg') }}">
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="User Settings">
+                    <a href="#" title="@lang('User Settings')">
                         <img src="{{ asset('socialyte/svg-icons/sidebar_left/settings.svg') }}">
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('logout') }}" title="Log out" onclick="event.preventDefault();
+                    <a href="{{ route('logout') }}" title="@lang('Log out')" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         <img src="{{ asset('socialyte/svg-icons/sidebar_left/logout.svg') }}">
                     </a>

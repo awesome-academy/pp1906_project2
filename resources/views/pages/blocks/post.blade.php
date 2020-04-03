@@ -29,7 +29,7 @@
 
     <!-- ... end Comments -->
 
-    <a href="#" class="more-comments">View more comments <span>+</span></a>
+    <a href="#" class="more-comments"> @lang('View more comments') <span>+</span></a>
 
 
     <!-- Comment Form  -->
@@ -51,9 +51,9 @@
             </div>
         </div>
 
-        <button class="btn btn-md-2 btn-primary">Post Comment</button>
+        <button class="btn btn-md-2 btn-primary"> @lang('Post Comment') </button>
 
-        <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color">Cancel</button>
+        <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color"> @lang('Cancel') </button>
 
     </form>
 

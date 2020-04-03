@@ -3,7 +3,7 @@
 <header class="header" id="site-header">
 
     <div class="page-title">
-        <h6>Newsfeed</h6>
+        <h6> @lang('Newsfeed') </h6>
     </div>
 
     <div class="header-content-wrapper">
@@ -16,7 +16,7 @@
             </div>
         </form>
 
-        <a href="#" class="link-find-friend">Find Friends</a>
+        <a href="#" class="link-find-friend"> @lang('Find Friends') </a>
 
         <div class="control-block">
 
@@ -28,9 +28,9 @@
 
                 <div class="more-dropdown more-with-triangle triangle-top-center">
                     <div class="ui-block-title ui-block-title-small">
-                        <h6 class="title">FRIEND REQUESTS</h6>
-                        <a href="#">Find Friends</a>
-                        <a href="#">Settings</a>
+                        <h6 class="title"> @lang('FRIEND REQUESTS') </h6>
+                        <a href="#"> @lang('Find Friends') </a>
+                        <a href="#"> @lang('Settings') </a>
                     </div>
 
                     <div class="mCustomScrollbar" data-mcs-theme="dark">
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="notification-event">
                                     <a href="#" class="h6 notification-friend">Tamara Romanoff</a>
-                                    <span class="chat-message-item">Sent you a friend request</span>
+                                    <span class="chat-message-item">@lang('Sent you a friend request')</span>
                                 </div>
                                 <span class="notification-icon">
                                     <a href="#" class="accept-request">
@@ -63,7 +63,7 @@
                                     <img src="{{ asset('socialyte/img/avatar57-sm.jpg') }}" alt="author">
                                 </div>
                                 <div class="notification-event">
-                                    You and <a href="#" class="h6 notification-friend">Mary Jane Stark</a> just became friends. Write on <a href="#" class="notification-link">her wall</a>.
+                                    @lang('You and') <a href="#" class="h6 notification-friend">Mary Jane Stark</a> @lang('just became friends. Write on') <a href="#" class="notification-link">@lang('her wall')</a>.
                                 </div>
                                 <span class="notification-icon">
                                     <img src="{{ asset('socialyte/svg-icons/top_bar/friend.svg') }}">
@@ -72,22 +72,22 @@
                         </ul>
                     </div>
 
-                    <a href="#" class="view-all bg-blue">View all</a>
+                    <a href="#" class="view-all bg-blue"> @lang('View all') </a>
                 </div>
             </div>
 
             <div class="control-icon more has-items">
                 <a href="#" title="Notifications">
-                    <img src="{{ asset('socialyte/svg-icons/top_bar/notify.svg') }}">
+                    <img src="{{ asset('socialyte/svg-icon{s/top_bar/notify.svg') }}">
                 </a>
 
                 <div class="label-avatar bg-primary">8</div>
 
                 <div class="more-dropdown more-with-triangle triangle-top-center">
                     <div class="ui-block-title ui-block-title-small">
-                        <h6 class="title">Notifications</h6>
-                        <a href="#">Mark all as read</a>
-                        <a href="#">Settings</a>
+                        <h6 class="title"> @lang('Notifications') </h6>
+                        <a href="#"> @lang('Mark all as read') </a>
+                        <a href="#"> @lang('Settings') </a>
                     </div>
 
                     <div class="mCustomScrollbar" data-mcs-theme="dark">
@@ -97,7 +97,7 @@
                                     <img src="{{ asset('socialyte/img/avatar62-sm.jpg') }}" alt="author">
                                 </div>
                                 <div class="notification-event">
-                                    <div><a href="#" class="h6 notification-friend">Mathilda Brinker</a> commented on your new <a href="#" class="notification-link">profile status</a>.</div>
+                                    <div><a href="#" class="h6 notification-friend">Mathilda Brinker</a> @lang('commented on your new') <a href="#" class="notification-link">@lang('profile status')</a>.</div>
                                     <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">4 hours ago</time></span>
                                 </div>
                                 <span class="notification-icon">
@@ -125,7 +125,7 @@
                         </ul>
                     </div>
 
-                    <a href="#" class="view-all bg-primary">View All</a>
+                    <a href="#" class="view-all bg-primary"> @lang('View All') </a>
                 </div>
             </div>
 

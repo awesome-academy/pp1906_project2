@@ -8,7 +8,7 @@
             <a href="#">
                 <img src="{{ asset('socialyte/svg-icons/center/status.svg') }}">
             </a>
-            <h6 class="title">Post your status</h6>
+            <h6 class="post-status title"> @lang('Post your status') </h6>
         </div>
 
         <!-- Tab panes -->
@@ -20,7 +20,7 @@
                         <img src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
                     </div>
                     <div class="form-group with-icon label-floating is-empty">
-                        <label class="control-label">Share what you are thinking here...</label>
+                        <label class="control-label"> @lang('Share what you are thinking here...') </label>
                         <textarea class="form-control @error('content') is-invalid @enderror" name="content" placeholder=""></textarea>
 
                         @error('content')
@@ -36,11 +36,12 @@
                         <a href="#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="TAG YOUR FRIENDS">
                             <img src="{{ asset('socialyte/svg-icons/center/tag.svg') }}">
                         </a>
+                        <button class="btn btn-primary btn-md-2"> @lang('Post Status') </button>
                         <div class="form-group post-type">
                             <select class="selectpicker form-control" name="type">
-                                <option value="{{ config('post.type.public') }}" selected="selected">Public</option>
-                                <option value="{{ config('post.type.private') }}">Private</option>
-                                <option value="{{ config('post.type.only_friends') }}">Only Friends</option>
+                                <option value="{{ config('post.type.public') }}" selected="selected"> @lang('Public') </option>
+                                <option value="{{ config('post.type.private') }}"> @lang('Private') </option>
+                                <option value="{{ config('post.type.only_friends') }}"> @lang('Only Friends') </option>
                             </select>
                             @error('type')
                             <span class="invalid-feedback" role="alert">
@@ -50,7 +51,6 @@
                             </span>
                             @enderror
                         </div>
-                        <button class="btn btn-primary btn-md-2">Post Status</button>
 
                     </div>
 

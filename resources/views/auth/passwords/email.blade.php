@@ -6,13 +6,13 @@
         <p class="text-center"><img src="{{ asset('img/auth/socialyte-logo.png') }}" alt="logo"></p>
     </div>
     <h3>
-        <p>{{ __('Enter your email address and we will send you a reset link') }}</p>
+        <p> @lang('Enter your email address and we will send you a reset link') </p>
     </h3>
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
 
         <!-- Email -->
-        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('Your Email')">
 
         @error('email')
         <span class="invalid-feedback" role="alert">
@@ -20,7 +20,7 @@
         </span>
         @enderror
 
-        <button type="submit" class="btn btn-social">{{ __('Send Password Reset Link') }}</button>
+        <button type="submit" class="btn btn-social"> @lang('Send Password Reset Link') </button>
     </form>
 </div>
 <!--Close form-box-->
