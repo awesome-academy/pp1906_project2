@@ -75,8 +75,8 @@ input:focus {
   outline: none;
 }
 
-.ui-block-title img {
-  margin-right: -12px;
+.post-status.title {
+  padding-right: 200px;
 }
 
 .video-thumb .play-icon {
@@ -170,8 +170,9 @@ input:focus {
 
 .post-type {
   display: inline-block;
-  width: 150px;
-  margin-left: 200px;
+  width: 120px;
+  margin-right: 15px;
+  float: right;
 }
 
 .bootstrap-select > .dropdown-toggle {
@@ -184,5 +185,13 @@ input:focus {
 
 .news-feed-form.single-post {
   overflow: auto;
+}
+
+.more-comments:hover {
+  color: #ff5e3a;
+}
+
+.width-100 {
+  width: 100px;
 }
 

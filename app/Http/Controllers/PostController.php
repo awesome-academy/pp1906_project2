@@ -32,9 +32,9 @@ class PostController extends Controller
         $storePost = $this->postService->storePost($data);
 
         if ($storePost) {
-            return back()->with('success', 'Your status post has been created!');
+            return back()->with('success', __('post.create.success'));
         }
 
-        return back()->with('error', 'Create status post failed!');
+        return back()->with('error', __('post.create.error'));
     }
 }

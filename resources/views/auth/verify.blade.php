@@ -7,21 +7,21 @@
     </div>
     <h2>
         <p>
-            <center>{{ __('Verify Your Email Address') }}</center>
+            <center> @lang('Verify Your Email Address') </center>
         </p>
     </h2>
     <div class="card-body">
         @if (session('resent'))
         <div class="alert alert-success" role="alert">
-            {{ __('A fresh verification link has been sent to your email address.') }}
+            @lang('A fresh verification link has been sent to your email address.')
         </div>
         @endif
 
-        {{ __('Before proceeding, please check your email for a verification link.') }}
-        {{ __('If you did not receive the email') }},
+        @lang('Before proceeding, please check your email for a verification link.')
+        @lang('If you did not receive the email'),
         <form method="POST" action="{{ route('verification.resend') }}">
             @csrf
-            <button type="submit" class="btn btn-social">{{ __('Click here to request another') }}</button>
+            <button type="submit" class="btn btn-social"> @lang('Click here to request another') </button>
         </form>
     </div>
 </div>

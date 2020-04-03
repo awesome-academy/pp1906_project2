@@ -2,12 +2,12 @@
     <a href="#" class="olymp-three-dots-icon">
         <img src="{{ asset('socialyte/svg-icons/center/three-dots.svg') }}">
     </a>
-    <ul class="more-dropdown">
+    <ul class="more-dropdown width-100">
         <li>
-            <a href="#">Edit Post</a>
+            <a href="#">@lang('Edit')</a>
         </li>
         <li>
-            <a href="#">Delete Post</a>
+            <a href="#">@lang('Delete')</a>
         </li>
     </ul>
 </div>
