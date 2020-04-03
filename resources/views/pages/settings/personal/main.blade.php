@@ -58,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 padding-top">
+                    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 padding-top-40">
                         <button class="btn btn-primary btn-lg full-width">Save all Changes</button>
                     </div>
 

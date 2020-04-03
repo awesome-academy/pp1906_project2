@@ -4,6 +4,74 @@ $red: #ff0000;
 $blue: #0000ff;
 $theme: #ff5e3a;
 
+/*----------------------------------------------------------------
+Generalization
+-----------------------------------------------------------------*/
+
+.width-100 {
+    width: 100px;
+}
+
+.width-130 {
+    width: 130px;
+}
+
+.icon-size {
+    width: 20px !important;
+    height: 18px !important;
+}
+
+.edit-post-modal .options-message {
+    width: 20px !important;
+    height: 18px !important;
+    border-radius: 0 !important;
+}
+
+.post-type-icon .post-type {
+    width: 18px !important;
+    height: 16px !important;
+    border-radius: 0 !important;
+    margin-left: 3px;
+}
+
+.margin-top-5 {
+    margin-top: 5px;
+}
+
+.padding-top-40 {
+    padding-top: 40px;
+}
+
+// react list
+.parent {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.image-left {
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.image-right {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+}
+
+.no-margin-right {
+    margin-right: 0px !important;
+}
+
+.no-margin-left {
+    margin-left: 0px !important;
+}
+
+/*----------------------------------------------------------------
+Login and Register page
+-----------------------------------------------------------------*/
+
 .btn-social {
     color: $white;
     font-weight: 700;
@@ -39,18 +107,10 @@ $theme: #ff5e3a;
     width: 100%;
 }
 
-.padding-top {
-    padding-top: 40px;
-}
-
 .reply {
     float: right;
     margin-right: 15px;
 }
-
-/*----------------------------------------------------------------
-Login and Register page
------------------------------------------------------------------*/
 
 .register.form-box {
     height: 500px;
@@ -147,35 +207,9 @@ input:focus {
     }
 }
 
-// react list
-.parent {
-    position: relative;
-    top: 0;
-    left: 0;
-}
-.image-left {
-    position: relative;
-    z-index: 1;
-    top: 0;
-    left: 0;
-}
-.image-right {
-    position: absolute;
-    z-index: 2;
-    left: 10px;
-}
-
-.no-margin-right {
-    margin-right: 0px !important;
-}
-
-.no-margin-left {
-    margin-left: 0px !important;
-}
-
 .post-type {
     display: inline-block;
-    width: 120px;
+    width: 120px !important;
     margin-right: 15px;
     float: right;
 }
@@ -199,6 +233,8 @@ input:focus {
     color: $theme;
 }
 
-.width-100 {
-    width: 100px;
+#editPostModal img:not(.avatar) {
+    width: auto;
+    height: auto;
+    border-radius: 0;
 }
