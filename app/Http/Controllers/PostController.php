@@ -22,10 +22,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $data = $request->only([
-            'content',
-            'type'
-        ]);
+        $data = $this->postService->getPostData($request);
 
         $data['user_id'] = auth()->id();
 
@@ -35,6 +32,45 @@ class PostController extends Controller
             return back()->with('success', __('post.create.success'));
         }
 
-        return back()->with('error', __('post.create.error'));
+        return back()->with('error', __('post.error'));
+    }
+
+    /**
+     * Update post in database.
+     *
+     * @param  \Illuminate\Http\PostRequest  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(PostRequest $request, $id)
+    {
+        $data = $this->postService->getPostData($request);
+
+        $data['user_id'] = auth()->id();
+
+        $updatePost = $this->postService->updatePost($id, $data);
+
+        if ($updatePost) {
+            return back()->with('success', __('post.update.success'));
+        }
+
+        return back()->with('error', __('post.error'));
+    }
+
+    /**
+     * Remove post in database.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $deletePost = $this->postService->deletePost($id);
+
+        if ($deletePost) {
+            return back()->with('success', __('post.delete.success'));
+        }
+
+        return back()->with('success', __('post.error'));
     }
 }

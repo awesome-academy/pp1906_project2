@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            @include('pages.blocks.widgets.three_dots')
+            {{-- @include('pages.blocks.widgets.three_dots') --}}
 
         </div>
 
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            @include('pages.blocks.widgets.three_dots')
+            {{-- @include('pages.blocks.widgets.three_dots') --}}
 
         </div>
 

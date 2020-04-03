@@ -24,8 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::pluck('id');
-        $posts = Post::with('user')->whereIn('user_id', $users)->orderBy('updated_at', 'desc')->get();
+        $userIds = User::pluck('id');
+        $posts = Post::with('user')->whereIn('user_id', $userIds)->orderBy('created_at', 'desc')->get();
         //note: only show posts of this user and friends.
 
         return view('pages.newsfeed.index', compact('posts'));

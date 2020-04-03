@@ -8,10 +8,25 @@
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="#">{{ $post->user->name }}</a>
-                <div class="post__date">
-                    <time class="published" datetime="2004-07-24T18:18">
-                        {{ \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() }}
-                    </time>
+                <div class="post-type-icon post__date">
+                    <time class="published" datetime="2004-07-24T18:18">{{ getCreatedFromTime($post) }}</time>
+
+                    @if ($post->isUpdated())
+                    <span>
+                        (@lang('updated')
+                        <time class="published" datetime="2004-07-24T18:18">{{ getUpdatedFromTime($post) }}</time>)
+                    </span>
+                    @endif
+
+                    <span> · </span>
+
+                    @if ($post->isPublic())
+                    <img class="post-type" src="{{ asset('socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
+                    @elseif ($post->isPrivate())
+                    <img class="post-type" src="{{ asset('socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
+                    @elseif ($post->isFriendsOnly())
+                    <img class="post-type" src="{{ asset('socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
+                    @endif
                 </div>
             </div>
 
