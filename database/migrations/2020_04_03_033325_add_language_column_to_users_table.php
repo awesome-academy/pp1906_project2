@@ -13,9 +13,9 @@ class AddLanguageColumnToUsersTable extends Migration
      */
     public function up()
     {
-        if(!Schema::hasColumn('users', 'language')) {
+        if (!Schema::hasColumn('users', 'language')) {
             Schema::table('users', function (Blueprint $table) {
-                $table->bigInteger('language')->after('cover')->default(config('setting.en'))->comment('1: en, 2: vi');
+                $table->bigInteger('language')->after('cover')->default(config('setting.en'))->comment('1: english, 2: vietnamese');
             });
         }
     }
@@ -27,7 +27,7 @@ class AddLanguageColumnToUsersTable extends Migration
      */
     public function down()
     {
-        if(Schema::hasColumn('users', 'language')) {
+        if (Schema::hasColumn('users', 'language')) {
             Schema::table('users', function (Blueprint $table) {
                 $table->dropColumn('language');
             });

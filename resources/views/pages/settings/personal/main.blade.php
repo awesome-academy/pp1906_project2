@@ -1,65 +1,107 @@
-<div class="col col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
+<div class="col col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12 personal">
     <div class="ui-block">
         <div class="ui-block-title">
-            <h6 class="title">Personal Information</h6>
+            <h6 class="title">@lang('Personal Information')</h6>
         </div>
         <div class="ui-block-content">
+            @if (session('error'))
+            <div class="alert alert-danger" role="alert" style="text-align: center;">
+                {{ session('error') }}
+            </div>
+            @endif
+            @if (session('success'))
+            <div class="alert alert-success" role="alert" style="text-align: center;">
+                {{ session('success') }}
+            </div>
+            @endif
 
 
             <!-- Personal Information Form  -->
 
-            <form>
+            <form method="POST" action="{{ route('user.update', auth()->id()) }}">
+                @csrf
+                @method('PUT')
                 <div class="row">
 
                     <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Your Name</label>
-                            <input class="form-control" placeholder="" type="text" value="James">
+                        <label class="control-label">@lang('Your Name')</label>
+                        <div class="form-group">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? auth()->user()->name }}" autocomplete="name" autofocus placeholder="@lang('Your Name')">
                         </div>
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
 
-                        <div class="form-group label-floating">
-                            <label class="control-label">Your Email</label>
-                            <input class="form-control" placeholder="" type="email" value="jspiegel@yourmail.com">
+                    </div>
+
+
+                    <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                        <label class="control-label">@lang('Your Gender')</label>
+                        <div class="form-group is-select">
+                            <select class="selectpicker form-control @error('gender') is-invalid @enderror" name="gender">
+                                <option disabled>@lang('Choose Gender')</option>
+                                <option value="{{ config('user.gender.male') }}" {{ auth()->user()->isMale() ? 'selected' : '' }}>@lang('Male')</option>
+                                <option value="{{ config('user.gender.female') }}" {{ auth()->user()->isFemale() ? 'selected' : '' }}>@lang('Female')</option>
+                            </select>
                         </div>
-
+                        @error('gender')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="form-group label-floating is-select">
-                            <label class="control-label">Your Gender</label>
-                            <select class="selectpicker form-control">
-                                <option value="MA">Male</option>
-                                <option value="FE">Female</option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group date-time-picker label-floating">
-                            <label class="control-label">Your Birthday</label>
-                            <input name="datetimepicker" value="10/24/1984" />
-                            <span class="input-group-addon">
-                                <svg class="olymp-month-calendar-icon icon">
-                                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-month-calendar-icon"></use>
-                                </svg>
-                            </span>
+                        <label class="control-label">@lang('Your Email')</label>
+                        <div class="form-group">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ?? auth()->user()->email }}" disabled autocomplete="email">
                         </div>
                     </div>
 
+                    <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                        <label class="control-label">@lang('Your Birthday')</label>
+                        <div class="form-group label-floating date-time-picker">
+                            <input class="form-control" name="datetimepicker" value="{{ old('birthday') ?? auth()->user()->birthday }}" />
+                            <span class="input-group-addon">
+                                <img src="{{ asset('socialyte/svg-icons/settings/calendar.svg') }}">
+                            </span>
+                            @error('datetimepicker')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+
                     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="form-group label-floating is-empty">
-                            <label class="control-label">Your Address</label>
-                            <input class="form-control" placeholder="" type="text">
+                        <div class="form-group is-empty">
+                            <label class="control-label">@lang('Your Address')</label>
+                            <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') ?? auth()->user()->address }}" autocomplete="address" autofocus placeholder="@lang('Your Address')">
+                            @error('address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Write a little description about you">Hi, I’m James, I’m 36 and I work as a Digital Designer for the  “Daydreams” Agency in Pier 56</textarea>
+                            <label class="control-label">@lang('Your Introduce')</label>
+                            <textarea id="introduce" class="form-control @error('introduce') is-invalid @enderror" name="introduce" autocomplete="introduce" autofocus placeholder="@lang('Your Introduce')">{{ old('introduce') ?? auth()->user()->introduce }}</textarea>
+                            @error('introduce')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
 
-                    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 padding-top-40">
-                        <button class="btn btn-primary btn-lg full-width">Save all Changes</button>
+                    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <button class="btn btn-primary btn-lg save-changes">@lang('Save all Changes')</button>
                     </div>
 
                 </div>

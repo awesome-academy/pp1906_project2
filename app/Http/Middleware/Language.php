@@ -17,7 +17,7 @@ class Language
     {
         if (auth()->check()) {
 
-            $keyLanguage = array_search(auth()->user()->language, config('setting.language'));
+            $keyLanguage = array_search(auth()->user()->language, config('user.language'));
 
             if (app()->getLocale() != $keyLanguage) {
                 app()->setLocale($keyLanguage);

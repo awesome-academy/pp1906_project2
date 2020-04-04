@@ -7,7 +7,6 @@ use Illuminate\Validation\Rule;
 
 class UserRequest extends FormRequest
 {
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -15,11 +14,17 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $setting = config('setting.language');
+        $gender = config('user.gender');
+        $languageSetting = config('user.language');
 
         return [
+            'name' => 'min:6|max:50',
+            'gender' => [
+                Rule::in($gender)
+            ],
+            'birthday' => 'date|date_format:Y-m-d',
             'language' => [
-                Rule::in($setting),
+                Rule::in($languageSetting),
             ],
         ];
     }

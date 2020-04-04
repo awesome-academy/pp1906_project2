@@ -22,13 +22,13 @@
                     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                         <ul class="your-profile-menu">
                             <li>
-                                <a href="">@lang('Personal Information')</a>
+                                <a href="{{ route('user.personal') }}">@lang('Personal Information')</a>
                             </li>
                             <li>
                                 <a href="">@lang('Change Password')</a>
                             </li>
                             <li>
-                                <a href="">@lang('Change Language')</a>
+                                <a href="{{ route('user.showLanguage') }}">@lang('Change Language')</a>
                             </li>
                         </ul>
                     </div>

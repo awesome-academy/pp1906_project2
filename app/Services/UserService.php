@@ -4,17 +4,39 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
+use Carbon\Carbon;
 
 class UserService
 {
+    /**
+     * Get User data from request.
+     *
+     * @param  Model  $request
+     * @return Array ['name', 'birthday', 'gender', 'introduce']
+     */
+    public function getUserData($request)
+    {
+        $birthday = Carbon::parse($request->datetimepicker)->toDateString();
+
+        $request->merge(['birthday' => $birthday]);
+
+        return $request->only([
+            'name',
+            'birthday',
+            'gender',
+            'address',
+            'introduce'
+        ]);
+    }
 
     /**
-     * update in database.
+     * Update user in database.
      *
-     * @param Array $data['language', 'name', 'birthday', 'gender', ...]
+     * @param Int $id
+     * @param Array $data['name', 'birthday', 'gender', 'introduce']
      * @return Boolean
      */
-    public function update($id, $data)
+    public function updateUser($id, $data)
     {
         $user = User::findOrFail($id);
 
