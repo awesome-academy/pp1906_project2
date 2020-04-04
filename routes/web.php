@@ -14,13 +14,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'HomeController@index');
 
 Auth::routes(['verify' => true]);
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
-Route::middleware(['verified'])->resource('home', 'HomeController');
 
 Route::get('/newsfeed', function () {
     return view('pages.newsfeed.index');
@@ -50,9 +47,13 @@ Route::get('/settings', function () {
     return view('pages.settings.personal.index');
 });
 
-Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
+Route::middleware(['auth', 'verified', 'language'])->group(function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('/home', 'HomeController@index');
 
-Route::post('/settings/language/update', 'UserController@changeLanguage')->name('user.changeLanguage');
+    Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
+    Route::post('/settings/language/update', 'UserController@changeLanguage')->name('user.changeLanguage');
+});
 
 Route::get('/settings/password', function () {
     return view('pages.settings.password.index');
