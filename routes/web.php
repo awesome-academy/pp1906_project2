@@ -50,6 +50,10 @@ Route::get('/settings', function () {
     return view('pages.settings.personal.index');
 });
 
+Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
+
+Route::post('/settings/language/update', 'UserController@changeLanguage')->name('user.changeLanguage');
+
 Route::get('/settings/password', function () {
     return view('pages.settings.password.index');
 });

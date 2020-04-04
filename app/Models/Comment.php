@@ -9,7 +9,12 @@ class Comment extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['user_id', 'post_id', 'parent_id', 'content'];
+    protected $fillable = [
+        'user_id',
+        'post_id',
+        'parent_id',
+        'content',
+    ];
 
     protected $dates = ['deleted_at'];
 }
