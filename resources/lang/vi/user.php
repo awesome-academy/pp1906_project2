@@ -2,7 +2,7 @@
 
 return [
     'error' => 'Đã xảy ra lỗi!',
-    'update' => [
+    'information' => [
         'success' => 'Thông tin cá nhân của bạn đã được cập nhật',
     ],
     'language' => [

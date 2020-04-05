@@ -2,8 +2,8 @@
 
 return [
     'error' => 'Something went wrong!',
-    'update' => [
-        'success' => 'Your profile has been updated',
+    'information' => [
+        'success' => 'Your information has been updated',
     ],
     'language' => [
         'success' => 'Your language has been changed',

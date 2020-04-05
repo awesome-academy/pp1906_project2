@@ -18,15 +18,14 @@
 
             <!-- Personal Information Form  -->
 
-            <form method="POST" action="{{ route('user.update', auth()->id()) }}">
+            <form method="POST" action="{{ route('user.updateInformation') }}">
                 @csrf
-                @method('PUT')
                 <div class="row">
 
                     <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <label class="control-label">@lang('Your Name')</label>
                         <div class="form-group">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? auth()->user()->name }}" autocomplete="name" autofocus placeholder="@lang('Your Name')">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $currentUser->name }}" autocomplete="name" autofocus placeholder="@lang('Your Name')">
                         </div>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -42,8 +41,8 @@
                         <div class="form-group is-select">
                             <select class="selectpicker form-control @error('gender') is-invalid @enderror" name="gender">
                                 <option disabled>@lang('Choose Gender')</option>
-                                <option value="{{ config('user.gender.male') }}" {{ auth()->user()->isMale() ? 'selected' : '' }}>@lang('Male')</option>
-                                <option value="{{ config('user.gender.female') }}" {{ auth()->user()->isFemale() ? 'selected' : '' }}>@lang('Female')</option>
+                                <option value="{{ config('user.gender.male') }}" {{ $currentUser->isMale() ? 'selected' : '' }}>@lang('Male')</option>
+                                <option value="{{ config('user.gender.female') }}" {{ $currentUser->isFemale() ? 'selected' : '' }}>@lang('Female')</option>
                             </select>
                         </div>
                         @error('gender')
@@ -56,14 +55,14 @@
                     <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <label class="control-label">@lang('Your Email')</label>
                         <div class="form-group">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ?? auth()->user()->email }}" disabled autocomplete="email">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') ?? $currentUser->email }}" disabled autocomplete="email">
                         </div>
                     </div>
 
                     <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <label class="control-label">@lang('Your Birthday')</label>
                         <div class="form-group label-floating date-time-picker">
-                            <input class="form-control" name="datetimepicker" value="{{ old('birthday') ?? auth()->user()->birthday }}" />
+                            <input class="form-control" name="datetimepicker" value="{{ old('birthday') ?? $currentUser->birthday }}" />
                             <span class="input-group-addon">
                                 <img src="{{ asset('socialyte/svg-icons/settings/calendar.svg') }}">
                             </span>
@@ -79,7 +78,7 @@
                     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="form-group is-empty">
                             <label class="control-label">@lang('Your Address')</label>
-                            <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') ?? auth()->user()->address }}" autocomplete="address" autofocus placeholder="@lang('Your Address')">
+                            <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') ?? $currentUser->address }}" autocomplete="address" autofocus placeholder="@lang('Your Address')">
                             @error('address')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -91,7 +90,7 @@
                     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="form-group">
                             <label class="control-label">@lang('Your Introduce')</label>
-                            <textarea id="introduce" class="form-control @error('introduce') is-invalid @enderror" name="introduce" autocomplete="introduce" autofocus placeholder="@lang('Your Introduce')">{{ old('introduce') ?? auth()->user()->introduce }}</textarea>
+                            <textarea id="introduce" class="form-control @error('introduce') is-invalid @enderror" name="introduce" autocomplete="introduce" autofocus placeholder="@lang('Your Introduce')">{{ old('introduce') ?? $currentUser->introduce }}</textarea>
                             @error('introduce')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -67,7 +67,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function scopeIsMale()
     {
-        return $this->type == config('user.gender.male');
+        return $this->gender == config('user.gender.male');
     }
 
     /**
@@ -77,6 +77,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function scopeIsFemale()
     {
-        return $this->type == config('user.gender.female');
+        return $this->gender == config('user.gender.female');
     }
 }

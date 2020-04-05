@@ -16,23 +16,15 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Show show user information settings.
      *
-     * @param  \Illuminate\Http\UserRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(UserRequest $request, $id)
+    public function showInformation()
     {
-        $data = $this->userService->getUserData($request);
+        $currentUser = auth()->user();
 
-        $updateUser = $this->userService->updateUser($id, $data);
-
-        if ($updateUser) {
-            return back()->with('success', __('user.update.success'));
-        }
-
-        return back()->with('error', __('user.error'));
+        return view('pages.settings.personal.index', compact('currentUser'));
     }
 
     /**
@@ -46,13 +38,34 @@ class UserController extends Controller
         return view('pages.settings.language.index');
     }
 
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\UserRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateInformation(UserRequest $request)
+    {
+        $currentUserId = auth()->id();
+        $data = $this->userService->getUserData($request);
+
+        $updateUser = $this->userService->updateUser($currentUserId, $data);
+
+        if ($updateUser) {
+            return back()->with('success', __('user.information.success'));
+        }
+
+        return back()->with('error', __('user.error'));
+    }
+
     /**
      * Change the language of website.
      *
      * @param  \Illuminate\Http\UserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function changeLanguage(UserRequest $request)
+    public function updateLanguage(UserRequest $request)
     {
         $currentUserId = auth()->id();
         $data = $request->only(['language']);

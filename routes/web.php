@@ -46,12 +46,13 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
 
-    Route::get('/settings', function () {
-        return view('pages.settings.personal.index');
-    })->name('user.personal');
+    Route::get('/settings', 'UserController@showInformation')->name('user.showInformation');
+
+    Route::post('/settings/update', 'UserController@updateInformation')->name('user.updateInformation');
 
     Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
-    Route::post('/settings/language/update', 'UserController@changeLanguage')->name('user.changeLanguage');
+
+    Route::post('/settings/language/update', 'UserController@updateLanguage')->name('user.updateLanguage');
 });
 
 Route::get('/settings/password', function () {
@@ -67,5 +68,3 @@ Route::get('/settings/requests', function () {
 });
 
 Route::resource('posts', 'PostController');
-
-Route::resource('user', 'UserController');
