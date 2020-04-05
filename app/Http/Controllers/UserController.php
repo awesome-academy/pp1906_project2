@@ -34,6 +34,12 @@ class UserController extends Controller
         $changLanguage = $this->userService->update($currentUserId, $data);
 
         if ($changLanguage) {
+            $keyLanguage = array_search(
+                $data['language'],
+                config('setting.language')
+            );
+            app()->setLocale($keyLanguage);
+
             return back()->with('success', __('user.success'));
         }
 
