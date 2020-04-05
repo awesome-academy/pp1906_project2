@@ -14,7 +14,7 @@
                 {{ session('success') }}
             </div>
             @endif
-            <form method="POST" action="{{ route('user.changeLanguage') }}">
+            <form method="POST" action="{{ route('user.updateLanguage') }}">
                 @csrf
                 <div class="row">
 
