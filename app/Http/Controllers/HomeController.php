@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
 class HomeController extends Controller
 {
@@ -25,9 +26,12 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+
         $userIds = User::pluck('id');
         $posts = Post::with('user')->whereIn('user_id', $userIds)->orderBy('created_at', 'desc')->paginate(config('home.page.number'));
         //note: only show posts of this user and friends.
+        $comments = Comment::with('user')->whereIn('user_id', $userIds)->orderBy('created_at', 'desc')->get();
+
 
         if ($request->ajax()) {
             $nextPosts = view('pages.blocks.post', compact('posts'))->render();
@@ -37,6 +41,6 @@ class HomeController extends Controller
             ]);
         }
 
-        return view('pages.newsfeed.index', compact('posts'));
+        return view('pages.newsfeed.index', compact(['posts', 'comments']));
     }
 }

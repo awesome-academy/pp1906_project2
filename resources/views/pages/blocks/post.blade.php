@@ -45,19 +45,62 @@
     </article>
 
     <!-- ... end Comments -->
+    <!-- ... show Comments -->
+
+    @foreach ($comments as $comment)
+    @if (isset($comment->post->id) && $comment->post->id == $post->id)
+    <ul class="comments-list">
+        <li class="comment-item">
+            <div class="post__author author vcard inline-items">
+                <img src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
+
+                <div class="author-date">
+                    <a class="h6 post__author-name fn" href="02-ProfilePage.html">{{ $comment->user->name }}</a>
+                    <div class="post__date">
+                        <time class="published" datetime="2004-07-24T18:18">
+                           {{ getCreatedFromTime($post) }}
+                        </time>
+
+                        @if ($comment->isUpdated())
+                        <span>
+                            (@lang('updated')
+                            <time class="published" datetime="2004-07-24T18:18">{{ getUpdatedFromTime($post) }}</time>)
+                        </span>
+                        @endif
+
+                        <span> . </span>
+                    </div>
+                </div>
+
+                @include('pages.blocks.widgets.three_dots_comment')
+
+            </div>
+
+            <p>{{ $comment->content }}</p>
+
+            @include('pages.blocks.widgets.comment_reacts_list')
+        </li>
+    </ul>
+    @endif
+    @endforeach
 
     <a href="#" class="more-comments"> @lang('View more comments') <span>+</span></a>
 
 
     <!-- Comment Form  -->
-
-    <form class="comment-form inline-items">
-
+    <form class="comment-form inline-items" method="POST" action="{{ route('comment.store') }}">
+        @csrf
+        <input type="text" name="post_id" hidden="" value="{{ $post->id }}">
         <div class="post__author author vcard inline-items">
             <img src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
 
             <div class="form-group with-icon-right ">
-                <textarea class="form-control" placeholder=""></textarea>
+                <textarea class="form-control @error('content') is-invalid @enderror" name="content" placeholder=""></textarea>
+                @error('content')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 <div class="add-options-message">
                     <a href="#" class="options-message" data-toggle="modal" data-target="#update-header-photo">
                         <svg class="olymp-camera-icon">
@@ -73,7 +116,6 @@
         <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color"> @lang('Cancel') </button>
 
     </form>
-
     <!-- ... end Comment Form  -->
 </div>
 @endforeach

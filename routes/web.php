@@ -52,9 +52,13 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
 
-    Route::post('/settings/language/update', 'UserController@updateLanguage')->name('user.updateLanguage');
-
     Route::resource('posts', 'PostController');
+
+    Route::post('/settings/language/update', 'UserController@changeLanguage')->name('user.changeLanguage');
+
+    Route::post('/comment', 'CommentController@store')->name('comment.store');
+    Route::put('/comment/{comment}', 'CommentController@update')->name('comment.update');
+    Route::delete('/comment/{comment}', 'CommentController@destroy')->name('comment.destroy');
 });
 
 Route::get('/settings/password', function () {

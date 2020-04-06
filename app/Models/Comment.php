@@ -17,4 +17,24 @@ class Comment extends Model
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function post()
+    {
+        return $this->belongsTo('App\Models\Post');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo('App\Models\Comment', 'parent_id');
+    }
+
+    public function scopeIsUpdated()
+    {
+        return $this->updated_at > $this->created_at;
+    }
 }
