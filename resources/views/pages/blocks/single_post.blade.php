@@ -1,4 +1,3 @@
-@foreach ($posts as $post)
 <div class="ui-block">
 
     <article class="hentry post">
@@ -76,4 +75,3 @@
 
     <!-- ... end Comment Form  -->
 </div>
-@endforeach

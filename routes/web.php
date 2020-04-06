@@ -53,6 +53,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
 
     Route::post('/settings/language/update', 'UserController@updateLanguage')->name('user.updateLanguage');
+
+    Route::resource('posts', 'PostController');
 });
 
 Route::get('/settings/password', function () {
@@ -66,5 +68,3 @@ Route::get('/settings/notifications', function () {
 Route::get('/settings/requests', function () {
     return view('pages.settings.request.index');
 });
-
-Route::resource('posts', 'PostController');
