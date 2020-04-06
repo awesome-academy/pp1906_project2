@@ -40,3 +40,7 @@
 <script defer src="{{ asset('js/pages/fontawesome-all.js') }}"></script>
 
 <script src="{{ asset('js/pages/bootstrap.bundle.js') }}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+<script src="{{ asset('js/load_more.js') }}"></script>
