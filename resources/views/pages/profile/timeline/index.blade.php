@@ -18,7 +18,7 @@
     @include('pages.blocks.multi_image_post')
     @include('pages.blocks.share_post')
 
-    @include('pages.blocks.widgets.load_more')
+    @include('pages.blocks.widgets.no_more')
 </main>
 <!-- ... end Main Content -->
 

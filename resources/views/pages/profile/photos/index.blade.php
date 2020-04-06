@@ -95,7 +95,7 @@
                         </div>
                     </div>
 
-                    @include('pages.blocks.widgets.load_more')
+                    @include('pages.blocks.widgets.no_more')
 
                 </div>
                 @include('pages.blocks.widgets.photo_popup')
