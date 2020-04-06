@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Models\Post;
 use App\Services\PostService;
 
 class PostController extends Controller
@@ -55,6 +56,19 @@ class PostController extends Controller
         }
 
         return back()->with('error', __('post.error'));
+    }
+
+    /**
+     * Display the single post.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        $post = Post::findOrFail($id);
+
+        return view('pages.post.index', compact('post'));
     }
 
     /**

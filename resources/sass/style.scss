@@ -2,6 +2,7 @@ $black: #000;
 $white: #fff;
 $red: #ff0000;
 $blue: #0000ff;
+$default: #888da8;
 $theme: #ff5e3a;
 
 /*----------------------------------------------------------------
@@ -250,4 +251,15 @@ input:focus {
 
 .save-changes {
     float: right;
+}
+
+.show-post {
+    font-size: 0.812rem;
+    font-weight: 400 !important;
+    line-height: 1.5;
+    color: $default;
+}
+
+.show-post:hover {
+    color: $theme;
 }
