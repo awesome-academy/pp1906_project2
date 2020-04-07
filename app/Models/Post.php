@@ -67,4 +67,14 @@ class Post extends Model
     {
         return $this->type == config('post.type.only_friends');
     }
+
+    /**
+     * Scope order posts in descending order.
+     *
+     * @return Boolean
+     */
+    public function scopeOrderDesc($query)
+    {
+        return $query->orderBy('created_at', 'desc');
+    }
 }

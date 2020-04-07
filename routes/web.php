@@ -22,9 +22,6 @@ Route::get('/newsfeed', function () {
     return view('pages.newsfeed.index');
 });
 
-Route::get('/profile', function () {
-    return view('pages.profile.timeline.index');
-});
 
 Route::get('/profile/about', function () {
     return view('pages.profile.about.index');
@@ -53,6 +50,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
 
     Route::post('/settings/language/update', 'UserController@updateLanguage')->name('user.updateLanguage');
+
+    Route::get('/{username}', 'ProfileController@userProfile');
 
     Route::resource('posts', 'PostController');
 });

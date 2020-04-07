@@ -61,6 +61,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Scope current user.
+     *
+     * @return Boolean
+     */
+    public function scopeIsCurrentUser()
+    {
+        return $this->id == auth()->id();
+    }
+
+    /**
      * Scope if user is Male.
      *
      * @return Boolean

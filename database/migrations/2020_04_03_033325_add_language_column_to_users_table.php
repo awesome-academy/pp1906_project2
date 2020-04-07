@@ -15,7 +15,7 @@ class AddLanguageColumnToUsersTable extends Migration
     {
         if (!Schema::hasColumn('users', 'language')) {
             Schema::table('users', function (Blueprint $table) {
-                $table->bigInteger('language')->after('cover')->default(config('setting.en'))->comment('1: english, 2: vietnamese');
+                $table->bigInteger('language')->after('cover')->default(config('user.language.en'))->comment('1: english, 2: vietnamese');
             });
         }
     }
