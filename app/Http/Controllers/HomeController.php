@@ -26,7 +26,10 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $userIds = User::pluck('id');
-        $posts = Post::with('user')->whereIn('user_id', $userIds)->orderBy('created_at', 'desc')->paginate(config('home.page.number'));
+        $posts = Post::with('user')
+            ->whereIn('user_id', $userIds)
+            ->orderDesc()
+            ->paginate(config('home.page.number'));
         //note: only show posts of this user and friends.
 
         if ($request->ajax()) {
