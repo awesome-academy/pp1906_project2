@@ -78,7 +78,7 @@
 
             <div class="control-icon more has-items">
                 <a href="#" title="Notifications">
-                    <img src="{{ asset('socialyte/svg-icon{s/top_bar/notify.svg') }}">
+                    <img src="{{ asset('socialyte/svg-icons/top_bar/notify.svg') }}">
                 </a>
 
                 <div class="label-avatar bg-primary">8</div>
