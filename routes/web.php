@@ -54,6 +54,7 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::get('/{username}', 'ProfileController@userProfile');
 
     Route::resource('posts', 'PostController');
+    Route::resource('comments', 'CommentController');
 });
 
 Route::get('/settings/password', function () {
