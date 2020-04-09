@@ -25,4 +25,26 @@ class CommentService
 
         return $comment;
     }
+
+    /**
+     * Update comment in database.
+     *
+     * @param Int $id
+     * @param Array $data['user_id', 'content']
+     * @return Boolean
+     */
+    public function updateComment($id, $data)
+    {
+        $comment = Comment::findOrFail($id);
+
+        try {
+           $comment->update($data);
+        } catch (\Throwable $th) {
+            Log::error($th);
+
+            return false;
+        }
+
+        return $comment;
+    }
 }

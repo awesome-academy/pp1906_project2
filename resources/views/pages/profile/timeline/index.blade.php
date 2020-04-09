@@ -12,11 +12,7 @@
 <main class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
     @include('pages.blocks.post_status')
     @include('pages.blocks.post')
-    @include('pages.blocks.comment_post')
-    @include('pages.blocks.reply_comment_post')
-    @include('pages.blocks.image_post')
-    @include('pages.blocks.multi_image_post')
-    @include('pages.blocks.share_post')
+
 
     @include('pages.blocks.widgets.no_more')
 </main>
