@@ -9,7 +9,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Main Font -->
-    <script src="{{ asset('socialyte/js/libs/webfontloader.min.js') }}"></script>
+    <script src="{{ asset('theme/socialyte/js/libs/webfontloader.min.js') }}"></script>
     <script>
         WebFont.load({
             google: {
@@ -19,12 +19,12 @@
     </script>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/pages/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/pages/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/pages/bootstrap-grid.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/socialyte/Bootstrap/dist/css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/socialyte/Bootstrap/dist/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/socialyte/Bootstrap/dist/css/bootstrap-grid.css') }}">
 
     <!-- Main Styles CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/pages/main.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/pages/fonts.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/pages/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/socialyte/css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/socialyte/css/fonts.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 </head>

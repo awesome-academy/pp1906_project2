@@ -8,7 +8,7 @@
                         <div class="form-group with-button">
                             <input class="form-control" type="text" placeholder="Search Friends...">
                             <button>
-                                <img src="{{ asset('socialyte/svg-icons/top_bar/search.svg') }}">
+                                <img src="{{ asset('theme/socialyte/svg-icons/top_bar/search.svg') }}">
                             </button>
                         </div>
                     </form>

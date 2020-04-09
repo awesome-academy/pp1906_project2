@@ -4,7 +4,7 @@
             <div class="ui-block">
                 <div class="top-header">
                     <div class="top-header-thumb">
-                        <img src="{{ asset('socialyte/img/top-header1.jpg') }}" alt="nature">
+                        <img src="{{ asset('theme/socialyte/img/top-header1.jpg') }}" alt="nature">
                     </div>
                     <div class="profile-section">
                         <div class="row">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="top-header-author">
                         <a href="02-ProfilePage.html" class="author-thumb">
-                            <img src="{{ asset('socialyte/img/author-main1.jpg') }}" alt="author">
+                            <img src="{{ asset('theme/socialyte/img/author-main1.jpg') }}" alt="author">
                         </a>
                         <div class="author-content">
                             <a href="02-ProfilePage.html" class="h4 author-name">{{ $user->name }}</a>

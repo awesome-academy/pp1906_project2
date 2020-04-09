@@ -4,7 +4,7 @@
     <article class="hentry post">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/avatar10-sm.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/avatar10-sm.jpg') }}" alt="author">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="#">{{ $post->user->name }}</a>
@@ -23,11 +23,11 @@
                     <span> · </span>
 
                     @if ($post->isPublic())
-                    <img class="post-type" src="{{ asset('socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
+                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
                     @elseif ($post->isPrivate())
-                    <img class="post-type" src="{{ asset('socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
+                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
                     @elseif ($post->isFriendsOnly())
-                    <img class="post-type" src="{{ asset('socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
+                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
                     @endif
                 </div>
             </div>
@@ -54,7 +54,7 @@
     <form class="comment-form inline-items">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
 
             <div class="form-group with-icon-right ">
                 <textarea class="form-control" placeholder=""></textarea>

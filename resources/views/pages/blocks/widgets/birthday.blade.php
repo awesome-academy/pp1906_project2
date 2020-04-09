@@ -5,7 +5,7 @@
     <div class="widget w-birthday-alert">
         <div class="content">
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar48-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar48-sm.jpg') }}" alt="author">
             </div>
             <span>Today is</span>
             <a href="#" class="h4 title">Marina Valentine’s Birthday!</a>

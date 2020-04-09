@@ -5,7 +5,7 @@
     <article class="hentry post">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/avatar47-sm.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/avatar47-sm.jpg') }}" alt="author">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="#">Blue Whale Pizzas</a> uploaded 16 <a href="#">new photos</a>
@@ -18,7 +18,7 @@
 
             <div class="more">
                 <a href="#" class="olymp-three-dots-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/three-dots.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/three-dots.svg') }}">
                 </a>
                 <ul class="more-dropdown">
                     <li>
@@ -37,12 +37,12 @@
         </p>
 
         <div class="post-block-photo js-zoom-gallery">
-            <a href="{{ asset('socialyte/img/post-photo7.jpg') }}" class="half-width"><img src="{{ asset('socialyte/img/post-photo7.jpg') }}" alt="photo"></a>
-            <a href="{{ asset('socialyte/img/post-photo2.jpg') }}" class="half-width"><img src="{{ asset('socialyte/img/post-photo2.jpg') }}" alt="photo"></a>
-            <a href="{{ asset('socialyte/img/post-photo3.jpg') }}" class="col col-3-width"><img src="{{ asset('socialyte/img/post-photo3.jpg') }}" alt="photo"></a>
-            <a href="{{ asset('socialyte/img/post-photo4.jpg') }}" class="col col-3-width"><img src="{{ asset('socialyte/img/post-photo4.jpg') }}" alt="photo"></a>
-            <a href="{{ asset('socialyte/img/post-photo5.jpg') }}" class="more-photos col-3-width">
-                <img src="{{ asset('socialyte/img/post-photo5.jpg') }}" alt="photo">
+            <a href="{{ asset('theme/socialyte/img/post-photo7.jpg') }}" class="half-width"><img src="{{ asset('theme/socialyte/img/post-photo7.jpg') }}" alt="photo"></a>
+            <a href="{{ asset('theme/socialyte/img/post-photo2.jpg') }}" class="half-width"><img src="{{ asset('theme/socialyte/img/post-photo2.jpg') }}" alt="photo"></a>
+            <a href="{{ asset('theme/socialyte/img/post-photo3.jpg') }}" class="col col-3-width"><img src="{{ asset('theme/socialyte/img/post-photo3.jpg') }}" alt="photo"></a>
+            <a href="{{ asset('theme/socialyte/img/post-photo4.jpg') }}" class="col col-3-width"><img src="{{ asset('theme/socialyte/img/post-photo4.jpg') }}" alt="photo"></a>
+            <a href="{{ asset('theme/socialyte/img/post-photo5.jpg') }}" class="more-photos col-3-width">
+                <img src="{{ asset('theme/socialyte/img/post-photo5.jpg') }}" alt="photo">
                 <span class="h2">+12</span>
             </a>
         </div>

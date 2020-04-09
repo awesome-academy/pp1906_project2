@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="reset form-box">
-    <div class="form-logo">
-        <p class="text-center"><img src="{{ asset('img/auth/socialyte-logo.png') }}" alt="logo"></p>
-    </div>
+    @include('auth.form_logo')
     <form method="POST" action="{{ route('password.update') }}">
         @csrf
         <!-- Email -->

@@ -64,7 +64,7 @@
                         <div class="form-group label-floating date-time-picker">
                             <input class="form-control" name="datetimepicker" value="{{ old('birthday') ?? $currentUser->birthday }}" />
                             <span class="input-group-addon">
-                                <img src="{{ asset('socialyte/svg-icons/settings/calendar.svg') }}">
+                                <img src="{{ asset('theme/socialyte/svg-icons/settings/calendar.svg') }}">
                             </span>
                             @error('datetimepicker')
                             <span class="invalid-feedback" role="alert">

@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="email form-box">
-    <div class="form-logo">
-        <p class="text-center"><img src="{{ asset('img/auth/socialyte-logo.png') }}" alt="logo"></p>
-    </div>
+    @include('auth.form_logo')
     <h3>
         <p> @lang('Enter your email address and we will send you a reset link') </p>
     </h3>

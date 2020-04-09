@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="confirm form-box">
-    <div class="form-logo">
-        <p class="text-center"><img src="{{ asset('img/auth/socialyte-logo.png') }}" alt="logo"></p>
-    </div>
+    @include('auth.form_logo')
     <h3>
         <p>
             <center> @lang('Please confirm your password before continuing.') </center>

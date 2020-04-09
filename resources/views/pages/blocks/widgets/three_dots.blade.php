@@ -1,6 +1,6 @@
 <div class="more">
     <a href="#" class="olymp-three-dots-icon">
-        <img src="{{ asset('socialyte/svg-icons/center/three-dots.svg') }}">
+        <img src="{{ asset('theme/socialyte/svg-icons/center/three-dots.svg') }}">
     </a>
     <ul class="more-dropdown width-100">
         <li>

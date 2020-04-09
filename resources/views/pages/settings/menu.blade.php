@@ -14,7 +14,7 @@
                         <h6 class="mb-0">
                             <a class="dropdown" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 @lang('Profile Settings')
-                                <img src="{{ asset('socialyte/svg-icons/settings/dropdown.svg') }}">
+                                <img src="{{ asset('theme/socialyte/svg-icons/settings/dropdown.svg') }}">
                             </a>
                         </h6>
                     </div>

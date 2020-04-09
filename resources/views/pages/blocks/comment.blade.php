@@ -2,7 +2,7 @@
 <ul class="comments-list">
     <li class="comment-item">
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a>
@@ -24,7 +24,7 @@
 
     <li class="comment-item">
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/avatar1-sm.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/avatar1-sm.jpg') }}" alt="author">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="#">Mathilda Brinker</a>

@@ -3,7 +3,7 @@
     <article class="hentry post has-post-thumbnail">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/avatar5-sm.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/avatar5-sm.jpg') }}" alt="author">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="#">Green Goo Rock</a>
@@ -16,7 +16,7 @@
 
             <div class="more">
                 <a href="#" class="olymp-three-dots-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/three-dots.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/three-dots.svg') }}">
                 </a>
                 <ul class="more-dropdown">
                     <li>
@@ -35,7 +35,7 @@
         </p>
 
         <div class="post-thumb">
-            <img src="{{ asset('socialyte/img/post__thumb1.jpg') }}" alt="photo">
+            <img src="{{ asset('theme/socialyte/img/post__thumb1.jpg') }}" alt="photo">
         </div>
 
         @include('pages.blocks.widgets.reacts_list')

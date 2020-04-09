@@ -9,17 +9,17 @@
         <ul class="widget w-faved-page js-zoom-gallery">
             <li>
                 <a href="#">
-                    <img src="{{ asset('socialyte/img/avatar27-sm.jpg') }}" alt="user">
+                    <img src="{{ asset('theme/socialyte/img/avatar27-sm.jpg') }}" alt="user">
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="{{ asset('socialyte/img/avatar26-sm.jpg') }}" alt="user">
+                    <img src="{{ asset('theme/socialyte/img/avatar26-sm.jpg') }}" alt="user">
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="{{ asset('socialyte/img/avatar25-sm.jpg') }}" alt="user">
+                    <img src="{{ asset('theme/socialyte/img/avatar25-sm.jpg') }}" alt="user">
                 </a>
             </li>
             <li class="all-users">

@@ -4,7 +4,7 @@
             <div class="modal-header">
 
                 <h5 class="modal-title margin-top-5" id="editPostModalLabel">
-                    <img class="options-message" src="{{ asset('socialyte/svg-icons/center/edit.svg') }}">
+                    <img class="options-message" src="{{ asset('theme/socialyte/svg-icons/center/edit.svg') }}">
                     @lang('Edit your post')
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -19,7 +19,7 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="author-thumb">
-                                    <img class="avatar" src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
+                                    <img class="avatar" src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
                                 </div>
                                 <div class="form-group with-icon label-floating is-empty">
                                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" placeholder="">{{ $post->content }}</textarea>
@@ -32,10 +32,10 @@
                                 </div>
                                 <div class="add-options-message">
                                     <a href="#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="@lang('ADD PHOTOS')">
-                                        <img data-toggle="modal" data-target="#update-header-photo" src="{{ asset('socialyte/svg-icons/center/camera.svg') }}">
+                                        <img data-toggle="modal" data-target="#update-header-photo" src="{{ asset('theme/socialyte/svg-icons/center/camera.svg') }}">
                                     </a>
                                     <a href="#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="@lang('TAG YOUR FRIENDS')">
-                                        <img src="{{ asset('socialyte/svg-icons/center/tag.svg') }}">
+                                        <img src="{{ asset('theme/socialyte/svg-icons/center/tag.svg') }}">
                                     </a>
                                     <button type="submit" class="btn btn-primary btn-md-2"> @lang('Accept Changes') </button>
                                     <div class="form-group post-type">

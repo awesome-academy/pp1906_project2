@@ -13,70 +13,70 @@
         <ul class="notification-list">
             <li class="un-read">
                 <div class="author-thumb">
-                    <img src="{{ asset('socialyte/img/avatar1-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar1-sm.jpg') }}" alt="author">
                 </div>
                 <div class="notification-event">
                     <a href="#" class="h6 notification-friend">Mathilda Brinker</a> commented on your new <a href="#" class="notification-link">profile status</a>.
                     <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">4 hours ago</time></span>
                 </div>
                 <span class="notification-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/commented.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/commented.svg') }}">
                 </span>
             </li>
 
             <li class="with-comment-photo">
                 <div class="author-thumb">
-                    <img src="{{ asset('socialyte/img/avatar3-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar3-sm.jpg') }}" alt="author">
                 </div>
                 <div class="notification-event">
                     <a href="#" class="h6 notification-friend">Sarah Hetfield</a> commented on your <a href="#" class="notification-link">photo</a>.
                     <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 5:32am</time></span>
                 </div>
                 <span class="notification-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/commented.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/commented.svg') }}">
                 </span>
 
                 <div class="comment-photo">
-                    <img src="{{ asset('socialyte/img/comment-photo.jpg') }}" alt="photo">
+                    <img src="{{ asset('theme/socialyte/img/comment-photo.jpg') }}" alt="photo">
                     <span>“She looks incredible in that outfit! We should see each...”</span>
                 </div>
             </li>
             <li>
                 <div class="author-thumb">
-                    <img src="{{ asset('socialyte/img/avatar4-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar4-sm.jpg') }}" alt="author">
                 </div>
                 <div class="notification-event">
                     <a href="#" class="h6 notification-friend">Chris Greyson</a> liked your <a href="#" class="notification-link">profile status</a>.
                     <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">March 18th at 8:22pm</time></span>
                 </div>
                 <span class="notification-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/liked.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/liked.svg') }}">
                 </span>
             </li>
 
             <li>
                 <div class="author-thumb">
-                    <img src="{{ asset('socialyte/img/avatar6-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar6-sm.jpg') }}" alt="author">
                 </div>
                 <div class="notification-event">
                     <a href="#" class="h6 notification-friend">James Summers</a> commented on your new <a href="#" class="notification-link">profile status</a>.
                     <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">March 2nd at 8:29pm</time></span>
                 </div>
                 <span class="notification-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/commented.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/commented.svg') }}">
                 </span>
             </li>
 
             <li>
                 <div class="author-thumb">
-                    <img src="{{ asset('socialyte/img/avatar7-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar7-sm.jpg') }}" alt="author">
                 </div>
                 <div class="notification-event">
                     <a href="#" class="h6 notification-friend">Marina Valentine</a> commented on your new <a href="#" class="notification-link">profile status</a>.
                     <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">March 2nd at 10:07am</time></span>
                 </div>
                 <span class="notification-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/commented.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/commented.svg') }}">
                 </span>
             </li>
         </ul>

@@ -4,7 +4,7 @@
     <article class="hentry post has-post-thumbnail shared-photo">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a> shared
@@ -18,7 +18,7 @@
 
             <div class="more">
                 <a href="#" class="olymp-three-dots-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/three-dots.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/three-dots.svg') }}">
                 </a>
                 <ul class="more-dropdown">
                     <li>
@@ -35,13 +35,13 @@
         <p>Hi! Everyone should check out these amazing photographs that my friend shot the past week. Here’s one of them...leave a kind comment!</p>
 
         <div class="post-thumb">
-            <img src="{{ asset('socialyte/img/post-photo6.jpg') }}" alt="photo">
+            <img src="{{ asset('theme/socialyte/img/post-photo6.jpg') }}" alt="photo">
         </div>
 
         <ul class="children single-children">
             <li class="comment-item">
                 <div class="post__author author vcard inline-items">
-                    <img src="{{ asset('socialyte/img/avatar8-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar8-sm.jpg') }}" alt="author">
                     <div class="author-date">
                         <a class="h6 post__author-name fn" href="#">Diana Jameson</a>
                         <div class="post__date">
