@@ -38,6 +38,8 @@
     @yield('content')
 
     @include('pages.includes.script')
+    @yield('js')
+
     @include('pages.includes.modal')
 </body>
 

@@ -53,6 +53,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/{username}', 'ProfileController@userProfile');
 
+    Route::post('/{username}/add-friend', 'FriendController@sendRequest')->name('friend.request');
+
     Route::resource('posts', 'PostController');
 });
 

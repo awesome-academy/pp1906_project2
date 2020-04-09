@@ -21,7 +21,7 @@ class Post extends Model
     ];
 
     /**
-     * Get the status posts of this user
+     * relationship with User.
      */
     public function user()
     {

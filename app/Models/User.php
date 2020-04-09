@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Friend;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -53,7 +54,15 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $dates = ['deleted_at'];
 
     /**
-     * Get the status posts of this user
+     * relationship with friends
+     */
+    public function friends()
+    {
+        return $this->hasMany('App\Models\Friend');
+    }
+
+    /**
+     * relationship with posts.
      */
     public function posts()
     {
@@ -88,5 +97,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function scopeIsFemale()
     {
         return $this->gender == config('user.gender.female');
+    }
+
+    /**
+     * Scope check relationship between users.
+     *
+     * @return Boolean
+     */
+    public function isFriends($user)
+    {
+        return Friend::where(['user_id' => auth()->id(), 'friend_id' => $user->id])
+            ->orWhere(['user_id' => $user->id, 'friend_id' => auth()->id()]);
     }
 }

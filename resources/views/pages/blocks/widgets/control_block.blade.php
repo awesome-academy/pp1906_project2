@@ -15,9 +15,14 @@
         </ul>
     </div>
     @else
-    <a href="#" class="btn btn-control bg-blue" title="@lang('Add friend')">
-        <img src="{{ asset('theme/socialyte/svg-icons/top/add_friend.svg') }}">
-    </a>
+
+    <span class="friend-icon">
+        @if ($checkFriends)
+            @include('pages.blocks.widgets.un_friend')
+        @else
+            @include('pages.blocks.widgets.add_friend')
+        @endif
+    </span>
 
     <a href="#" class="btn btn-control bg-green" title="@lang('Follow')">
         <img src="{{ asset('theme/socialyte/svg-icons/top/follow.svg') }}">
