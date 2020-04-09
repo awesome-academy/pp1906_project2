@@ -8,9 +8,9 @@
 
             <div class="ui-block video-item">
                 <div class="video-player">
-                    <img src="{{ asset('socialyte/img/video10.jpg') }}" alt="photo">
+                    <img src="{{ asset('theme/socialyte/img/video10.jpg') }}" alt="photo">
                     <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video">
-                        <img class="play-icon" src="{{ asset('socialyte/svg-icons/center/play.svg') }}">
+                        <img class="play-icon" src="{{ asset('theme/socialyte/svg-icons/center/play.svg') }}">
                     </a>
                     <div class="overlay overlay-dark"></div>
                 </div>
@@ -26,9 +26,9 @@
 
             <div class="ui-block video-item">
                 <div class="video-player">
-                    <img src="{{ asset('socialyte/img/video11.jpg') }}" alt="photo">
+                    <img src="{{ asset('theme/socialyte/img/video11.jpg') }}" alt="photo">
                     <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video play-video--small">
-                        <img class="play-icon" src="{{ asset('socialyte/svg-icons/center/play.svg') }}">
+                        <img class="play-icon" src="{{ asset('theme/socialyte/svg-icons/center/play.svg') }}">
                     </a>
                     <div class="overlay overlay-dark"></div>
                 </div>
@@ -44,9 +44,9 @@
 
             <div class="ui-block video-item">
                 <div class="video-player">
-                    <img src="{{ asset('socialyte/img/video12.jpg') }}" alt="photo">
+                    <img src="{{ asset('theme/socialyte/img/video12.jpg') }}" alt="photo">
                     <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video">
-                        <img class="play-icon" src="{{ asset('socialyte/svg-icons/center/play.svg') }}">
+                        <img class="play-icon" src="{{ asset('theme/socialyte/svg-icons/center/play.svg') }}">
                     </a>
                     <div class="overlay overlay-dark"></div>
                 </div>
@@ -61,9 +61,9 @@
 
             <div class="ui-block video-item">
                 <div class="video-player">
-                    <img src="{{ asset('socialyte/img/video13.jpg') }}" alt="photo">
+                    <img src="{{ asset('theme/socialyte/img/video13.jpg') }}" alt="photo">
                     <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video play-video--small">
-                        <img class="play-icon" src="{{ asset('socialyte/svg-icons/center/play.svg') }}">
+                        <img class="play-icon" src="{{ asset('theme/socialyte/svg-icons/center/play.svg') }}">
                     </a>
                     <div class="overlay overlay-dark"></div>
                 </div>
@@ -78,9 +78,9 @@
 
             <div class="ui-block video-item">
                 <div class="video-player">
-                    <img src="{{ asset('socialyte/img/video14.jpg') }}" alt="photo">
+                    <img src="{{ asset('theme/socialyte/img/video14.jpg') }}" alt="photo">
                     <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video play-video--small">
-                        <img class="play-icon" src="{{ asset('socialyte/svg-icons/center/play.svg') }}">
+                        <img class="play-icon" src="{{ asset('theme/socialyte/svg-icons/center/play.svg') }}">
                     </a>
                     <div class="overlay overlay-dark"></div>
                 </div>
@@ -95,9 +95,9 @@
 
             <div class="ui-block video-item">
                 <div class="video-player">
-                    <img src="{{ asset('socialyte/img/video15.jpg') }}" alt="photo">
+                    <img src="{{ asset('theme/socialyte/img/video15.jpg') }}" alt="photo">
                     <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video play-video--small">
-                        <img class="play-icon" src="{{ asset('socialyte/svg-icons/center/play.svg') }}">
+                        <img class="play-icon" src="{{ asset('theme/socialyte/svg-icons/center/play.svg') }}">
                     </a>
                     <div class="overlay overlay-dark"></div>
                 </div>
@@ -112,9 +112,9 @@
 
             <div class="ui-block video-item">
                 <div class="video-player">
-                    <img src="{{ asset('socialyte/img/video16.jpg') }}" alt="photo">
+                    <img src="{{ asset('theme/socialyte/img/video16.jpg') }}" alt="photo">
                     <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video play-video--small">
-                        <img class="play-icon" src="{{ asset('socialyte/svg-icons/center/play.svg') }}">
+                        <img class="play-icon" src="{{ asset('theme/socialyte/svg-icons/center/play.svg') }}">
                     </a>
                     <div class="overlay overlay-dark"></div>
                 </div>
@@ -129,9 +129,9 @@
 
             <div class="ui-block video-item">
                 <div class="video-player">
-                    <img src="{{ asset('socialyte/img/video17.jpg') }}" alt="photo">
+                    <img src="{{ asset('theme/socialyte/img/video17.jpg') }}" alt="photo">
                     <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video play-video--small">
-                        <img class="play-icon" src="{{ asset('socialyte/svg-icons/center/play.svg') }}">
+                        <img class="play-icon" src="{{ asset('theme/socialyte/svg-icons/center/play.svg') }}">
                     </a>
                     <div class="overlay overlay-dark"></div>
                 </div>

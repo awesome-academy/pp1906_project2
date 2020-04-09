@@ -11,7 +11,7 @@
             <div class="form-group with-button">
                 <input class="form-control js-user-search" placeholder="Search peoples..." type="text">
                 <button>
-                    <img src="{{ asset('socialyte/svg-icons/top_bar/search.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/top_bar/search.svg') }}">
                 </button>
             </div>
         </form>
@@ -22,7 +22,7 @@
 
             <div class="control-icon more has-items">
                 <a href="#" title="Friend requests">
-                    <img src="{{ asset('socialyte/svg-icons/top_bar/happy.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
                 </a>
                 <div class="label-avatar bg-blue">6</div>
 
@@ -37,7 +37,7 @@
                         <ul class="notification-list friend-requests">
                             <li>
                                 <div class="author-thumb">
-                                    <img src="{{ asset('socialyte/img/avatar55-sm.jpg') }}" alt="author">
+                                    <img src="{{ asset('theme/socialyte/img/avatar55-sm.jpg') }}" alt="author">
                                 </div>
                                 <div class="notification-event">
                                     <a href="#" class="h6 notification-friend">Tamara Romanoff</a>
@@ -46,13 +46,13 @@
                                 <span class="notification-icon">
                                     <a href="#" class="accept-request">
                                         <span class="icon-add without-text">
-                                            <img src="{{ asset('socialyte/svg-icons/top_bar/happy.svg') }}">
+                                            <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
                                         </span>
                                     </a>
 
                                     <a href="#" class="accept-request request-del">
                                         <span class="icon-minus">
-                                            <img src="{{ asset('socialyte/svg-icons/top_bar/happy.svg') }}">
+                                            <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
                                         </span>
                                     </a>
                                 </span>
@@ -60,13 +60,13 @@
 
                             <li class="accepted">
                                 <div class="author-thumb">
-                                    <img src="{{ asset('socialyte/img/avatar57-sm.jpg') }}" alt="author">
+                                    <img src="{{ asset('theme/socialyte/img/avatar57-sm.jpg') }}" alt="author">
                                 </div>
                                 <div class="notification-event">
                                     @lang('You and') <a href="#" class="h6 notification-friend">Mary Jane Stark</a> @lang('just became friends. Write on') <a href="#" class="notification-link">@lang('her wall')</a>.
                                 </div>
                                 <span class="notification-icon">
-                                    <img src="{{ asset('socialyte/svg-icons/top_bar/friend.svg') }}">
+                                    <img src="{{ asset('theme/socialyte/svg-icons/top_bar/friend.svg') }}">
                                 </span>
                             </li>
                         </ul>
@@ -78,7 +78,7 @@
 
             <div class="control-icon more has-items">
                 <a href="#" title="Notifications">
-                    <img src="{{ asset('socialyte/svg-icon{s/top_bar/notify.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/top_bar/notify.svg') }}">
                 </a>
 
                 <div class="label-avatar bg-primary">8</div>
@@ -94,31 +94,31 @@
                         <ul class="notification-list">
                             <li>
                                 <div class="author-thumb">
-                                    <img src="{{ asset('socialyte/img/avatar62-sm.jpg') }}" alt="author">
+                                    <img src="{{ asset('theme/socialyte/img/avatar62-sm.jpg') }}" alt="author">
                                 </div>
                                 <div class="notification-event">
                                     <div><a href="#" class="h6 notification-friend">Mathilda Brinker</a> @lang('commented on your new') <a href="#" class="notification-link">@lang('profile status')</a>.</div>
                                     <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">4 hours ago</time></span>
                                 </div>
                                 <span class="notification-icon">
-                                    <img src="{{ asset('socialyte/svg-icons/top_bar/comment.svg') }}">
+                                    <img src="{{ asset('theme/socialyte/svg-icons/top_bar/comment.svg') }}">
                                 </span>
                             </li>
 
                             <li class="with-comment-photo">
                                 <div class="author-thumb">
-                                    <img src="{{ asset('socialyte/img/avatar64-sm.jpg') }}" alt="author">
+                                    <img src="{{ asset('theme/socialyte/img/avatar64-sm.jpg') }}" alt="author">
                                 </div>
                                 <div class="notification-event">
                                     <div><a href="#" class="h6 notification-friend">Sarah Hetfield</a> commented on your <a href="#" class="notification-link">photo</a>.</div>
                                     <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 5:32am</time></span>
                                 </div>
                                 <span class="notification-icon">
-                                    <img src="{{ asset('socialyte/svg-icons/top_bar/comment.svg') }}">
+                                    <img src="{{ asset('theme/socialyte/svg-icons/top_bar/comment.svg') }}">
                                 </span>
 
                                 <div class="comment-photo">
-                                    <img src="{{ asset('socialyte/img/comment-photo1.jpg') }}" alt="photo">
+                                    <img src="{{ asset('theme/socialyte/img/comment-photo1.jpg') }}" alt="photo">
                                     <span>“She looks incredible in that outfit! We should see each...”</span>
                                 </div>
                             </li>
@@ -131,7 +131,7 @@
 
             <div class="author-page author vcard inline-items more">
                 <div class="author-thumb">
-                    <img alt="author" src="{{ asset('socialyte/img/author-page.jpg') }}" class="avatar">
+                    <img alt="author" src="{{ asset('theme/socialyte/img/author-page.jpg') }}" class="avatar">
                     <span class="icon-status online"></span>
                 </div>
                 <a href="#" class="author-name fn">

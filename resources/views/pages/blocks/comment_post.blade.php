@@ -4,7 +4,7 @@
     <article class="hentry post">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/avatar10-sm.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/avatar10-sm.jpg') }}" alt="author">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="#">Elaine Dreyfuss</a>
@@ -17,7 +17,7 @@
 
             <div class="more">
                 <a href="#" class="olymp-three-dots-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/three-dots.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/three-dots.svg') }}">
                 </a>
                 <ul class="more-dropdown">
                     <li>
@@ -49,7 +49,7 @@
     <form class="comment-form inline-items">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
 
             <div class="form-group with-icon-right ">
                 <textarea class="form-control" placeholder=""></textarea>

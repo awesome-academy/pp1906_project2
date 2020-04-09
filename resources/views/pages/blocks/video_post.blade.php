@@ -3,7 +3,7 @@
     <article class="hentry post video">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('socialyte/img/avatar7-sm.jpg') }}" alt="author">
+            <img src="{{ asset('theme/socialyte/img/avatar7-sm.jpg') }}" alt="author">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="#">Marina Valentine</a> shared a <a href="#">link</a>
@@ -16,7 +16,7 @@
 
             <div class="more">
                 <a href="#" class="olymp-three-dots-icon">
-                    <img src="{{ asset('socialyte/svg-icons/center/three-dots.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/three-dots.svg') }}">
                 </a>
                 <ul class="more-dropdown">
                     <li>
@@ -34,9 +34,9 @@
 
         <div class="post-video">
             <div class="video-thumb">
-                <img src="{{ asset('socialyte/img/video-youtube1.jpg') }}" alt="photo">
+                <img src="{{ asset('theme/socialyte/img/video-youtube1.jpg') }}" alt="photo">
                 <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video">
-                    <img class="play-icon" src="{{ asset('socialyte/svg-icons/center/play.svg') }}">
+                    <img class="play-icon" src="{{ asset('theme/socialyte/svg-icons/center/play.svg') }}">
                 </a>
             </div>
 
@@ -51,20 +51,20 @@
 
         <div class="post-additional-info inline-items">
             <a href="#" class="post-add-icon inline-items">
-                <img src="{{ asset('socialyte/svg-icons/center/like.svg') }}">
+                <img src="{{ asset('theme/socialyte/svg-icons/center/like.svg') }}">
                 <span>18</span>
             </a>
             <a href="#" class="post-add-icon inline-items">
-                <img src="{{ asset('socialyte/svg-icons/center/love.svg') }}">
+                <img src="{{ asset('theme/socialyte/svg-icons/center/love.svg') }}">
                 <span>18</span>
             </a>
             <div class="comments-shared">
                 <a href="#" class="post-add-icon inline-items" title="Post comment">
-                    <img src="{{ asset('socialyte/svg-icons/center/comment.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/comment.svg') }}">
                     <span>0</span>
                 </a>
                 <a href="#" class="post-add-icon inline-items" title="Share this post">
-                    <img src="{{ asset('socialyte/svg-icons/center/share.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/center/share.svg') }}">
                     <span>16</span>
                 </a>
             </div>

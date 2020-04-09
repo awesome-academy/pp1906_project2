@@ -13,7 +13,7 @@
         <ul class="notification-list friend-requests">
             <li>
                 <div class="author-thumb">
-                    <img src="{{ asset('socialyte/img/avatar15-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar15-sm.jpg') }}" alt="author">
                 </div>
                 <div class="notification-event">
                     <a href="#" class="h6 notification-friend">Tamara Romanoff</a>
@@ -22,14 +22,14 @@
                 <span class="notification-icon">
                     <a href="#" class="accept-request">
                         <span class="icon-add">
-                            <img src="{{ asset('socialyte/svg-icons/top_bar/happy.svg') }}">
+                            <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
                         </span>
                         Accept Friend Request
                     </a>
 
                     <a href="#" class="accept-request request-del">
                         <span class="icon-minus">
-                            <img src="{{ asset('socialyte/svg-icons/top_bar/happy.svg') }}">
+                            <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
                         </span>
                     </a>
 
@@ -47,7 +47,7 @@
 
             <li>
                 <div class="author-thumb">
-                    <img src="{{ asset('socialyte/img/avatar16-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar16-sm.jpg') }}" alt="author">
                 </div>
                 <div class="notification-event">
                     <a href="#" class="h6 notification-friend">Tony Stevens</a>
@@ -56,14 +56,14 @@
                 <span class="notification-icon">
                     <a href="#" class="accept-request">
                         <span class="icon-add">
-                            <img src="{{ asset('socialyte/svg-icons/top_bar/happy.svg') }}">
+                            <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
                         </span>
                         Accept Friend Request
                     </a>
 
                     <a href="#" class="accept-request request-del">
                         <span class="icon-minus">
-                            <img src="{{ asset('socialyte/svg-icons/top_bar/happy.svg') }}">
+                            <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
                         </span>
                     </a>
 
@@ -81,13 +81,13 @@
 
             <li class="accepted">
                 <div class="author-thumb">
-                    <img src="{{ asset('socialyte/img/avatar17-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar17-sm.jpg') }}" alt="author">
                 </div>
                 <div class="notification-event">
                     You and <a href="#" class="h6 notification-friend">Mary Jane Stark</a> just became friends. Write on <a href="#" class="notification-link">his wall</a>.
                 </div>
                 <span class="notification-icon">
-                    <img src="{{ asset('socialyte/svg-icons/top_bar/friend.svg') }}">
+                    <img src="{{ asset('theme/socialyte/svg-icons/top_bar/friend.svg') }}">
                 </span>
 
                 <div class="more">
@@ -102,7 +102,7 @@
 
             <li>
                 <div class="author-thumb">
-                    <img src="{{ asset('socialyte/img/avatar18-sm.jpg') }}" alt="author">
+                    <img src="{{ asset('theme/socialyte/img/avatar18-sm.jpg') }}" alt="author">
                 </div>
                 <div class="notification-event">
                     <a href="#" class="h6 notification-friend">Stagg Clothing</a>
@@ -111,14 +111,14 @@
                 <span class="notification-icon">
                     <a href="#" class="accept-request">
                         <span class="icon-add">
-                            <img src="{{ asset('socialyte/svg-icons/top_bar/happy.svg') }}">
+                            <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
                         </span>
                         Accept Friend Request
                     </a>
 
                     <a href="#" class="accept-request request-del">
                         <span class="icon-minus">
-                            <img src="{{ asset('socialyte/svg-icons/top_bar/happy.svg') }}">
+                            <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
                         </span>
                     </a>
 

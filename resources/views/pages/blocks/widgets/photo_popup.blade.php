@@ -16,7 +16,7 @@
 
                             <div class="photo">
                                 <div class="photo-item">
-                                    <img src="{{ asset('socialyte/img/open-photo1.jpg') }}" alt="photo">
+                                    <img src="{{ asset('theme/socialyte/img/open-photo1.jpg') }}" alt="photo">
 
                                     <div class="content">
                                         <a href="#" class="h6 title">Photoshoot 2016</a>

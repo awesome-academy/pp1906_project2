@@ -1,10 +1,8 @@
 @extends('auth.master')
 
 @section('content')
-<div class="form-box">
-    <div class="form-logo">
-        <p class="text-center"><img src="{{ asset('img/auth/socialyte-logo.png') }}" alt="logo"></p>
-    </div>
+<div class="login form-box">
+    @include('auth.form_logo')
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <!-- Username -->

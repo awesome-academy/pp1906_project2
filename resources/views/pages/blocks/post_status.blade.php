@@ -6,7 +6,7 @@
         <!-- Nav tabs -->
         <div class="ui-block-title">
             <a href="#">
-                <img src="{{ asset('socialyte/svg-icons/center/status.svg') }}">
+                <img src="{{ asset('theme/socialyte/svg-icons/center/status.svg') }}">
             </a>
             <h6 class="post-status title"> @lang('Post your status') </h6>
         </div>
@@ -17,7 +17,7 @@
                 <form method="POST" action="{{ route('posts.store') }}">
                     @csrf
                     <div class="author-thumb">
-                        <img src="{{ asset('socialyte/img/author-page.jpg') }}" alt="author">
+                        <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
                     </div>
                     <div class="form-group with-icon label-floating is-empty">
                         <label class="control-label"> @lang('Share what you are thinking here...') </label>
@@ -31,10 +31,10 @@
                     </div>
                     <div class="add-options-message">
                         <a href="#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="ADD PHOTOS">
-                            <img data-toggle="modal" data-target="#update-header-photo" src="{{ asset('socialyte/svg-icons/center/camera.svg') }}">
+                            <img data-toggle="modal" data-target="#update-header-photo" src="{{ asset('theme/socialyte/svg-icons/center/camera.svg') }}">
                         </a>
                         <a href="#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="TAG YOUR FRIENDS">
-                            <img src="{{ asset('socialyte/svg-icons/center/tag.svg') }}">
+                            <img src="{{ asset('theme/socialyte/svg-icons/center/tag.svg') }}">
                         </a>
                         <button class="btn btn-primary btn-md-2"> @lang('Post Status') </button>
                         <div class="form-group post-type">

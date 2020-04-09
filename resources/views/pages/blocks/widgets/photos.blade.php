@@ -8,48 +8,48 @@
 
         <ul class="widget w-last-photo js-zoom-gallery">
             <li>
-                <a href="{{ asset('socialyte/img/last-photo10-large.jpg') }}">
-                    <img src="{{ asset('socialyte/img/last-photo10-large.jpg') }}" alt="photo">
+                <a href="{{ asset('theme/socialyte/img/last-photo10-large.jpg') }}">
+                    <img src="{{ asset('theme/socialyte/img/last-photo10-large.jpg') }}" alt="photo">
                 </a>
             </li>
             <li>
-                <a href="{{ asset('socialyte/img/last-phot11-large.jpg') }}">
-                    <img src="{{ asset('socialyte/img/last-phot11-large.jpg') }}" alt="photo">
+                <a href="{{ asset('theme/socialyte/img/last-phot11-large.jpg') }}">
+                    <img src="{{ asset('theme/socialyte/img/last-phot11-large.jpg') }}" alt="photo">
                 </a>
             </li>
             <li>
-                <a href="{{ asset('socialyte/img/last-phot12-large.jpg') }}">
-                    <img src="{{ asset('socialyte/img/last-phot12-large.jpg') }}" alt="photo">
+                <a href="{{ asset('theme/socialyte/img/last-phot12-large.jpg') }}">
+                    <img src="{{ asset('theme/socialyte/img/last-phot12-large.jpg') }}" alt="photo">
                 </a>
             </li>
             <li>
-                <a href="{{ asset('socialyte/img/last-phot13-large.jpg') }}">
-                    <img src="{{ asset('socialyte/img/last-phot13-large.jpg') }}" alt="photo">
+                <a href="{{ asset('theme/socialyte/img/last-phot13-large.jpg') }}">
+                    <img src="{{ asset('theme/socialyte/img/last-phot13-large.jpg') }}" alt="photo">
                 </a>
             </li>
             <li>
-                <a href="{{ asset('socialyte/img/last-phot14-large.jpg') }}">
-                    <img src="{{ asset('socialyte/img/last-phot14-large.jpg') }}" alt="photo">
+                <a href="{{ asset('theme/socialyte/img/last-phot14-large.jpg') }}">
+                    <img src="{{ asset('theme/socialyte/img/last-phot14-large.jpg') }}" alt="photo">
                 </a>
             </li>
             <li>
-                <a href="{{ asset('socialyte/img/last-phot15-large.jpg') }}">
-                    <img src="{{ asset('socialyte/img/last-phot15-large.jpg') }}" alt="photo">
+                <a href="{{ asset('theme/socialyte/img/last-phot15-large.jpg') }}">
+                    <img src="{{ asset('theme/socialyte/img/last-phot15-large.jpg') }}" alt="photo">
                 </a>
             </li>
             <li>
-                <a href="{{ asset('socialyte/img/last-phot16-large.jpg') }}">
-                    <img src="{{ asset('socialyte/img/last-phot16-large.jpg') }}" alt="photo">
+                <a href="{{ asset('theme/socialyte/img/last-phot16-large.jpg') }}">
+                    <img src="{{ asset('theme/socialyte/img/last-phot16-large.jpg') }}" alt="photo">
                 </a>
             </li>
             <li>
-                <a href="{{ asset('socialyte/img/last-phot17-large.jpg') }}">
-                    <img src="{{ asset('socialyte/img/last-phot17-large.jpg') }}" alt="photo">
+                <a href="{{ asset('theme/socialyte/img/last-phot17-large.jpg') }}">
+                    <img src="{{ asset('theme/socialyte/img/last-phot17-large.jpg') }}" alt="photo">
                 </a>
             </li>
             <li>
-                <a href="{{ asset('socialyte/img/last-phot18-large.jpg') }}">
-                    <img src="{{ asset('socialyte/img/last-phot18-large.jpg') }}" alt="photo">
+                <a href="{{ asset('theme/socialyte/img/last-phot18-large.jpg') }}">
+                    <img src="{{ asset('theme/socialyte/img/last-phot18-large.jpg') }}" alt="photo">
                 </a>
             </li>
         </ul>

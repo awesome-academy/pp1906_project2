@@ -8,7 +8,7 @@
     <ul class="widget w-activity-feed notification-list">
         <li>
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar49-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar49-sm.jpg') }}" alt="author">
             </div>
             <div class="notification-event">
                 <a href="#" class="h6 notification-friend">Marina Polson</a> commented on Jason Mark’s <a href="#" class="notification-link">photo.</a>.
@@ -18,7 +18,7 @@
 
         <li>
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar9-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar9-sm.jpg') }}" alt="author">
             </div>
             <div class="notification-event">
                 <a href="#" class="h6 notification-friend">Jake Parker </a> liked Nicholas Grissom’s <a href="#" class="notification-link">status update.</a>.
@@ -28,7 +28,7 @@
 
         <li>
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar50-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar50-sm.jpg') }}" alt="author">
             </div>
             <div class="notification-event">
                 <a href="#" class="h6 notification-friend">Mary Jane Stark </a> added 20 new photos to her <a href="#" class="notification-link">gallery album.</a>.
@@ -38,7 +38,7 @@
 
         <li>
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar51-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar51-sm.jpg') }}" alt="author">
             </div>
             <div class="notification-event">
                 <a href="#" class="h6 notification-friend">Nicholas Grissom </a> updated his profile <a href="#" class="notification-link">photo</a>.
@@ -47,7 +47,7 @@
         </li>
         <li>
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar48-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar48-sm.jpg') }}" alt="author">
             </div>
             <div class="notification-event">
                 <a href="#" class="h6 notification-friend">Marina Valentine </a> commented on Chris Greyson’s <a href="#" class="notification-link">status update</a>.
@@ -57,7 +57,7 @@
 
         <li>
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar52-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar52-sm.jpg') }}" alt="author">
             </div>
             <div class="notification-event">
                 <a href="#" class="h6 notification-friend">Green Goo Rock </a> posted a <a href="#" class="notification-link">status update</a>.
@@ -66,7 +66,7 @@
         </li>
         <li>
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar10-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar10-sm.jpg') }}" alt="author">
             </div>
             <div class="notification-event">
                 <a href="#" class="h6 notification-friend">Elaine Dreyfuss </a> liked your <a href="#" class="notification-link">blog post</a>.
@@ -76,7 +76,7 @@
 
         <li>
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar10-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar10-sm.jpg') }}" alt="author">
             </div>
             <div class="notification-event">
                 <a href="#" class="h6 notification-friend">Elaine Dreyfuss </a> commented on your <a href="#" class="notification-link">blog post</a>.
@@ -86,7 +86,7 @@
 
         <li>
             <div class="author-thumb">
-                <img src="{{ asset('socialyte/img/avatar53-sm.jpg') }}" alt="author">
+                <img src="{{ asset('theme/socialyte/img/avatar53-sm.jpg') }}" alt="author">
             </div>
             <div class="notification-event">
                 <a href="#" class="h6 notification-friend">Bruce Peterson </a> changed his <a href="#" class="notification-link">profile picture</a>.

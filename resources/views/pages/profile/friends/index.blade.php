@@ -14,13 +14,13 @@
 
                 <div class="friend-item">
                     <div class="friend-header-thumb">
-                        <img src="{{ asset('socialyte/img/friend1.jpg') }}" alt="friend">
+                        <img src="{{ asset('theme/socialyte/img/friend1.jpg') }}" alt="friend">
                     </div>
 
                     <div class="friend-item-content">
                         <div class="friend-avatar">
                             <div class="author-thumb">
-                                <img src="{{ asset('socialyte/img/avatar1.jpg') }}" alt="author">
+                                <img src="{{ asset('theme/socialyte/img/avatar1.jpg') }}" alt="author">
                             </div>
                             <div class="author-content">
                                 <a href="#" class="h5 author-name">Nicholas Grissom</a>
@@ -47,11 +47,11 @@
                                     </div>
                                     <div class="control-block-button" data-swiper-parallax="-100">
                                         <a href="#" class="btn btn-control bg-purple" title="Go to profile page">
-                                            <img src="{{ asset('socialyte/svg-icons/center/friend_profile.svg') }}">
+                                            <img src="{{ asset('theme/socialyte/svg-icons/center/friend_profile.svg') }}">
                                         </a>
 
                                         <a href="#" class="btn btn-control" title="Unfriend">
-                                            <img style="width: auto;" src="{{ asset('socialyte/svg-icons/center/unfriend.svg') }}">
+                                            <img style="width: auto;" src="{{ asset('theme/socialyte/svg-icons/center/unfriend.svg') }}">
                                         </a>
                                     </div>
                                 </div>
@@ -73,13 +73,13 @@
 
                 <div class="friend-item">
                     <div class="friend-header-thumb">
-                        <img src="{{ asset('socialyte/img/friend1.jpg') }}" alt="friend">
+                        <img src="{{ asset('theme/socialyte/img/friend1.jpg') }}" alt="friend">
                     </div>
 
                     <div class="friend-item-content">
                         <div class="friend-avatar">
                             <div class="author-thumb">
-                                <img src="{{ asset('socialyte/img/avatar1.jpg') }}" alt="author">
+                                <img src="{{ asset('theme/socialyte/img/avatar1.jpg') }}" alt="author">
                             </div>
                             <div class="author-content">
                                 <a href="#" class="h5 author-name">Nicholas Grissom</a>
@@ -106,11 +106,11 @@
                                     </div>
                                     <div class="control-block-button" data-swiper-parallax="-100">
                                         <a href="#" class="btn btn-control bg-purple" title="Go to profile page">
-                                            <img src="{{ asset('socialyte/svg-icons/center/friend_profile.svg') }}">
+                                            <img src="{{ asset('theme/socialyte/svg-icons/center/friend_profile.svg') }}">
                                         </a>
 
                                         <a href="#" class="btn btn-control" title="Unfriend">
-                                            <img style="width: auto;" src="{{ asset('socialyte/svg-icons/center/unfriend.svg') }}">
+                                            <img style="width: auto;" src="{{ asset('theme/socialyte/svg-icons/center/unfriend.svg') }}">
                                         </a>
                                     </div>
                                 </div>
@@ -132,13 +132,13 @@
 
                 <div class="friend-item">
                     <div class="friend-header-thumb">
-                        <img src="{{ asset('socialyte/img/friend1.jpg') }}" alt="friend">
+                        <img src="{{ asset('theme/socialyte/img/friend1.jpg') }}" alt="friend">
                     </div>
 
                     <div class="friend-item-content">
                         <div class="friend-avatar">
                             <div class="author-thumb">
-                                <img src="{{ asset('socialyte/img/avatar1.jpg') }}" alt="author">
+                                <img src="{{ asset('theme/socialyte/img/avatar1.jpg') }}" alt="author">
                             </div>
                             <div class="author-content">
                                 <a href="#" class="h5 author-name">Nicholas Grissom</a>
@@ -165,11 +165,11 @@
                                     </div>
                                     <div class="control-block-button" data-swiper-parallax="-100">
                                         <a href="#" class="btn btn-control bg-purple" title="Go to profile page">
-                                            <img src="{{ asset('socialyte/svg-icons/center/friend_profile.svg') }}">
+                                            <img src="{{ asset('theme/socialyte/svg-icons/center/friend_profile.svg') }}">
                                         </a>
 
                                         <a href="#" class="btn btn-control" title="Unfriend">
-                                            <img style="width: auto;" src="{{ asset('socialyte/svg-icons/center/unfriend.svg') }}">
+                                            <img style="width: auto;" src="{{ asset('theme/socialyte/svg-icons/center/unfriend.svg') }}">
                                         </a>
                                     </div>
                                 </div>
@@ -191,13 +191,13 @@
 
                 <div class="friend-item">
                     <div class="friend-header-thumb">
-                        <img src="{{ asset('socialyte/img/friend1.jpg') }}" alt="friend">
+                        <img src="{{ asset('theme/socialyte/img/friend1.jpg') }}" alt="friend">
                     </div>
 
                     <div class="friend-item-content">
                         <div class="friend-avatar">
                             <div class="author-thumb">
-                                <img src="{{ asset('socialyte/img/avatar1.jpg') }}" alt="author">
+                                <img src="{{ asset('theme/socialyte/img/avatar1.jpg') }}" alt="author">
                             </div>
                             <div class="author-content">
                                 <a href="#" class="h5 author-name">Nicholas Grissom</a>
@@ -224,11 +224,11 @@
                                     </div>
                                     <div class="control-block-button" data-swiper-parallax="-100">
                                         <a href="#" class="btn btn-control bg-purple" title="Go to profile page">
-                                            <img src="{{ asset('socialyte/svg-icons/center/friend_profile.svg') }}">
+                                            <img src="{{ asset('theme/socialyte/svg-icons/center/friend_profile.svg') }}">
                                         </a>
 
                                         <a href="#" class="btn btn-control" title="Unfriend">
-                                            <img style="width: auto;" src="{{ asset('socialyte/svg-icons/center/unfriend.svg') }}">
+                                            <img style="width: auto;" src="{{ asset('theme/socialyte/svg-icons/center/unfriend.svg') }}">
                                         </a>
                                     </div>
                                 </div>
