@@ -102,7 +102,8 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Scope check relationship between users.
      *
-     * @return Boolean
+     * @param App\Models\User $user
+     * @return \Illuminate\Http\Response
      */
     public function isFriends($user)
     {

@@ -27,7 +27,7 @@ class FriendController extends Controller
         $friendId = $request->friend_id;
         $user = User::findOrFail($friendId);
 
-        $checkFriends = $currentUser->isFriends($user)->exists();
+        $relationship = $currentUser->isFriends($user)->first();
 
         $data = [
             'user_id' => $currentUser->id,
@@ -35,16 +35,45 @@ class FriendController extends Controller
             'status' => config('user.friend.request'),
         ];
 
-        $updateFlag = false;
-
-        if (!$checkFriends || $checkFriends->status == config('user.friend.reject')) {
+        if (!$relationship || $relationship->status == config('user.friend.reject')) {
             $sendRequest = $this->friendService->updateOrCreate($data);
-            $updateFlag = true;
+
+            return response()->json([
+                'status' => true,
+                'html' => view('pages.blocks.widgets.un_request', compact('user'))->render(),
+            ]);
         }
 
         return response()->json([
-            'status' => $updateFlag,
-            'html' => view('pages.blocks.widgets.un_friend', compact('user'))->render(),
+            'status' => false,
+        ]);
+    }
+
+    /**
+     * Remove friend request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function removeRequest(Request $request)
+    {
+        $currentUser = auth()->user();
+        $friendId = $request->friend_id;
+        $user = User::findOrFail($friendId);
+
+        $relationship = $currentUser->isFriends($user)->first();
+
+        if ($relationship && $relationship->status == config('user.friend.request')) {
+            $deletePost = $this->friendService->destroyRequest($relationship);
+
+            return response()->json([
+                'status' => $deleteFlag,
+                'html' => view('pages.blocks.widgets.add_friend', compact('user'))->render(),
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
         ]);
     }
 }

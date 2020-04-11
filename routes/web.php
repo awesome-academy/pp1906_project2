@@ -55,6 +55,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::post('/{username}/add-friend', 'FriendController@sendRequest')->name('friend.request');
 
+    Route::post('/{username}/un-request', 'FriendController@removeRequest')->name('friend.unrequest');
+
     Route::resource('posts', 'PostController');
     Route::resource('comments', 'CommentController');
 });
