@@ -18,9 +18,9 @@
 
     <span class="friend-icon">
         @if ($checkFriends)
-            @include('pages.blocks.widgets.un_friend')
+        @include('pages.blocks.widgets.un_request')
         @else
-            @include('pages.blocks.widgets.add_friend')
+        @include('pages.blocks.widgets.add_friend')
         @endif
     </span>
 
