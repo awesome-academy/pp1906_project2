@@ -36,7 +36,7 @@ class FriendController extends Controller
         ];
 
         if (!$relationship || $relationship->status == config('user.friend.reject')) {
-            $sendRequest = $this->friendService->updateOrCreate($data);
+            $sendRequest = $this->friendService->create($data);
 
             return response()->json([
                 'status' => true,
@@ -67,8 +67,41 @@ class FriendController extends Controller
             $deletePost = $this->friendService->destroyRequest($relationship);
 
             return response()->json([
-                'status' => $deleteFlag,
+                'status' => true,
                 'html' => view('pages.blocks.widgets.add_friend', compact('user'))->render(),
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+        ]);
+    }
+
+    /**
+     * Accept friend request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function acceptRequest(Request $request)
+    {
+        $currentUser = auth()->user();
+        $friendId = $request->friend_id;
+        $user = User::findOrFail($friendId);
+
+        $relationship = $currentUser->isFriends($user)->first();
+
+        $data = [
+            'status' => config('user.friend.accept')
+        ];
+
+        if ($relationship && $relationship->status == config('user.friend.request')) {
+            $sendRequest = $this->friendService->update($currentUser->isFriends($user), $data);
+
+            return response()->json([
+                'status' => true,
+                'html' => view('pages.blocks.widgets.is_friend', compact('user'))->render(),
+                'mark' => view('pages.blocks.widgets.friends_mark')->render(),
             ]);
         }
 

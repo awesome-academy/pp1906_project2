@@ -13,8 +13,7 @@
 
         {{-- @include('pages.blocks.widgets.three_dots') --}}
     </div>
-    <p>{{ $comment->content }}</p>
+    <p>{{ $comment->content ?? ''}}</p>
 
     @include('pages.blocks.widgets.comment_reacts_list')
 </li>
-

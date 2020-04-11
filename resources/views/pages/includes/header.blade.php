@@ -136,9 +136,9 @@
                 </div>
                 <a href="#" class="author-name fn">
                     <div class="author-title">
-                        James Spiegel
+                        {{ auth()->user()->name }}
                     </div>
-                    <span class="author-subtitle">SPACE COWBOY</span>
+                    <span class="author-subtitle">{{ auth()->user()->username }}</span>
                 </a>
             </div>
         </div>
