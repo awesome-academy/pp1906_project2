@@ -30,3 +30,17 @@
 <!-- ... end Right Sidebar -->
 
 @endsection
+
+@section('js')
+<script type="module" src="{{ asset('js/load_more.js') }}"></script>
+<script type="module" src="{{ asset('js/control_block.js') }}"></script>
+<script>
+    function errorMessage() {
+        Swal.fire({
+            icon: 'error',
+            title: "@lang('Oops...')",
+            text: "@lang('Something went wrong!')",
+        });
+    }
+</script>
+@endsection

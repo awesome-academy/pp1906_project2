@@ -1,4 +1,7 @@
+import { ajaxSetup } from './functions.js';
+
 $(document).ready(function () {
+    ajaxSetup();
     //first pagination post start at 0, the second pagination post will start at 1
     var page = 1;
 
@@ -23,14 +26,8 @@ $(document).ready(function () {
                 $(".post-data").append(result.html);
             },
             error: function () {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                })
-                location.reload();
+                errorMessage();
             }
         });
     }
-
 });

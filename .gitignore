@@ -4,6 +4,7 @@
 /public/theme
 /public/hot
 /public/storage
+/public/mix-manifest.json
 /storage/*.key
 /storage/debugbar
 /vendor
