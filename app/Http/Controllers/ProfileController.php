@@ -21,7 +21,7 @@ class ProfileController extends Controller
         $currentUser = auth()->user();
         $user = User::with('friends')->where('username', $username)->firstOrFail();
 
-        $checkFriends = $currentUser->isFriends($user)->exists();
+        $relationship = $currentUser->isFriends($user)->first();
 
         $posts = Post::with('user')
             ->where('user_id', $user->id)
@@ -37,6 +37,6 @@ class ProfileController extends Controller
             ]);
         }
 
-        return view('pages.profile.timeline.index', compact('user', 'posts', 'checkFriends'));
+        return view('pages.profile.timeline.index', compact('user', 'posts', 'relationship'));
     }
 }

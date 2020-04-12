@@ -51,11 +51,13 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::post('/settings/language/update', 'UserController@updateLanguage')->name('user.updateLanguage');
 
-    Route::get('/{username}', 'ProfileController@userProfile');
+    Route::get('/{username}', 'ProfileController@userProfile')->name('user.profile');
 
     Route::post('/{username}/add-friend', 'FriendController@sendRequest')->name('friend.request');
 
-    Route::post('/{username}/un-request', 'FriendController@removeRequest')->name('friend.unrequest');
+    Route::post('/{username}/un-request', 'FriendController@removeRequest')->name('friend.unRequest');
+
+    Route::post('/{username}/accept-friend', 'FriendController@acceptRequest')->name('friend.acceptRequest');
 
     Route::resource('posts', 'PostController');
     Route::resource('comments', 'CommentController');

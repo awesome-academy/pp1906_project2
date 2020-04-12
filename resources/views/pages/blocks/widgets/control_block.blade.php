@@ -17,14 +17,22 @@
     @else
 
     <span class="friend-icon">
-        @if ($checkFriends)
-        @include('pages.blocks.widgets.un_request')
+        @if ($relationship)
+            @if ($relationship->status == config('user.friend.request'))
+                @if ($relationship->friend_id == $user->id)
+                    @include('pages.blocks.widgets.un_request')
+                @else
+                    @include('pages.blocks.widgets.requesting')
+                @endif
+            @elseif ($relationship->status == config('user.friend.accept'))
+                @include('pages.blocks.widgets.is_friend')
+            @endif
         @else
-        @include('pages.blocks.widgets.add_friend')
+            @include('pages.blocks.widgets.add_friend')
         @endif
     </span>
 
-    <a href="#" class="btn btn-control bg-green" title="@lang('Follow')">
+    <a href="#" class="btn btn-control bg-purple" title="@lang('Follow')">
         <img src="{{ asset('theme/socialyte/svg-icons/top/follow.svg') }}">
     </a>
 

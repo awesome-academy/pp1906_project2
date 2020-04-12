@@ -36,11 +36,16 @@
                         @include('pages.blocks.widgets.control_block')
                     </div>
                     <div class="top-header-author">
-                        <a href="02-ProfilePage.html" class="author-thumb">
+                        <a href="{{ asset('user.profile', $user->username) }}" class="author-thumb">
                             <img src="{{ asset('theme/socialyte/img/author-main1.jpg') }}" alt="author">
                         </a>
                         <div class="author-content">
-                            <a href="02-ProfilePage.html" class="h4 author-name">{{ $user->name }}</a>
+                            <a href="{{ asset('user.profile', $user->username) }}" class="h4 author-name">{{ $user->name }}</a>
+                            <span class="friends-mark">
+                                @if ($relationship && $relationship->status == config('user.friend.accept'))
+                                @include('pages.blocks.widgets.friends_mark')
+                                @endif
+                            </span>
                             <div class="country">{{ $user->address ?? ''}}</div>
                         </div>
                     </div>

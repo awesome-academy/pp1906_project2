@@ -8,15 +8,36 @@ use App\Models\Friend;
 class FriendService
 {
     /**
-     * Update or Create new request data in database.
+     * Create new request data in database.
      *
+     * @param App\Models\Friend $relationship
      * @param Array $data
      * @return Boolean
      */
-    public function updateOrCreate($data)
+    public function create($data)
     {
         try {
-            Friend::updateOrCreate($data);
+            Friend::create($data);
+        } catch (\Throwable $th) {
+            Log::error($th);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Update request data in database.
+     *
+     * @param App\Models\Friend $relationship
+     * @param Array $data
+     * @return Boolean
+     */
+    public function update($relationship, $data)
+    {
+        try {
+            $relationship->update($data);
         } catch (\Throwable $th) {
             Log::error($th);
 

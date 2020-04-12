@@ -59,4 +59,35 @@ $(document).ready(function () {
             }
         });
     });
+
+    // accept a friend request
+    $('.friend-icon .requesting').on('click', '.accept', function (e) {
+        e.preventDefault();
+        var username = $(this).data('friend-name');
+
+        var url = '/' + username + '/accept-friend';
+
+        var data = {
+            'friend_id': $(this).data('friend-id')
+        };
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            cache: false,
+            success: function (result) {
+                if (result.status) {
+                    $('.friend-icon').html('');
+                    $('.friends-mark').html('');
+
+                    $('.friend-icon').append(result.html);
+                    $('.friends-mark').append(result.mark);
+                }
+            },
+            error: function () {
+                errorMessage();
+            }
+        });
+    });
 });
