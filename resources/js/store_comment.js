@@ -24,20 +24,12 @@ $(document).ready(function () {
                     _this.parent().parent().find('.comments-list').append(result.comment);
                     $('.comment-content').val('');
                 } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong!',
-                    })
+                    errorMessage();
                     location.reload();
                 }
             },
             error: function () {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                })
+                errorMessage();
                 location.reload();
             }
         });

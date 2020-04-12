@@ -45,6 +45,7 @@
     </article>
 
     @include('pages.blocks.list_comment')
+
     <!-- ... end Comments -->
 
     <a href="#" class="more-comments"> @lang('View more comments') <span>+</span></a>
@@ -81,4 +82,15 @@
 
 @section('script')
 <script src="{{ asset('js/store_comment.js') }}"></script>
+<script src="{{ asset('js/update_delete_comment.js') }}"></script>
+<script>
+    function errorMessage() {
+        Swal.fire({
+            icon: 'error',
+            title: "@lang('Oops...')",
+            text: "@lang('Something went wrong!')",
+        });
+        location.reload();
+    }
+</script>
 @endsection
