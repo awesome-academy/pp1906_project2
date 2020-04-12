@@ -59,6 +59,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::post('/{username}/accept-friend', 'FriendController@acceptRequest')->name('friend.acceptRequest');
 
+    Route::post('/{username}/reject-friend', 'FriendController@removeRequest')->name('friend.rejectRequest');
+
     Route::resource('posts', 'PostController');
     Route::resource('comments', 'CommentController');
 });
