@@ -64,7 +64,7 @@ class FriendController extends Controller
         $relationship = $currentUser->isFriends($user)->first();
 
         if ($relationship && $relationship->status == config('user.friend.request')) {
-            $deletePost = $this->friendService->destroyRequest($relationship);
+            $this->friendService->destroyRequest($relationship);
 
             return response()->json([
                 'status' => true,
