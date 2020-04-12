@@ -75,4 +75,25 @@ class CommentController extends Controller
             'status' => false,
         ]);
     }
+
+    /**
+     * Remove comment in database.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $comment = $this->commentService->deleteComment($id);
+
+        if ($comment) {
+            return response()->json([
+                'status' => true,
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+        ]);
+    }
 }

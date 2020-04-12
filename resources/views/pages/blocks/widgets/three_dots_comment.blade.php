@@ -11,4 +11,5 @@
         </li>
     </ul>
     @include('pages.blocks.modals.edit_comment')
+    @include('pages.blocks.modals.delete_comment')
 </div>

@@ -32,7 +32,7 @@ $(document).ready(function () {
                 if (result.status) {
                     $('.comment-content-' + commentId).html('');
                     $('.comment-content-' + commentId).html(content);
-                    $('.edit-post-modal').modal('hide');
+                    $('.edit-comment-modal').modal('hide');
                 } else {
                     errorMessage();
                 }
@@ -47,5 +47,27 @@ $(document).ready(function () {
         if (!$('.error-content').attr('hidden')) {
             $('.error-content').attr('hidden', '');
         }
+    });
+
+    $('body').on('click', '.delete-comment', function() {
+        event.preventDefault();
+        var commentId = parseInt($(this).data('comment_delete_id'));
+        var url = 'comments/' + commentId;
+        $.ajax({
+            url: url,
+            type: 'DELETE',
+            cache: false,
+            success: function (result) {
+                if (result.status) {
+                    $('.delete-comment-modal').modal('hide');
+                    setTimeout(function() {
+                        $('.comment-item-' + commentId).remove();
+                    }, 100);
+                }
+            },
+            error: function () {
+                errorMessage();
+            }
+        });
     });
 });
