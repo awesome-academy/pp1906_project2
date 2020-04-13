@@ -5,7 +5,7 @@
             <a href="#" class="accept" data-friend-name="{{ $user->username }}" data-friend-id="{{ $user->id }}">@lang('Accept friend request')</a>
         </li>
         <li>
-            <a href="#" class="reject" data-friend-name="{{ $user->username }}" data-friend-id="{{ $user->id }}">@lang('Decline friend request')</a>
+            <a href="#" class="un-request" data-friend-name="{{ $user->username }}" data-friend-id="{{ $user->id }}">@lang('Decline friend request')</a>
         </li>
     </ul>
 </div>
