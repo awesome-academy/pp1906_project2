@@ -31,13 +31,13 @@ class FriendService
      * Update request data in database.
      *
      * @param App\Models\Friend $relationship
-     * @param Array $data
+     * @param Int $status
      * @return Boolean
      */
-    public function update($relationship, $data)
+    public function update($relationship, $status)
     {
         try {
-            $relationship->update($data);
+            $relationship->update(['status' => $status]);
         } catch (\Throwable $th) {
             Log::error($th);
 

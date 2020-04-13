@@ -92,11 +92,14 @@ class FriendController extends Controller
         $relationship = $currentUser->isFriends($user)->first();
 
         $data = [
+            'user_id' => $currentUser->id,
+            'friend_id' => $friendId,
             'status' => config('user.friend.accept')
         ];
 
         if ($relationship && $relationship->status == config('user.friend.request')) {
-            $sendRequest = $this->friendService->update($currentUser->isFriends($user), $data);
+            $this->friendService->update($currentUser->isFriends($user), $data['status']);
+            $this->friendService->create($data);
 
             return response()->json([
                 'status' => true,

@@ -27,10 +27,6 @@ Route::get('/profile/about', function () {
     return view('pages.profile.about.index');
 });
 
-Route::get('/profile/friends', function () {
-    return view('pages.profile.friends.index');
-});
-
 Route::get('/profile/photos', function () {
     return view('pages.profile.photos.index');
 });
@@ -51,7 +47,9 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::post('/settings/language/update', 'UserController@updateLanguage')->name('user.updateLanguage');
 
-    Route::get('/{username}', 'ProfileController@userProfile')->name('user.profile');
+    Route::get('/{username}', 'ProfileController@showProfile')->name('user.profile');
+
+    Route::get('/{username}/friends', 'ProfileController@showFriends')->name('user.friends');
 
     Route::post('/{username}/add-friend', 'FriendController@sendRequest')->name('friend.request');
 

@@ -16,7 +16,7 @@ class ProfileController extends Controller
      * @param string $username
      * @return \Illuminate\Http\Response
      */
-    public function userProfile(Request $request, $username)
+    public function showProfile(Request $request, $username)
     {
         $currentUser = auth()->user();
         $user = User::with('friends')->where('username', $username)->firstOrFail();
@@ -38,5 +38,22 @@ class ProfileController extends Controller
         }
 
         return view('pages.profile.timeline.index', compact('user', 'posts', 'relationship'));
+    }
+
+    /**
+     * Display user's friends page.
+     *
+     * @param Illuminate\Http\Request $request
+     * @param string $username
+     * @return \Illuminate\Http\Response
+     */
+    public function showFriends(Request $request, $username)
+    {
+        $currentUser = auth()->user();
+        $user = User::with('friends')->where('username', $username)->firstOrFail();
+
+        $relationship = $currentUser->isFriends($user)->first();
+
+        return view('pages.profile.friends.index', compact('user', 'relationship'));
     }
 }
