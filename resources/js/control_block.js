@@ -33,7 +33,7 @@ $(document).ready(function () {
     });
 
     // remove a friend request
-    $('.friend-icon').on('click', '.un-request', function (e) {
+    $('.friend-icon, .requesting').on('click', '.un-request', function (e) {
         e.preventDefault();
         var username = $(this).data('friend-name');
 
