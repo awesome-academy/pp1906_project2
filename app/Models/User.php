@@ -58,7 +58,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function friends()
     {
-        return $this->hasMany('App\Models\Friend');
+        return $this->belongsToMany('App\Models\User', 'friends', 'user_id', 'friend_id')->withPivot('status');
     }
 
     /**
@@ -100,7 +100,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Scope check relationship between users.
+     * Check relationship between users.
      *
      * @param App\Models\User $user
      * @return \Illuminate\Http\Response

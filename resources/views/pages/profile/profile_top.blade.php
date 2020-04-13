@@ -17,7 +17,7 @@
                                         <a href="#">@lang('About')</a>
                                     </li>
                                     <li>
-                                        <a href="#">@lang('Friends')</a>
+                                        <a href="{{ route('user.friends', $user->username) }}">@lang('Friends')</a>
                                     </li>
                                 </ul>
                             </div>
