@@ -25,12 +25,10 @@ $(document).ready(function () {
                     $('.comment-content').val('');
                 } else {
                     errorMessage();
-                    location.reload();
                 }
             },
             error: function () {
                 errorMessage();
-                location.reload();
             }
         });
     });
