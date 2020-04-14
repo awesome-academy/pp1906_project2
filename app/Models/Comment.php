@@ -27,4 +27,9 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Models\Post');
     }
+
+    public function share()
+    {
+        return $this->belongsTo('App\Models\Share', 'post_id');
+    }
 }

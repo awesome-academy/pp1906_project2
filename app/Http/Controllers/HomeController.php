@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Share;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,21 +26,22 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $userIds = User::pluck('id');
-        $posts = Post::with('user')
-            ->whereIn('user_id', $userIds)
-            ->orderDesc()
-            ->paginate(config('home.page.number'));
         //note: only show posts of this user and friends.
+        $userIds = User::pluck('id');
+        $posts = Post::with('user')->whereIn('user_id', $userIds)->get();
+
+        $shares = Share::with('user')->whereIn('user_id', $userIds)->get();
+
+        $allPosts = $posts->merge($shares)->sortByDesc('created_at')->forPage($request->page, config('home.page.number'));
 
         if ($request->ajax()) {
-            $nextPosts = view('pages.blocks.post', compact('posts'))->render();
+            $nextPosts = view('pages.blocks.post', compact('allPosts'))->render();
 
             return response()->json([
                 'html' => $nextPosts
             ]);
         }
 
-        return view('pages.newsfeed.index', compact('posts'));
+        return view('pages.newsfeed.index', compact('allPosts'));
     }
 }

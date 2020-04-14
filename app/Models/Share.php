@@ -3,21 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Carbon\Carbon;
 
-class Post extends Model
+class Share extends Model
 {
-    use SoftDeletes;
-
     protected $fillable = [
         'user_id',
+        'post_id',
         'content',
         'type'
-    ];
-
-    protected $dates = [
-        'deleted_at'
     ];
 
     /**
@@ -29,23 +22,23 @@ class Post extends Model
     }
 
     /**
+     * relationship with Post.
+     */
+    public function post()
+    {
+        return $this->belongsTo('App\Models\Post');
+    }
+
+    /**
      * relationship with Comment.
      */
     public function comments()
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany('App\Models\Comment', 'post_id');
     }
 
     /**
-     * relationship with Share.
-     */
-    public function shares()
-    {
-        return $this->hasMany('App\Models\Share');
-    }
-
-    /**
-     * Scope if post was updated.
+     * Scope if share was updated.
      *
      * @return Boolean
      */
@@ -55,7 +48,7 @@ class Post extends Model
     }
 
     /**
-     * Scope if post is public.
+     * Scope if share is public.
      *
      * @return Boolean
      */
@@ -65,7 +58,7 @@ class Post extends Model
     }
 
     /**
-     * Scope if post is private.
+     * Scope if share is private.
      *
      * @return Boolean
      */
@@ -75,7 +68,7 @@ class Post extends Model
     }
 
     /**
-     * Scope if post is friends only.
+     * Scope if share is friends only.
      *
      * @return Boolean
      */
@@ -85,7 +78,7 @@ class Post extends Model
     }
 
     /**
-     * Scope order posts in descending order.
+     * Scope order shares in descending order.
      *
      * @return Boolean
      */

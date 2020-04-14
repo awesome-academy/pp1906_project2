@@ -1,4 +1,4 @@
-@foreach ($posts as $post)
+@foreach ($allPosts as $post)
 <div class="ui-block">
 
     <article class="hentry post">

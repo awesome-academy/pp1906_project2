@@ -70,6 +70,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * relationship with shares.
+     */
+    public function shares()
+    {
+        return $this->hasMany('App\Models\Share');
+    }
+
+    /**
      * Scope current user.
      *
      * @return Boolean
