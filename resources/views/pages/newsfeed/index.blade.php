@@ -38,3 +38,19 @@
     </div>
 </div>
 @endsection
+
+@section('script')
+<script src="{{ asset('js/load_more.js') }}"></script>
+<script src="{{ asset('js/store_comment.js') }}"></script>
+<script src="{{ asset('js/update_delete_comment.js') }}"></script>
+<script>
+    function errorMessage() {
+        Swal.fire({
+            icon: 'error',
+            title: "@lang('Oops...')",
+            text: "@lang('Something went wrong!')",
+        });
+        location.reload();
+    }
+</script>
+@endsection

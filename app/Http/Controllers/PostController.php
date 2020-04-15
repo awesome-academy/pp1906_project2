@@ -87,4 +87,27 @@ class PostController extends Controller
 
         return back()->with('success', __('post.error'));
     }
+
+    /**
+     * Share a post.
+     *
+     * @param  \Illuminate\Http\PostRequest  $request
+     * @param Int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function share(PostRequest $request, $id)
+    {
+        $data = $this->postService->getPostData($request);
+
+        $data['user_id'] = auth()->id();
+        $data['share_from_post_id'] = $id;
+
+        $storePost = $this->postService->storePost($data);
+
+        if ($storePost) {
+            return back()->with('success', __('share.create.success'));
+        }
+
+        return back()->with('error', __('share.error'));
+    }
 }

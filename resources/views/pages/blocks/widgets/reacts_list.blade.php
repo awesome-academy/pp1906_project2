@@ -6,8 +6,10 @@
         <a href="#" class="post-add-icon inline-items">
             <strong>16 comments</strong>
         </a>
+        @if ($post->shares->isNotEmpty())
         <a href="#" class="post-add-icon inline-items">
-            <strong>7 shares</strong>
+            <strong> {{ $post->shares->count() }} @lang('shares')</strong>
         </a>
+        @endif
     </div>
 </div>
