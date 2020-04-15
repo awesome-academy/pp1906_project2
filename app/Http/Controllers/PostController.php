@@ -97,10 +97,17 @@ class PostController extends Controller
      */
     public function share(PostRequest $request, $id)
     {
-        $data = $this->postService->getPostData($request);
+        $post = Post::findOrFail($id);
+        $sharePostId = $post->share_from_post_id;
 
+        $data = $this->postService->getPostData($request);
         $data['user_id'] = auth()->id();
-        $data['share_from_post_id'] = $id;
+
+        if (is_null($sharePostId)) {
+            $data['share_from_post_id'] = $id;
+        } else {
+            $data['share_from_post_id'] = $sharePostId;
+        }
 
         $storePost = $this->postService->storePost($data);
 

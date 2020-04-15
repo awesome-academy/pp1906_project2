@@ -102,14 +102,4 @@ class Post extends Model
     {
         return $query->orderBy('created_at', 'desc');
     }
-
-    /**
-     * Check if post is share post.
-     *
-     * @return Boolean
-     */
-    public function scopeIsShare()
-    {
-        return isset($this->share_from_post_id);
-    }
 }
