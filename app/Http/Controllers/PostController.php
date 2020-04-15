@@ -100,9 +100,8 @@ class PostController extends Controller
         $data = $this->postService->getPostData($request);
 
         $data['user_id'] = auth()->id();
-        $data['share_from_post_id'] = $id;
 
-        $storePost = $this->postService->storePost($data);
+        $storePost = $this->postService->sharePost($data, $id);
 
         if ($storePost) {
             return back()->with('success', __('share.create.success'));
