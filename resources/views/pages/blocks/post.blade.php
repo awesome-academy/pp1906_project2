@@ -7,9 +7,13 @@
             <img src="{{ asset('theme/socialyte/img/avatar10-sm.jpg') }}" alt="author">
 
             <div class="author-date">
-                <a class="h6 post__author-name fn" href="#">{{ $post->user->name }}</a>
+                <a class="h6 post__author-name fn" href="{{ route('user.profile', $post->user->username) }}">{{ $post->user->name }}</a>
+                @if ($post->share)
+                @lang('shared')
+                <a href="{{ route('user.profile', $post->share->user->username) }}">{{ $post->share->user->name }}</a>’s <a href="{{ route('posts.show', $post->share->id) }}">@lang(' post')</a>
+                @endif
                 <div class="post-type-icon post__date">
-                    <a class="show-post" href="{{ route('posts.show', $post->id) }}">
+                    <a class="show-post float-left" href="{{ route('posts.show', $post->id) }}">
                         <time class="published" datetime="2004-07-24T18:18">{{ getCreatedFromTime($post) }}</time>
 
                         @if ($post->isUpdated())
@@ -20,14 +24,14 @@
                         @endif
                     </a>
 
-                    <span> · </span>
+                    <span class="float-left" style="margin-left: 3px;"> · </span>
 
                     @if ($post->isPublic())
-                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
+                    <img class="post-type float-left" src="{{ asset('theme/socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
                     @elseif ($post->isPrivate())
-                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
+                    <img class="post-type float-left" src="{{ asset('theme/socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
                     @elseif ($post->isFriendsOnly())
-                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
+                    <img class="post-type float-left" src="{{ asset('theme/socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
                     @endif
                 </div>
             </div>
@@ -38,6 +42,9 @@
         <p>
             {{ $post->content }}
         </p>
+        @if ($post->share)
+        @include('pages.blocks.widgets.share', ['post' => $post->share])
+        @endif
         @include('pages.blocks.widgets.reacts_list')
 
         @include('pages.blocks.widgets.reacts')
@@ -79,18 +86,3 @@
     <!-- ... end Comment Form  -->
 </div>
 @endforeach
-
-@section('script')
-<script src="{{ asset('js/store_comment.js') }}"></script>
-<script src="{{ asset('js/update_delete_comment.js') }}"></script>
-<script>
-    function errorMessage() {
-        Swal.fire({
-            icon: 'error',
-            title: "@lang('Oops...')",
-            text: "@lang('Something went wrong!')",
-        });
-        location.reload();
-    }
-</script>
-@endsection

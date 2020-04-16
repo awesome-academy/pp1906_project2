@@ -6,7 +6,7 @@ $(document).ready(function () {
     });
 
 
-    $('body').on('click', '.save-edit-comment', function() {
+    $('body').on('click', '.save-edit-comment', function () {
         event.preventDefault();
         var postId = parseInt($(this).data('post_id'));
         var commentId = parseInt($(this).data('comment_id'));
@@ -43,13 +43,13 @@ $(document).ready(function () {
         });
     });
 
-    $('body').on('keypress', '.edit-comment-content', function() {
+    $('body').on('keypress', '.edit-comment-content', function () {
         if (!$('.error-content').attr('hidden')) {
             $('.error-content').attr('hidden', '');
         }
     });
 
-    $('body').on('click', '.delete-comment', function() {
+    $('body').on('click', '.delete-comment', function () {
         event.preventDefault();
         var commentId = parseInt($(this).data('comment_delete_id'));
         var url = 'comments/' + commentId;
@@ -60,7 +60,7 @@ $(document).ready(function () {
             success: function (result) {
                 if (result.status) {
                     $('.delete-comment-modal').modal('hide');
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $('.comment-item-' + commentId).remove();
                     }, 100);
                 }
