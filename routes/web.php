@@ -61,6 +61,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::resource('posts', 'PostController');
     Route::resource('comments', 'CommentController');
+
+    Route::post('{post}/share', 'PostController@share')->name('posts.share');
 });
 
 Route::get('/settings/password', function () {

@@ -13,7 +13,8 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'content',
-        'type'
+        'type',
+        'share_from_post_id'
     ];
 
     protected $dates = [
@@ -28,10 +29,30 @@ class Post extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    /**
+     * relationship with Comment.
+     */
     public function comments()
     {
         return $this->hasMany('App\Models\Comment');
     }
+
+    /**
+     * child relationship with Post.
+     */
+    public function shares()
+    {
+        return $this->hasMany('App\Models\Post', 'share_from_post_id');
+    }
+
+    /**
+     * parent relationship with Post.
+     */
+    public function share()
+    {
+        return $this->belongsTo('App\Models\Post', 'share_from_post_id');
+    }
+
     /**
      * Scope if post was updated.
      *
