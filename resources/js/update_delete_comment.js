@@ -1,10 +1,7 @@
-$(document).ready(function () {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+import { ajaxSetup } from './functions.js';
 
+$(document).ready(function () {
+    ajaxSetup();
 
     $('body').on('click', '.save-edit-comment', function () {
         event.preventDefault();

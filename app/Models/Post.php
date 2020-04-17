@@ -53,6 +53,11 @@ class Post extends Model
         return $this->belongsTo('App\Models\Post', 'share_from_post_id');
     }
 
+    public function reacts()
+    {
+        return $this->morphMany('App\Models\React', 'reactable');
+    }
+
     /**
      * Scope if post was updated.
      *

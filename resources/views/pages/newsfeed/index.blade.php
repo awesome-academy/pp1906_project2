@@ -43,6 +43,7 @@
 <script src="{{ asset('js/load_more.js') }}"></script>
 <script src="{{ asset('js/store_comment.js') }}"></script>
 <script src="{{ asset('js/update_delete_comment.js') }}"></script>
+<script src="{{ asset('js/store_react.js') }}"></script>
 <script>
     function errorMessage() {
         Swal.fire({
