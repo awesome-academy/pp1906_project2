@@ -8,18 +8,21 @@
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="{{ route('user.profile', $post->user->username) }}">{{ $post->user->name }}</a>
+
                 @if ($post->share)
-                @lang('shared')
-                <a href="{{ route('user.profile', $post->share->user->username) }}">{{ $post->share->user->name }}</a>’s <a href="{{ route('posts.show', $post->share->id) }}">@lang(' post')</a>
+
+                {!! __('share.title', ['name' => $post->share->user->name, 'username' => $post->share->user->username, 'post_id' => $post->share->id]) !!}
+
                 @endif
+
                 <div class="post-type-icon post__date">
                     <a class="show-post float-left" href="{{ route('posts.show', $post->id) }}">
-                        <time class="published" datetime="2004-07-24T18:18">{{ getCreatedFromTime($post) }}</time>
+                        <time class="published">{{ getCreatedFromTime($post) }}</time>
 
                         @if ($post->isUpdated())
                         <span>
                             (@lang('updated')
-                            <time class="published" datetime="2004-07-24T18:18">{{ getUpdatedFromTime($post) }}</time>)
+                            <time class="published">{{ getUpdatedFromTime($post) }}</time>)
                         </span>
                         @endif
                     </a>

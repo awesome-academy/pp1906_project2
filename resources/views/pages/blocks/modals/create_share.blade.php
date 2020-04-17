@@ -22,6 +22,7 @@
                                     <img class="avatar" src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
                                 </div>
                                 <div class="form-group with-icon label-floating is-empty">
+                                    <label class="control-label"> @lang('Share what you are thinking here...') </label>
                                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" placeholder=""></textarea>
 
                                     @error('content')
