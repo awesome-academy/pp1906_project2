@@ -18,4 +18,5 @@ mix.sass('resources/sass/style.scss', 'public/css')
    .js('resources/js/functions.js', 'public/js')
    .js('resources/js/store_comment.js', 'public/js')
    .js('resources/js/update_delete_comment.js', 'public/js')
+   .js('resources/js/store_react.js', 'public/js')
    .copyDirectory('resources/views/theme', 'public/theme');

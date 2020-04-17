@@ -60,7 +60,10 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::post('/{username}/reject-friend', 'FriendController@removeRequest')->name('friend.rejectRequest');
 
     Route::resource('posts', 'PostController');
+
     Route::resource('comments', 'CommentController');
+
+    Route::resource('reacts', 'ReactController');
 
     Route::post('{post}/share', 'PostController@share')->name('posts.share');
 });
