@@ -86,3 +86,17 @@
     <!-- ... end Comment Form  -->
 </div>
 @endforeach
+
+@section('script')
+<script src="{{ asset('js/store_react.js') }}"></script>
+<script>
+    function errorMessage() {
+        Swal.fire({
+            icon: 'error',
+            title: "@lang('Oops...')",
+            text: "@lang('Something went wrong!')",
+        });
+        // location.reload();
+    }
+</script>
+@endsection
