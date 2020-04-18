@@ -14,10 +14,10 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active" id="home-1" role="tabpanel" aria-expanded="true">
-                <form method="POST" action="{{ route('posts.store') }}">
+                <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="author-thumb">
-                        <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
+                        <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}">
                     </div>
                     <div class="form-group with-icon label-floating is-empty">
                         <label class="control-label"> @lang('Share what you are thinking here...') </label>
@@ -29,12 +29,13 @@
                         </span>
                         @enderror
                     </div>
+                    <div id="image-holder"></div>
                     <div class="add-options-message">
-                        <a href="#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="ADD PHOTOS">
-                            <img data-toggle="modal" data-target="#update-header-photo" src="{{ asset('theme/socialyte/svg-icons/center/camera.svg') }}">
-                        </a>
-                        <a href="#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="TAG YOUR FRIENDS">
-                            <img src="{{ asset('theme/socialyte/svg-icons/center/tag.svg') }}">
+                        <a href="#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="@lang('ADD PHOTOS')">
+                            <label for="upload-image" class="display-inline">
+                                <img src="{{ asset('theme/socialyte/svg-icons/center/camera.svg') }}">
+                            </label>
+                            <input class="input-image" type="file" id="upload-image" name="image[]" multiple>
                         </a>
                         <button class="btn btn-primary btn-md-2"> @lang('Post Status') </button>
                         <div class="form-group post-type">

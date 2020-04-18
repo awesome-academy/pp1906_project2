@@ -69,6 +69,18 @@ Generalization
     margin-left: 0px !important;
 }
 
+.display-none {
+    display: none;
+}
+
+.display-inline {
+    display: inline;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
 /*----------------------------------------------------------------
 Login and Register page
 -----------------------------------------------------------------*/
@@ -300,4 +312,34 @@ input:focus {
 
 #sharePostModalLabel img {
     margin-right: 12px;
+}
+
+.input-image {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+label:hover {
+    @extend .cursor-pointer;
+}
+
+.add-options-message {
+    margin-bottom: 20px;
+}
+
+.news-feed-form .options-message {
+    padding-top: 10px;
+}
+
+.thumb-image {
+    width: 200px;
+    padding: 5px;
+}
+
+#image-holder {
+    border-bottom: 1px solid #e6ecf5;
 }

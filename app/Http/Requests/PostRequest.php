@@ -18,6 +18,7 @@ class PostRequest extends FormRequest
         $type = config('post.type');
 
         return [
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'content' => 'required',
             'type' => [
                 'required',
