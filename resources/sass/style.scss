@@ -81,6 +81,10 @@ Generalization
     cursor: pointer;
 }
 
+.no-event {
+    pointer-events: none;
+}
+
 /*----------------------------------------------------------------
 Login and Register page
 -----------------------------------------------------------------*/
@@ -342,4 +346,17 @@ label:hover {
 
 #image-holder {
     border-bottom: 1px solid #e6ecf5;
+}
+
+.image-error {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.half-width img {
+    width: 276px;
+    height: 184px;
 }

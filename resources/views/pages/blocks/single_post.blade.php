@@ -44,6 +44,11 @@
         <p>
             {{ $post->content }}
         </p>
+
+        @if ($post->image)
+        @include('pages.blocks.widgets.post_image')
+        @endif
+
         @if ($post->share)
         @include('pages.blocks.widgets.share', ['post' => $post->share])
         @endif

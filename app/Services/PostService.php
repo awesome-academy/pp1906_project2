@@ -4,17 +4,15 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\Post;
-use App\Traits\UploadTrait;
+use Illuminate\Support\Str;
 
 class PostService
 {
-    use UploadTrait;
-
     /**
      * Get Post data from request.
      *
      * @param  Model  $request
-     * @return Array ['content', 'type']
+     * @return Array ['image', 'content', 'type']
      */
     public function getPostData($request)
     {
@@ -33,18 +31,18 @@ class PostService
      */
     public function saveImage($images)
     {
-        $arrayImage = [];
+        $imageArray = [];
         foreach ($images as $image) {
-            $fileName = $image->getFileName();
+            $fileName = time() . '_' . $image->getClientOriginalName();
 
             // Upload image
-            $this->upload($image, '/posts',  'post_images');
+            $image->storeAs('/posts', $fileName, 'post_images');
 
-            $arrayImage[] = $fileName;
+            $imageArray[] = $fileName;
         }
 
         //encode image array to JSON datatype
-        $imageString = json_encode($arrayImage);
+        $imageString = json_encode($imageArray);
 
         return $imageString;
     }
@@ -52,7 +50,7 @@ class PostService
     /**
      * Store post in database.
      *
-     * @param Array $data['user_id', 'content', 'type']
+     * @param Array $data['user_id', 'image', 'content', 'type']
      * @return Boolean
      */
     public function storePost($data)
