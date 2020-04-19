@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
+use App\Http\Requests\ReactRequest;
 use App\Models\Comment;
 use App\Services\CommentService;
+use App\Services\ReactService;
 
 class CommentController extends Controller
 {
     protected $commentService;
+    protected $reactService;
 
-    public function __construct(CommentService $commentService)
+    public function __construct(CommentService $commentService, ReactService $reactService)
     {
         $this->commentService = $commentService;
+        $this->reactService = $reactService;
     }
 
     /**
@@ -87,6 +91,35 @@ class CommentController extends Controller
         $comment = $this->commentService->deleteComment($id);
 
         if ($comment) {
+            return response()->json([
+                'status' => true,
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+        ]);
+    }
+
+    /**
+     * Store React in database.
+     *
+     * @param  \Illuminate\Http\ReactRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function reactComment(ReactRequest $request)
+    {
+        $data = $request->only([
+            'type',
+            'reactable_id',
+        ]);
+
+        $data['reactable_type'] = 'App\Models\Comment';
+        $data['user_id'] = auth()->id();
+
+        $react = $this->reactService->updateReact($data);
+
+        if ($react) {
             return response()->json([
                 'status' => true,
             ]);
