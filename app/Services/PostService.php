@@ -4,9 +4,12 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\Post;
+use App\Traits\UploadTrait;
 
 class PostService
 {
+    use UploadTrait;
+
     /**
      * Get Post data from request.
      *
@@ -17,8 +20,33 @@ class PostService
     {
         return $request->only([
             'content',
+            'image',
             'type'
         ]);
+    }
+
+    /**
+     * Save Images.
+     *
+     * @param  Array $images
+     * @return JSON
+     */
+    public function saveImage($images)
+    {
+        $arrayImage = [];
+        foreach ($images as $image) {
+            $fileName = $image->getFileName();
+
+            // Upload image
+            $this->upload($image, '/posts',  'post_images');
+
+            $arrayImage[] = $fileName;
+        }
+
+        //encode image array to JSON datatype
+        $imageString = json_encode($arrayImage);
+
+        return $imageString;
     }
 
     /**

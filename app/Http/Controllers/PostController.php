@@ -27,6 +27,8 @@ class PostController extends Controller
 
         $data['user_id'] = auth()->id();
 
+        $data['image'] = $this->postService->saveImage($data['image']);
+
         $storePost = $this->postService->storePost($data);
 
         if ($storePost) {
