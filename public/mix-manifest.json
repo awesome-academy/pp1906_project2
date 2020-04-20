@@ -7,5 +7,6 @@
     "/js/preview_image.js": "/js/preview_image.js",
     "/js/store_comment.js": "/js/store_comment.js",
     "/js/store_react.js": "/js/store_react.js",
+    "/js/store_react_comment.js": "/js/store_react_comment.js",
     "/js/update_delete_comment.js": "/js/update_delete_comment.js"
 }

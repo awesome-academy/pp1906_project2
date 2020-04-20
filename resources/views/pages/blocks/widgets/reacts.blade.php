@@ -1,6 +1,6 @@
 <div class="post-additional-info inline-items">
 
-    @if ($post->reacts()->where('user_id', auth()->id())->where('type', 1)->exists())
+    @if ($post->reacts()->where('user_id', auth()->id())->where('type', config('react.like'))->exists())
     <a href="#" class="post-add-icon inline-items btn-react-post-like" data-post-id={{ $post->id }} data-react-type={{ config('react.like') }}>
         <img class="not-like-post" hidden="" src="{{ asset('theme/socialyte/svg-icons/center/not_like.svg') }}">
         <img class="like-post" src="{{ asset('theme/socialyte/svg-icons/center/liked.svg') }}">
@@ -12,7 +12,7 @@
     </a>
     @endif
 
-    @if ($post->reacts()->where('user_id', auth()->id())->where('type', 2)->exists())
+    @if ($post->reacts()->where('user_id', auth()->id())->where('type', config('react.love'))->exists())
     <a href="#" class="post-add-icon inline-items btn-react-post-love" data-post-id={{ $post->id }} data-react-type={{ config('react.love') }}>
         <img class="not-love-post" hidden="" src="{{ asset('theme/socialyte/svg-icons/center/not_love.svg') }}">
         <img class="love-post" src="{{ asset('theme/socialyte/svg-icons/center/loved.svg') }}">
