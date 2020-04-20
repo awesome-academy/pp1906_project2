@@ -30,5 +30,9 @@
         </div>
 
         <p>{{ $post->content }}</p>
+
+        @if ($post->image)
+        @include('pages.blocks.widgets.post_image')
+        @endif
     </li>
 </ul>

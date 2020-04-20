@@ -93,6 +93,10 @@
                     <p>
                         {{ $post->content }}
                     </p>
+
+                    @if ($post->image)
+                    @include('pages.blocks.widgets.share_image')
+                    @endif
                 </article>
 
             </div>

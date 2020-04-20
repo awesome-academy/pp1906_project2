@@ -35,7 +35,7 @@
                             <label for="upload-image" class="display-inline">
                                 <img src="{{ asset('theme/socialyte/svg-icons/center/camera.svg') }}">
                             </label>
-                            <input class="input-image" type="file" id="upload-image" name="image[]" multiple>
+                            <input class="input-image form-control @error('image') is-invalid @enderror" type="file" id="upload-image" name="image[]" multiple>
                         </a>
                         <button class="btn btn-primary btn-md-2"> @lang('Post Status') </button>
                         <div class="form-group post-type">
@@ -53,6 +53,11 @@
                             @enderror
                         </div>
 
+                        @error('image.*')
+                        <span class="image-error" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                 </form>
