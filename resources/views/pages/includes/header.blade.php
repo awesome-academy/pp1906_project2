@@ -131,7 +131,7 @@
 
             <div class="author-page author vcard inline-items more">
                 <div class="author-thumb">
-                    <img alt="author" src="{{ asset('theme/socialyte/img/author-page.jpg') }}" class="avatar">
+                    <img src="{{ getAvatar(auth()->user()->avatar) }}" class="avatar default-avatar" alt="{{auth()->user()->name}}">
                     <span class="icon-status online"></span>
                 </div>
                 <a href="#" class="author-name fn">

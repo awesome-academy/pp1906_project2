@@ -15,3 +15,15 @@ if (!function_exists('getUpdatedFromTime')) {
         return Carbon::createFromTimeStamp(strtotime($post->updated_at))->diffForHumans();
     }
 }
+
+if (!function_exists('getAvatar')) {
+    function getAvatar($image) {
+        $imagePath = '/theme/socialyte/img/default_avatar.jpg';
+
+        if ($image) {
+            $imagePath = asset('storage/images/users/' . $image);
+        }
+
+        return $imagePath;
+    }
+}
