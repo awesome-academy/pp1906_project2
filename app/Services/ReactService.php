@@ -4,19 +4,38 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\React;
+use App\Models\Post;
+use App\Services\NotificationService;
 
 class ReactService
 {
+    protected $notificationService;
+
+    public function __construct(NotificationService $notificationService)
+    {
+        $this->notificationService = $notificationService;
+    }
+
     /**
-     * Store React in database.
+     * Store React and Notification in database.
      *
      * @param Array $data['user_id', 'type', 'reactable_id', 'reactable_type']
      * @return Boolean | App\Models\React
      */
     public function storeReact($data)
     {
+        $post = Post::findOrFail($data['reactable_id']);
+
+        $notificationData = [
+            'sender_id' => $data['user_id'],
+            'receiver_id' => $post->user->id,
+            'type' => $data['type'],
+            'post_id' => $data['reactable_id'],
+        ];
+
         try {
-            $react = React::create($data);
+            React::create($data);
+            $this->notificationService->storeNotification($notificationData);
         } catch (\Throwable $th) {
             Log::error($th);
 
