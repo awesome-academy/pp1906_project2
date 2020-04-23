@@ -17,7 +17,7 @@
                 <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="author-thumb">
-                        <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}">
+                        <img class="default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{auth()->user()->name}}">
                     </div>
                     <div class="form-group with-icon label-floating is-empty">
                         <label class="control-label"> @lang('Share what you are thinking here...') </label>

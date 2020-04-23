@@ -37,7 +37,7 @@
                     </div>
                     <div class="top-header-author">
                         <a href="{{ asset('user.profile', $user->username) }}" class="author-thumb">
-                            <img src="{{ asset('theme/socialyte/img/author-main1.jpg') }}" alt="author">
+                            <img id="default-avatar-profile" src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{auth()->user()->name}}">
                         </a>
                         <div class="author-content">
                             <a href="{{ asset('user.profile', $user->username) }}" class="h4 author-name">{{ $user->name }}</a>

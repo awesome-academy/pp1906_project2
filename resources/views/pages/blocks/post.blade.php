@@ -4,7 +4,7 @@
     <article class="hentry post">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('theme/socialyte/img/avatar10-sm.jpg') }}" alt="author">
+            <img class="default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{auth()->user()->name}}">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="{{ route('user.profile', $post->user->username) }}">{{ $post->user->name }}</a>
