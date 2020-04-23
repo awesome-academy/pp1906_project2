@@ -30,6 +30,14 @@ class Post extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function reactUsers()
+    {
+        return $this->belongsToMany('App\Models\User', 'reacts', 'reactable_id', 'user_id')
+            ->select('users.id', 'name', 'username', 'avatar')
+            ->where('reactable_type', 'App\Models\Post')
+            ->withPivot('type');
+    }
+
     /**
      * relationship with Comment.
      */

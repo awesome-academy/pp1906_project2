@@ -69,6 +69,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\Models\Post');
     }
 
+    public function reactPosts()
+    {
+        return $this->belongsToMany('App\Models\Post', 'reacts', 'reactable_id', 'user_id');
+    }
+
+    public function reacts()
+    {
+        return $this->hasMany('App\Models\React');
+    }
+
     /**
      * Scope current user.
      *

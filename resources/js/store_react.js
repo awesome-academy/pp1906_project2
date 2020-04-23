@@ -24,6 +24,7 @@ $(document).ready(function () {
         var reactableId = parseInt(reactElement.data('post-id'));
         var react = reactElement.find(reactClass);
         var unReact = reactElement.find(unReactClass);
+        var userReact = reactElement.parent().parent().parent().parent().parent().find('.list-react-post');
 
         $.ajax({
             url: 'reacts',
@@ -32,10 +33,10 @@ $(document).ready(function () {
                 'type': reactType,
                 'reactable_id': reactableId,
             },
+
             cache: false,
             success: function (result) {
                 if (result.status) {
-
                     if (!unReact.attr('hidden')) {
                         unReact.attr('hidden', '');
                     } else {
@@ -48,6 +49,10 @@ $(document).ready(function () {
                         react.attr('hidden', '');
                     }
 
+                    reactElement.parent().parent().find('.count-reacts').text(result.count_react);
+                    userReact.html();
+                    userReact.html(result.view);
+
                 } else {
                     errorMessage();
                 }
@@ -57,6 +62,5 @@ $(document).ready(function () {
             }
         });
     }
-
-
 });
+

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ReactRequest;
-use App\Models\React;
+use App\Models\Post;
 use App\Services\ReactService;
 
 class ReactController extends Controller
@@ -28,14 +28,16 @@ class ReactController extends Controller
             'reactable_id',
         ]);
 
+        $post = Post::findOrFail($data['reactable_id']);
         $data['reactable_type'] = 'App\Models\Post';
         $data['user_id'] = auth()->id();
-
         $react = $this->reactService->updateReact($data);
 
         if ($react) {
             return response()->json([
                 'status' => true,
+                'count_react' => $post->reacts->count(),
+                'view' => view('pages.blocks.modals.react_user', compact('post'))->render(),
             ]);
         }
 
