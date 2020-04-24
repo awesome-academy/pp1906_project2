@@ -37,6 +37,12 @@
 
     @yield('content')
 
+    <script type="text/javascript">
+        var currentUserId = "{{ auth()->id() }}";
+        var notificationCount = "{{ auth()->user()->notifications()->isNotRead()->count() }}";
+        var pusherKey = "{{ config('broadcasting.connections.pusher.key') }}";
+    </script>
+
     @include('pages.includes.script')
 
     @include('pages.includes.modal')

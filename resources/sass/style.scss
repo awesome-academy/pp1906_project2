@@ -369,4 +369,117 @@ label:hover {
 #default-avatar-profile {
     width: 124px;
     height: 124px;
+    // Notifications panel
+}
+
+.control-icon {
+    margin-right: 29px;
+    fill: #9a9fbf;
+    margin-top: 8px;
+}
+.control-icon > svg {
+    height: 20px;
+}
+.control-icon.has-items {
+    fill: #fff;
+}
+.control-icon .label-avatar {
+    width: 19px;
+    height: 19px;
+    line-height: 19px;
+    top: -12px;
+    right: -9px;
+}
+.control-icon .dropdown {
+    width: 380px;
+    top: 35px;
+    right: -180px;
+    padding: 0 0 70px 0;
+}
+.control-icon .dropdown .view-all {
+    padding: 20px;
+    color: #fff;
+}
+.control-icon .dropdown .view-all:hover {
+    color: #fff;
+}
+.control-icon .dropdown .notification-list {
+    padding: 0;
+}
+.control-icon .ui-block-title a {
+    display: inline-block;
+    float: right;
+    margin-left: 20px;
+    text-transform: uppercase;
+    font-size: 9px;
+    padding: 0;
+}
+.control-icon .accept-request {
+    padding: 0.5rem;
+    font-size: 0.688rem;
+    color: #fff;
+    display: inline-block;
+}
+.control-icon .accept-request:hover {
+    color: #fff;
+}
+.control-icon .notification-list .author-thumb {
+    height: 34px;
+    width: 34px;
+    margin-right: 0;
+    overflow: hidden;
+}
+.control-icon .notification-list .notification-friend {
+    padding: 0;
+    font-size: 14px;
+}
+.control-icon .notification-list .notification-link {
+    padding: 0;
+    display: inline-block;
+}
+.control-icon .notification-list .notification-event {
+    width: 75%;
+}
+.control-icon .notification-list.friend-requests .accepted .notification-link {
+    padding: 0;
+    display: inline-block;
+}
+.control-icon .notification-list.friend-requests .accepted .notification-icon {
+    margin-top: 0;
+}
+.control-icon .notification-list.friend-requests .notification-event {
+    width: 60%;
+}
+.control-icon .notification-list .comment-photo {
+    margin-top: 15px;
+    max-width: 215px;
+}
+.control-icon .notification-list .comment-photo span {
+    font-size: 11px;
+}
+.control-icon .notification-list li > * {
+    vertical-align: top;
+}
+.control-icon .notification-list .notification-icon {
+    margin-top: 0;
+}
+.control-icon .notification-list .notification-icon svg {
+    height: 20px;
+    width: 20px;
+}
+.control-icon .chat-message li.chat-group .author-thumb {
+    width: 36px;
+}
+.control-icon .notification-list.chat-message .notification-icon svg {
+    height: 24px;
+    width: 24px;
+}
+.control-icon .mCustomScrollbar {
+    overflow: hidden;
+    max-height: 300px;
+}
+.control-icon .ps > .ps__scrollbar-y-rail,
+.control-icon .ps:hover > .ps__scrollbar-y-rail {
+    left: 0;
+    top: 40px !important;
 }

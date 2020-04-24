@@ -3,7 +3,9 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use App\Models\React;
+use App\Events\PostReacted;
 use App\Models\Post;
 use App\Services\NotificationService;
 
@@ -33,11 +35,19 @@ class ReactService
             'post_id' => $data['reactable_id'],
         ];
 
+        DB::beginTransaction(); //begin transaction
+
         try {
             React::create($data);
             $this->notificationService->storeNotification($notificationData);
+
+            DB::commit(); //commit transaction
+
+            event(new PostReacted($notificationData['receiver_id']));
         } catch (\Throwable $th) {
             Log::error($th);
+
+            DB::rollBack(); //rollback transaction
 
             return false;
         }
