@@ -67,6 +67,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::resource('reacts', 'ReactController');
 
     Route::post('{post}/share', 'PostController@share')->name('posts.share');
+
+    Route::get('/notifications/show-notifications', 'NotificationController@getNotificationList')->name('notifications.getNotificationList');
 });
 
 Route::get('/settings/password', function () {

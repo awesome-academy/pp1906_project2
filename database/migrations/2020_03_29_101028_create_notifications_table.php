@@ -17,7 +17,7 @@ class CreateNotificationsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('sender_id');
             $table->bigInteger('receiver_id');
-            $table->tinyInteger('type')->comment('1: react, 2: comment, 3: share');
+            $table->tinyInteger('type')->comment('1: like, 2: love, 3: comment, 4: share');
             $table->boolean('is_read')->default(0);
             $table->bigInteger('post_id');
             $table->bigInteger('comment_id')->nullable();

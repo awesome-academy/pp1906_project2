@@ -72,7 +72,9 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return view('pages.post.index', compact('post'));
+        $this->viewData['post'] = $post;
+
+        return view('pages.post.index', $this->viewData);
     }
 
     /**
