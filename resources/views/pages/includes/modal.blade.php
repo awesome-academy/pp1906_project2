@@ -14,34 +14,27 @@
             </div>
 
             <div class="modal-body">
-                <a href="#" class="upload-photo-item">
-                    <svg class="olymp-computer-icon">
-                        <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
-                    </svg>
-
-                    <h6>Upload Photo</h6>
-                    <span>Browse your computer.</span>
-                </a>
-
-                <a href="#" class="upload-photo-item" data-toggle="modal" data-target="#choose-from-my-photo">
-
-                    <svg class="olymp-photos-icon">
-                        <use xlink:href="svg-icons/sprites/icons.svg#olymp-photos-icon"></use>
-                    </svg>
-
-                    <h6>Choose from My Photos</h6>
-                    <span>Choose from your uploaded photos</span>
-                </a>
+                <form method="POST" action="{{ route('user.updateAvatar', auth()->user()->username) }}" enctype="multipart/form-data">
+                    @csrf
+                    <a href="#" class="upload-photo-item">
+                        <svg class="olymp-computer-icon">
+                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                        </svg>
+                        <h6><label for="upload-avatar" class="display-inline">Upload Photo</label></h6>
+                        <span>Browse your computer.</span>
+                    </a>
+                    <input type="file" id="upload-avatar" name="avatar" style="display: none">
+                    <hr>
+                    <div id="image-holder1" style="text-align: center;"></div>
+                    <button class="btn btn-primary btn-avatar"  style="margin: 10px 20px 10px 345px; display:none">Upload</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-
 <!-- ... end Window-popup Update Header Photo -->
 
 <!-- Window-popup Choose from my Photo -->
-
 <div class="modal fade" id="choose-from-my-photo" tabindex="-1" role="dialog" aria-labelledby="choose-from-my-photo" aria-hidden="true">
     <div class="modal-dialog window-popup choose-from-my-photo" role="document">
 
@@ -226,5 +219,4 @@
 
     </div>
 </div>
-
 <!-- ... end Window-popup Choose from my Photo -->

@@ -1,7 +1,7 @@
 @foreach($post->reactUsers->groupBy('id') as $users)
     <div class="birthday-item inline-items">
         <div class="author-thumb">
-            <img src="{{ asset('theme/socialyte/img/avatar7-sm.jpg') }}" alt="author">
+            <img src="{{ getAvatar(auth()->user()->avatar) }}" class="default-avatar" alt="author">
         </div>
         <div class="birthday-author-name">
              <a href="{{ route('user.profile', $users->first()->username) }}" class="h6 author-name">{{ $users->first()->name }}</a>

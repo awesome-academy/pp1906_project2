@@ -19,7 +19,7 @@
                         @foreach($post->shares as $postShare)
                         <div class="birthday-item inline-items">
                             <div class="author-thumb">
-                                <img src="{{ asset('theme/socialyte/img/avatar7-sm.jpg') }}" alt="author">
+                                <img src="{{ getAvatar(auth()->user()->avatar) }}" class="default-avatar" alt="author">
                             </div>
                             <div class="birthday-author-name">
                                 <a href="{{ route('user.profile', $postShare->user->username) }}" class="h6 author-name">{{ $postShare->user->name }}</a>

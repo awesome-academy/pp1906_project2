@@ -19,7 +19,7 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="author-thumb">
-                                    <img class="avatar" src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
+                                    <img class="avatar default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="author">
                                 </div>
                                 <div class="form-group with-icon label-floating is-empty">
                                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" placeholder="">{{ $post->content }}</textarea>

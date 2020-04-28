@@ -6,9 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Friend;
+use App\Services\ProfileService;
+use App\Http\Requests\ProfileRequest;
+use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
+    protected $profileService;
+
+    public function __construct(ProfileService $profileService)
+    {
+        $this->profileService = $profileService;
+    }
+
     /**
      * Display others user profile.
      *
@@ -55,5 +65,25 @@ class ProfileController extends Controller
         $relationship = $currentUser->isFriends($user)->first();
 
         return view('pages.profile.friends.index', compact('user', 'relationship'));
+    }
+
+    public function updateAvatar(ProfileRequest $request)
+    {
+        $user = auth()->user();
+        $data = $request->only([
+            'avatar',
+        ]);
+
+        $avatar = $this->profileService->saveAvatar($data['avatar']);
+
+        try {
+            $user->update(['avatar' => $avatar]);
+        } catch (\Throwable $th) {
+            Log::error($th);
+
+            return back()->with('error', __('profile.avatar.error'));
+        }
+
+        return back()->with('success', __('profile.avatar.success'));
     }
 }
