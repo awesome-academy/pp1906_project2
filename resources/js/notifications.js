@@ -3,8 +3,7 @@ import { ajaxSetup } from './functions.js';
 $(document).ready(function () {
     ajaxSetup();
 
-    var notificationsWrapper = $('.dropdown-notifications');
-    var notificationNumber = notificationsWrapper.find('.notification-count');
+    var notificationNumber = $('.notification-count');
     notificationCount = parseInt(notificationCount);
 
     if (notificationCount == 0) {
@@ -44,7 +43,7 @@ $(document).ready(function () {
             url: url,
             type: 'GET',
             cache: false,
-            success: function (result) {
+            success: function () {
                 $('.notification-block').html('');
                 $('.notification-block').append(result.html);
             },
@@ -57,5 +56,28 @@ $(document).ready(function () {
     // make dropdown not close when clicked
     $('.dropdown-menu').on('click', function (event) {
         event.stopPropagation();
+    });
+
+    $('.mark-all-as-read').on('click', function (event) {
+        event.preventDefault();
+        var url = '/notifications/mark-all';
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            cache: false,
+            success: function (result) {
+                if (result.status) {
+                    $('.notification-block').html('');
+                    $('.notification-block').append(result.html);
+
+                    notificationCount = 0;
+                    notificationNumber.hide();
+                }
+            },
+            error: function () {
+                errorMessage();
+            }
+        });
     });
 });

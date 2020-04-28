@@ -501,3 +501,8 @@ label:hover {
 .notification-background:hover {
     background-color: #fafbfd !important;
 }
+
+.page-item.active .page-link {
+    background-color: $theme;
+    border: none;
+}

@@ -17,7 +17,7 @@ class NotificationController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get list of notifications.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -32,7 +32,7 @@ class NotificationController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show notification's post.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -50,5 +50,40 @@ class NotificationController extends Controller
         }
 
         return back()->with('error', __('notification.error'));
+    }
+
+    /**
+     * Mark all notifications as read.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function markAllAsRead()
+    {
+        $markAllNotification = $this->notificationService->markAllAsRead(auth()->id());
+
+        $notifications = $this->notificationService->getNotificationById(auth()->id());
+
+        if ($markAllNotification) {
+            return response()->json([
+                'status' => true,
+                'html' => view('pages.blocks.widgets.notification-block', compact('notifications'))->render()
+            ]);
+        }
+
+        return response()->json([
+            'status' => false
+        ]);
+    }
+
+    /**
+     * Show all notifications page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllNotification()
+    {
+        $notifications = $this->notificationService->getNotificationById(auth()->id());
+
+        return view('pages.settings.notification.index', compact('notifications'));
     }
 }
