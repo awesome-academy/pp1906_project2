@@ -39,11 +39,12 @@ class ReactService
 
         try {
             React::create($data);
-            $this->notificationService->storeNotification($notificationData);
+
+            if ($data['user_id'] != $post->user->id) {
+                $this->notificationService->storeNotification($notificationData);
+            }
 
             DB::commit(); //commit transaction
-
-            event(new PostReacted($notificationData['receiver_id']));
         } catch (\Throwable $th) {
             Log::error($th);
 

@@ -41,10 +41,10 @@
 
 <script src="{{ asset('theme/socialyte/Bootstrap/dist/js/bootstrap.bundle.js') }}"></script>
 
+<script src="{{ asset('js/notifications.js') }}"></script>
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script type="module" src="{{ asset('js/functions.js') }}"></script>
-<script src="{{ asset('js/notifications.js') }}"></script>
 
 @yield('script')

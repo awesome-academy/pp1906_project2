@@ -59,7 +59,7 @@ class Notification extends Model
     }
 
     /**
-     * Scope for get notification that is not.
+     * Scope for get notifications that is not read.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -67,5 +67,45 @@ class Notification extends Model
     public function scopeIsNotRead($query)
     {
         return $query->where('is_read', config('notification.is_not_read'));
+    }
+
+    /**
+     * Scope if notification is read or not.
+     *
+     * @return Boolean
+     */
+    public function scopeIsRead()
+    {
+        return $this->is_read;
+    }
+
+    /**
+     * Scope if notification type is a liked.
+     *
+     * @return Boolean
+     */
+    public function scopeIsLike()
+    {
+        return $this->type == config('notification.type.like');
+    }
+
+    /**
+     * Scope if notification type is a loved.
+     *
+     * @return Boolean
+     */
+    public function scopeIsLove()
+    {
+        return $this->type == config('notification.type.love');
+    }
+
+    /**
+     * Scope if notification type is a share.
+     *
+     * @return Boolean
+     */
+    public function scopeIsShare()
+    {
+        return $this->type == config('notification.type.share');
     }
 }

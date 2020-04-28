@@ -413,6 +413,7 @@ label:hover {
     text-transform: uppercase;
     font-size: 9px;
     padding: 0;
+    font-weight: bold;
 }
 .control-icon .accept-request {
     padding: 0.5rem;
@@ -482,4 +483,21 @@ label:hover {
 .control-icon .ps:hover > .ps__scrollbar-y-rail {
     left: 0;
     top: 40px !important;
+}
+
+.more-with-triangle.triangle-top-center:before {
+    margin-right: 100px;
+}
+
+.control-icon .label-avatar {
+    top: -10px;
+    right: 1px;
+}
+
+.notification-background {
+    background-color: #fafbfd;
+}
+
+.notification-background:hover {
+    background-color: #fafbfd !important;
 }

@@ -3,11 +3,20 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use App\Models\Post;
-use Illuminate\Support\Str;
+use App\Events\PostReacted;
+use App\Services\NotificationService;
 
 class PostService
 {
+    protected $notificationService;
+
+    public function __construct(NotificationService $notificationService)
+    {
+        $this->notificationService = $notificationService;
+    }
+
     /**
      * Get Post data from request.
      *
@@ -100,16 +109,33 @@ class PostService
         $post = Post::findOrFail($id);
         $sharePostId = $post->share_from_post_id;
 
+        $notificationData = [
+            'sender_id' => $data['user_id'],
+            'receiver_id' => $post->user->id,
+            'type' => config('notification.type.share'),
+            'post_id' => $post->id,
+        ];
+
+        DB::beginTransaction();
+
         try {
             if (is_null($sharePostId)) {
                 $data['share_from_post_id'] = $id;
+
+                if ($data['user_id'] != $post->user->id) {
+                    $this->notificationService->storeNotification($notificationData);
+                }
             } else {
                 $data['share_from_post_id'] = $sharePostId;
             }
 
             Post::create($data);
+
+            DB::commit();
         } catch (\Throwable $th) {
             Log::error($th);
+
+            DB::rollBack();
 
             return false;
         }
