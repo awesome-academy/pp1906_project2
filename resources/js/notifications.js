@@ -4,13 +4,14 @@ $(document).ready(function () {
     ajaxSetup();
 
     var notificationsWrapper = $('.dropdown-notifications');
-    var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
-    var notificationsCountElem = notificationsToggle.find('.data-count');
-    var notificationsCount = parseInt(notificationsCountElem.data('count'));
-    var notifications = notificationsWrapper.find('ul.notification-list');
     var notificationNumber = notificationsWrapper.find('.notification-count');
+    notificationCount = parseInt(notificationCount);
 
-    notificationNumber.text(notificationCount);
+    if (notificationCount == 0) {
+        notificationNumber.hide();
+    } else {
+        notificationNumber.text(notificationCount);
+    }
 
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -24,32 +25,37 @@ $(document).ready(function () {
     var channel = pusher.subscribe('socialyte' + '_' + currentUserId);
 
     // Bind a function to a Event (the full Laravel class)
-    channel.bind('post-reacted', function (data) {
-        notificationNumber.show();
+    channel.bind('post-reacted', function () {
+        if (notificationCount == 0) {
+            notificationNumber.show();
+        }
 
-        notifications.find('.notification-message').append(data.sender);
+        notificationCount++;
 
-        notificationsCount += 1;
-        notificationsCountElem.attr('data-count', notificationsCount);
-        notificationsWrapper.find('.notification-count').text(notificationsCount);
+        notificationNumber.text(notificationCount);
     });
 
 
     // show notifications
-    $('.control-icon').on('click', '.show-notifications', function (e) {
-        e.preventDefault();
-        var url = 'notifications/show-notifications';
+    $('.dropdown-notifications').on('show.bs.dropdown', function () {
+        var url = '/notifications/show-notifications';
 
         $.ajax({
             url: url,
             type: 'GET',
             cache: false,
             success: function (result) {
-                $(".notification-block").append(result.html);
+                $('.notification-block').html('');
+                $('.notification-block').append(result.html);
             },
             error: function () {
                 errorMessage();
             }
         });
+    });
+
+    // make dropdown not close when clicked
+    $('.dropdown-menu').on('click', function (event) {
+        event.stopPropagation();
     });
 });

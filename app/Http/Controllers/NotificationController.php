@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Services\NotificationService;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Notification;
 
 class NotificationController extends Controller
 {
@@ -27,5 +29,26 @@ class NotificationController extends Controller
         return response()->json([
             'html' => view('pages.blocks.widgets.notification-block', compact('notifications'))->render()
         ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showNotificationPost($id)
+    {
+        $notification = Notification::findOrFail($id);
+
+        $post = $notification->post_id;
+
+        $setNotificationIsRead = $this->notificationService->setNotificationIsRead($notification);
+
+        if ($setNotificationIsRead) {
+            return redirect()->route('posts.show', compact('post'));
+        }
+
+        return back()->with('error', __('notification.error'));
     }
 }
