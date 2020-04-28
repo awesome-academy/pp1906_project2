@@ -19,7 +19,7 @@
                             <form method="POST" action="{{ route('posts.share', $post->id) }}">
                                 @csrf
                                 <div class="author-thumb">
-                                    <img class="avatar" src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
+                                    <img class="avatar default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="author">
                                 </div>
                                 <div class="form-group with-icon label-floating is-empty">
                                     <label class="control-label"> @lang('Share what you are thinking here...') </label>

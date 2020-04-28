@@ -49,6 +49,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/{username}', 'ProfileController@showProfile')->name('user.profile');
 
+    Route::post('/{username}/avatar', 'ProfileController@updateAvatar')->name('user.updateAvatar');
+
     Route::get('/{username}/friends', 'ProfileController@showFriends')->name('user.friends');
 
     Route::post('/{username}/add-friend', 'FriendController@sendRequest')->name('friend.request');
