@@ -506,3 +506,17 @@ label:hover {
     background-color: $theme;
     border: none;
 }
+
+.default-photo {
+    height: 422.66px;
+}
+
+.photo-item-margin {
+    border-left: none;
+    margin: 0px 0px 0px 179px;
+}
+
+.btn-avatar, .btn-photo {
+    margin: 10px 20px 10px 345px;
+    display:none;
+}

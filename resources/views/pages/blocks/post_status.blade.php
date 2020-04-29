@@ -1,7 +1,16 @@
 <div class="ui-block">
 
     <!-- News Feed Form  -->
-
+    @if (session('upload_error'))
+    <div class="alert alert-danger" role="alert" style="text-align: center;">
+        {{ session('upload_error') }}
+    </div>
+    @endif
+    @if (session('upload_success'))
+    <div class="alert alert-success" role="alert" style="text-align: center;">
+        {{ session('upload_success') }}
+    </div>
+    @endif
     <div class="news-feed-form single-post">
         <!-- Nav tabs -->
         <div class="ui-block-title">

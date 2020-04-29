@@ -27,3 +27,15 @@ if (!function_exists('getAvatar')) {
         return $imagePath;
     }
 }
+
+if (!function_exists('getCover')) {
+    function getCover($image) {
+        $imagePath = '/theme/socialyte/img/default_photo.png';
+
+        if ($image) {
+            $imagePath = asset('storage/images/users/' . $image);
+        }
+
+        return $imagePath;
+    }
+}

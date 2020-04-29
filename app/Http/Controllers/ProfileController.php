@@ -67,23 +67,33 @@ class ProfileController extends Controller
         return view('pages.profile.friends.index', compact('user', 'relationship'));
     }
 
-    public function updateAvatar(ProfileRequest $request)
+    public function uploadProfileImage(ProfileRequest $request)
     {
         $user = auth()->user();
         $data = $request->only([
             'avatar',
+            'cover'
         ]);
 
-        $avatar = $this->profileService->saveAvatar($data['avatar']);
+        if (isset($data['avatar'])) {
+            $image = $data['avatar'];
+            $updateField = 'avatar';
+        } else {
+            $image = $data['cover'];
+            $updateField = 'cover';
+        }
+
+        $saveImage = $this->profileService->uploadImage($image);
 
         try {
-            $user->update(['avatar' => $avatar]);
+            $user->update([$updateField => $saveImage]);
         } catch (\Throwable $th) {
             Log::error($th);
 
-            return back()->with('error', __('profile.avatar.error'));
+            return back()->with('upload_error', __('profile.' . $updateField . '.error'));
         }
 
-        return back()->with('success', __('profile.avatar.success'));
+        return back()->with('upload_success', __('profile.' . $updateField . '.success'));
+
     }
 }

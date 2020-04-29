@@ -4,7 +4,7 @@
             <div class="ui-block">
                 <div class="top-header">
                     <div class="top-header-thumb">
-                        <img src="{{ asset('theme/socialyte/img/top-header1.jpg') }}" alt="nature">
+                        <img class="default-photo" src="{{ getCover(auth()->user()->cover) }}" alt="nature">
                     </div>
                     <div class="profile-section">
                         <div class="row">
