@@ -45,7 +45,9 @@
 
     @include('pages.includes.script')
 
-    @include('pages.includes.modal')
+    @include('pages.includes.modal_avatar')
+
+    @include('pages.includes.modal_cover')
 </body>
 
 </html>

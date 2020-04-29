@@ -7,17 +7,16 @@ use Illuminate\Support\Facades\Log;
 class ProfileService
 {
     /**
-     * Save Avatar in database.
+     * Upload Image in database.
      *
-     * @param Array $data['avatar']
+     * @param Array $data['avatar', 'cover']
      * @return String | App\Models\User
      */
-    public function saveAvatar($avatar)
+    public function uploadImage($image)
     {
-        $fileName = time() . '_' . $avatar->getClientOriginalName();
-
         try {
-            $avatar->storeAs('/users', $fileName, 'post_images');
+            $fileName = time() . '_' . $image->getClientOriginalName();
+            $image->storeAs('/users', $fileName, 'post_images');
 
             return $fileName;
         } catch (\Throwable $th) {

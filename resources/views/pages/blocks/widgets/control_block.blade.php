@@ -4,10 +4,10 @@
         <a href="#"><img src="{{ asset('theme/socialyte/svg-icons/top/settings.svg') }}"></a>
         <ul class="more-dropdown more-with-triangle triangle-bottom-right">
             <li>
-                <a href="#" data-toggle="modal" data-target="#update-header-photo">@lang('Update Profile Photo')</a>
+                <a href="#" data-toggle="modal" data-target="#update-header-avatar">@lang('Update Profile Photo')</a>
             </li>
             <li>
-                <a href="#" data-toggle="modal" data-target="#update-header-photo">@lang('Update Cover Photo')</a>
+                <a href="#" data-toggle="modal" data-target="#update-header-cover">@lang('Update Cover Photo')</a>
             </li>
             <li>
                 <a href="{{ route('user.showInformation') }}">@lang('Account Settings')</a>

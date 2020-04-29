@@ -51,7 +51,7 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/{username}', 'ProfileController@showProfile')->name('user.profile');
 
-    Route::post('/{username}/avatar', 'ProfileController@updateAvatar')->name('user.updateAvatar');
+    Route::post('/{username}/image-profile', 'ProfileController@uploadProfileImage')->name('user.uploadProfileImage');
 
     Route::get('/{username}/friends', 'ProfileController@showFriends')->name('user.friends');
 

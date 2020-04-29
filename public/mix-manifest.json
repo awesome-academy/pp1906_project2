@@ -6,6 +6,7 @@
     "/js/load_more.js": "/js/load_more.js",
     "/js/notifications.js": "/js/notifications.js",
     "/js/preview_avatar.js": "/js/preview_avatar.js",
+    "/js/preview_cover.js": "/js/preview_cover.js",
     "/js/preview_image.js": "/js/preview_image.js",
     "/js/store_comment.js": "/js/store_comment.js",
     "/js/store_react.js": "/js/store_react.js",
