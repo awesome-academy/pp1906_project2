@@ -5,7 +5,6 @@ namespace App\Services;
 use Illuminate\Support\Facades\Log;
 use App\Models\Notification;
 use App\Events\PostReacted;
-use Illuminate\Support\Facades\DB;
 
 class NotificationService
 {
@@ -50,28 +49,6 @@ class NotificationService
         return Notification::where('receiver_id', $userId)
             ->isNotRead()
             ->count();
-    }
-
-    /**
-     * Get Notifications count.
-     *
-     * @return Boolean
-     */
-    public function setNotificationIsRead($notification)
-    {
-        try {
-            if ($notification->is_read) {
-                return true;
-            }
-
-            $notification->update(['is_read' => true]);
-        } catch (\Throwable $th) {
-            Log::error($th);
-
-            return false;
-        }
-
-        return true;
     }
 
     /**

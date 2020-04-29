@@ -43,7 +43,7 @@ $(document).ready(function () {
             url: url,
             type: 'GET',
             cache: false,
-            success: function () {
+            success: function (result) {
                 $('.notification-block').html('');
                 $('.notification-block').append(result.html);
             },

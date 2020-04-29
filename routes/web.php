@@ -74,8 +74,6 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/notifications/show-notifications', 'NotificationController@getNotificationList')->name('notifications.getNotificationList');
 
-    Route::get('/notification/{notification}/show-post', 'NotificationController@showNotificationPost')->name('notifications.show-post');
-
     Route::post('/notifications/mark-all', 'NotificationController@markAllAsRead')->name('notifications.mark-all-as-read');
 });
 

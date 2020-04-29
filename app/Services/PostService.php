@@ -112,7 +112,6 @@ class PostService
             'sender_id' => $data['user_id'],
             'receiver_id' => $post->user->id,
             'type' => config('notification.type.share'),
-            'post_id' => $post->id,
         ];
 
         DB::beginTransaction();
@@ -120,15 +119,16 @@ class PostService
         try {
             if (is_null($sharePostId)) {
                 $data['share_from_post_id'] = $id;
-
-                if ($data['user_id'] != $post->user->id) {
-                    $this->notificationService->storeNotification($notificationData);
-                }
             } else {
                 $data['share_from_post_id'] = $sharePostId;
             }
 
-            Post::create($data);
+            $sharePost = Post::create($data);
+
+            if ($data['user_id'] != $post->user->id) {
+                $notificationData['post_id'] = $sharePost->id;
+                $this->notificationService->storeNotification($notificationData);
+            }
 
             DB::commit();
         } catch (\Throwable $th) {
@@ -154,6 +154,28 @@ class PostService
 
         try {
             $post->delete();
+        } catch (\Throwable $th) {
+            Log::error($th);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Get Notifications count.
+     *
+     * @return Boolean
+     */
+    public function setPostNotificationIsRead($notification)
+    {
+        if ($notification->is_read) {
+            return true;
+        }
+
+        try {
+            $notification->update(['is_read' => true]);
         } catch (\Throwable $th) {
             Log::error($th);
 
