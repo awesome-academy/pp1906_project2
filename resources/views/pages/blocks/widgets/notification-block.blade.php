@@ -8,9 +8,9 @@
         <div>
             <a href="#" class="h6 notification-friend sender">{{ $notification->sender->name }}</a>
             @if ($notification->isShare())
-                {!! __('notification.share', ['notification_id' => $notification->id]) !!}
+                {!! __('notification.share', ['post_id' => $notification->post_id]) !!}
             @else
-                {!! __('notification.react', ['notification_id' => $notification->id]) !!}
+                {!! __('notification.react', ['post_id' => $notification->post_id]) !!}
             @endif
         </div>
         <span class="notification-date">

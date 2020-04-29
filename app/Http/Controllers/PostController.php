@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Services\PostService;
+use App\Models\Notification;
 
 class PostController extends Controller
 {
@@ -63,7 +64,7 @@ class PostController extends Controller
     }
 
     /**
-     * Display the single post.
+     * Display the single post and mark notification is read if it has.
      *
      * @param  int  $id
      * @return Response
@@ -71,6 +72,9 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
+        $notification = Notification::where('post_id', $id)->firstOrFail();
+
+        $this->postService->setPostNotificationIsRead($notification);
 
         return view('pages.post.index', compact('post'));
     }
