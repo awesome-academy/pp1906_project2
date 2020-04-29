@@ -8,7 +8,7 @@
     <div class="dropdown more-with-triangle triangle-top-center dropdown-menu" aria-labelledby="dropdownMenuLink" style="position: fixed;">
         <div class="ui-block-title ui-block-title-small">
             <h6 class="title"> @lang('Notifications') </h6>
-            <a href="#"> @lang('Mark all as read') </a>
+            <a href="#" class="mark-all-as-read"> @lang('Mark all as read') </a>
         </div>
 
         <div class="mCustomScrollbar" data-mcs-theme="dark">
@@ -16,6 +16,6 @@
             </ul>
         </div>
 
-        <a href="#" class="view-all bg-primary"> @lang('View All') </a>
+        <a href="{{ route('notifications.showAllNotification') }}" class="view-all bg-primary"> @lang('View All') </a>
     </div>
 </div>

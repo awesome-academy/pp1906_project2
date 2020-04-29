@@ -5,7 +5,6 @@ namespace App\Services;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
-use App\Events\PostReacted;
 use App\Services\NotificationService;
 
 class PostService

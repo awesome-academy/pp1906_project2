@@ -47,6 +47,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::post('/settings/language/update', 'UserController@updateLanguage')->name('user.updateLanguage');
 
+    Route::get('/settings/notifications', 'NotificationController@showAllNotification')->name('notifications.showAllNotification');
+
     Route::get('/{username}', 'ProfileController@showProfile')->name('user.profile');
 
     Route::post('/{username}/avatar', 'ProfileController@updateAvatar')->name('user.updateAvatar');
@@ -72,15 +74,13 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/notifications/show-notifications', 'NotificationController@getNotificationList')->name('notifications.getNotificationList');
 
-    Route::get('notification/{notification}/show-post', 'NotificationController@showNotificationPost')->name('notifications.show-post');
+    Route::get('/notification/{notification}/show-post', 'NotificationController@showNotificationPost')->name('notifications.show-post');
+
+    Route::post('/notifications/mark-all', 'NotificationController@markAllAsRead')->name('notifications.mark-all-as-read');
 });
 
 Route::get('/settings/password', function () {
     return view('pages.settings.password.index');
-});
-
-Route::get('/settings/notifications', function () {
-    return view('pages.settings.notification.index');
 });
 
 Route::get('/settings/requests', function () {

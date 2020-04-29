@@ -6,11 +6,11 @@
 
     <div class="notification-event">
         <div>
-            <a href="#" class="h6 notification-friend sender">{{ $notification->sender->name }}</a> 
+            <a href="#" class="h6 notification-friend sender">{{ $notification->sender->name }}</a>
             @if ($notification->isShare())
-                {!! __('notification.share', ['post_id' => $notification->post_id]) !!} 
+                {!! __('notification.share', ['notification_id' => $notification->id]) !!}
             @else
-                {!! __('notification.react', ['post_id' => $notification->post_id]) !!} 
+                {!! __('notification.react', ['notification_id' => $notification->id]) !!}
             @endif
         </div>
         <span class="notification-date">
