@@ -16,7 +16,7 @@
                     <div class="news-feed-form single-post">
                         <div class="tab-content">
                             <div class="author-thumb">
-                                <img class="avatar default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="author">
+                                <img class="avatar default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{ auth()->user()->name }}">
                             </div>
                             <div class="form-group with-icon label-floating is-empty">
                                 <label class="control-label error-content" hidden style="color: red"><u><b>@lang('The content is not empty!') </b></u></label>

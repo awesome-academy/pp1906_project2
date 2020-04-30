@@ -47,6 +47,10 @@ class Notification extends Model
         return $this->belongsTo('App\Models\Comment', 'comment_id');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'sender_id');
+    }
     /**
      * Scope notifications in descending order.
      *

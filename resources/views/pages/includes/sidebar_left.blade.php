@@ -12,17 +12,17 @@
         <div class="mCustomScrollbar" data-mcs-theme="dark">
             <ul class="left-menu">
                 <li>
-                    <a href="#" title="@lang('Newsfeed')">
+                    <a href="/" title="@lang('Newsfeed')">
                         <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/newsfeed.svg') }}">
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="@lang('Profile')">
+                    <a href="{{ route('user.profile', auth()->user()->username) }}" title="@lang('Profile')">
                         <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/profile.svg') }}">
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="@lang('Friends')">
+                    <a href="{{ route('user.friends', auth()->user()->username) }}" title="@lang('Friends')">
                         <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/group.svg') }}">
                     </a>
                 </li>
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="@lang('User Settings')">
+                    <a href="{{ route('user.showInformation') }}" title="@lang('User Settings')">
                         <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/settings.svg') }}">
                     </a>
                 </li>

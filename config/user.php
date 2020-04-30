@@ -14,5 +14,6 @@ return [
         'accept' => 2,
         'reject' => 3,
         'block' => 4
-    ]
+    ],
+    'suggestion_friend' => 3
 ];

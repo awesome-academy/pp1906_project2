@@ -5,57 +5,24 @@
     <!-- W-Action -->
 
     <ul class="widget w-friend-pages-added notification-list friend-requests">
-        <li class="inline-items">
-            <div class="author-thumb">
-                <img src="{{ asset('theme/socialyte/img/avatar38-sm.jpg') }}" alt="author">
-            </div>
-            <div class="notification-event">
-                <a href="#" class="h6 notification-friend">Francine Smith</a>
-                <span class="chat-message-item">8 Friends in Common</span>
-            </div>
-            <span class="notification-icon">
-                <a href="#" class="accept-request" title="Accept friend request">
-                    <span class="icon-add without-text">
-                        <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
+        @foreach ($users as $user)
+                <li class="inline-items">
+                    <div class="author-thumb">
+                        <img class="default-avatar" src="{{ getAvatar($user->avatar) }}" alt="{{ $user->name }}">
+                    </div>
+                    <div class="notification-event">
+                        <a href="{{ route('user.profile', $user->username) }}" class="h6 notification-friend">{{ $user->name }}</a>
+                        <span class="chat-message-item">8 @lang('Friends in Common')</span>
+                    </div>
+                    <span class="notification-icon">
+                        <a href="#" class="accept-request" title="@lang('Accept friend request')">
+                            <span class="icon-add without-text">
+                                <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
+                            </span>
+                        </a>
                     </span>
-                </a>
-            </span>
-        </li>
-
-        <li class="inline-items">
-            <div class="author-thumb">
-                <img src="{{ asset('theme/socialyte/img/avatar39-sm.jpg') }}" alt="author">
-            </div>
-            <div class="notification-event">
-                <a href="#" class="h6 notification-friend">Hugh Wilson</a>
-                <span class="chat-message-item">6 Friends in Common</span>
-            </div>
-            <span class="notification-icon">
-                <a href="#" class="accept-request" title="Accept friend request">
-                    <span class="icon-add without-text">
-                        <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
-                    </span>
-                </a>
-            </span>
-        </li>
-
-        <li class="inline-items">
-            <div class="author-thumb">
-                <img src="{{ asset('theme/socialyte/img/avatar40-sm.jpg') }}" alt="author">
-            </div>
-            <div class="notification-event">
-                <a href="#" class="h6 notification-friend">Karen Masters</a>
-                <span class="chat-message-item">6 Friends in Common</span>
-            </div>
-            <span class="notification-icon">
-                <a href="#" class="accept-request" title="Accept friend request">
-                    <span class="icon-add without-text">
-                        <img src="{{ asset('theme/socialyte/svg-icons/top_bar/happy.svg') }}">
-                    </span>
-                </a>
-            </span>
-        </li>
-
+                </li>
+        @endforeach
     </ul>
 
     <!-- ... end W-Action -->

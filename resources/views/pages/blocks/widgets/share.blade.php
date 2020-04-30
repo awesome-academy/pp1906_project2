@@ -1,7 +1,7 @@
 <ul class="children single-children">
     <li class="comment-item">
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('theme/socialyte/img/avatar8-sm.jpg') }}" alt="author">
+            <img src="{{ getAvatar($post->user->avatar) }}" alt="{{ $post->user->name }}">
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="#">{{ $post->user->name }}</a>
                 <div class="post-type-icon post__date">

@@ -60,7 +60,7 @@
                 <article class="post-share">
 
                     <div class="post__author author vcard inline-items">
-                        <img src="{{ asset('theme/socialyte/img/avatar10-sm.jpg') }}" alt="author">
+                        <img src="{{ getAvatar($post->user->avatar) }}" alt="{{ $post->user->name }}">
 
                         <div class="author-date">
                             <a class="h6 post__author-name fn" href="#">{{ $post->user->name }}</a>
