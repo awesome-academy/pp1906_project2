@@ -39,7 +39,8 @@
 
     <script type="text/javascript">
         var currentUserId = "{{ auth()->id() }}";
-        var notificationCount = "{{ auth()->user()->notifications()->isNotRead()->count() }}";
+        var notificationCount = "{{ auth()->user()->notifications()->isNotReadCount() }}";
+        var friendsNotificationCount = "{{ auth()->user()->getFriendRequestsCount() }}";
         var pusherKey = "{{ config('broadcasting.connections.pusher.key') }}";
     </script>
 

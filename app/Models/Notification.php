@@ -64,9 +64,9 @@ class Notification extends Model
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeIsNotRead($query)
+    public function scopeIsNotReadCount($query)
     {
-        return $query->where('is_read', config('notification.is_not_read'));
+        return $query->where('is_read', config('notification.is_not_read'))->count();
     }
 
     /**
