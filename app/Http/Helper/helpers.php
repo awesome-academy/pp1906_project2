@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\Friend;
 
 if (!function_exists('getCreatedFromTime')) {
     function getCreatedFromTime($post)
@@ -17,7 +18,8 @@ if (!function_exists('getUpdatedFromTime')) {
 }
 
 if (!function_exists('getAvatar')) {
-    function getAvatar($image) {
+    function getAvatar($image)
+    {
         $imagePath = '/theme/socialyte/img/default_avatar.jpg';
 
         if ($image) {
@@ -29,7 +31,8 @@ if (!function_exists('getAvatar')) {
 }
 
 if (!function_exists('getCover')) {
-    function getCover($image) {
+    function getCover($image)
+    {
         $imagePath = '/theme/socialyte/img/default_photo.png';
 
         if ($image) {

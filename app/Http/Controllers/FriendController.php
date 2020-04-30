@@ -38,6 +38,8 @@ class FriendController extends Controller
         if (!$relationship || $relationship->status == config('user.friend.reject')) {
             $sendRequest = $this->friendService->create($data);
 
+            $this->friendService->sendNotificationEvent($data['friend_id']);
+
             return response()->json([
                 'status' => true,
                 'html' => view('pages.blocks.widgets.un_request', compact('user'))->render(),
@@ -66,9 +68,12 @@ class FriendController extends Controller
         if ($relationship && $relationship->status == config('user.friend.request')) {
             $this->friendService->destroyRequest($relationship);
 
+            $friendNotifications = $this->friendService->getNotificationById(auth()->id());
+
             return response()->json([
                 'status' => true,
                 'html' => view('pages.blocks.widgets.add_friend', compact('user'))->render(),
+                'notification' => view('pages.blocks.widgets.friend_request_block', compact('friendNotifications'))->render()
             ]);
         }
 
@@ -101,15 +106,35 @@ class FriendController extends Controller
             $this->friendService->update($currentUser->isFriends($user), $data['status']);
             $this->friendService->create($data);
 
+            $this->friendService->sendNotificationEvent($relationship->user_id);
+
+            $friendNotifications = $this->friendService->getNotificationById(auth()->id());
+
             return response()->json([
                 'status' => true,
                 'html' => view('pages.blocks.widgets.is_friend', compact('user'))->render(),
                 'mark' => view('pages.blocks.widgets.friends_mark')->render(),
+                'notification' => view('pages.blocks.widgets.friend_request_block', compact('friendNotifications'))->render()
             ]);
         }
 
         return response()->json([
             'status' => false,
+        ]);
+    }
+
+    /**
+     * Get list of notifications.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getNotificationList(Request $request)
+    {
+        $friendNotifications = $this->friendService->getNotificationById(auth()->id());
+
+        return response()->json([
+            'html' => view('pages.blocks.widgets.friend_request_block', compact('friendNotifications'))->render()
         ]);
     }
 }
