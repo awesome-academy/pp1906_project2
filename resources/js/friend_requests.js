@@ -39,6 +39,8 @@ $(document).ready(function () {
         friendsNotificationCount++;
 
         friendsNotificationNumber.text(friendsNotificationCount);
+
+        localStorage.removeItem('friendShow');
     });
 
 
@@ -116,8 +118,7 @@ $(document).ready(function () {
                         $('.friends-notification-block').html('');
                         $('.friends-notification-block').append(result.notification);
 
-                        friendsNotificationCount = 0;
-                        friendsNotificationNumber.hide();
+                        hideFriendsNotificationCount();
                     }
                 },
                 error: function () {
@@ -132,9 +133,6 @@ $(document).ready(function () {
     $('.dropdown-friends-notifications').on('show.bs.dropdown', function () {
         var url = '/friend-notifications/show-notifications';
 
-        localStorage.setItem('friendShow', 'false');
-        hideFriendsNotificationCount();
-
         $.ajax({
             url: url,
             type: 'GET',
@@ -144,10 +142,16 @@ $(document).ready(function () {
                 $('.friends-notification-block').append(result.html);
                 acceptRequest();
                 rejectRequest();
+
+                localStorage.setItem('friendShow', 'false');
+                hideFriendsNotificationCount();
             },
             error: function () {
                 errorMessage();
             }
         });
     });
+
+    acceptRequest();
+    rejectRequest();
 });

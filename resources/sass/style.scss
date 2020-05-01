@@ -85,6 +85,14 @@ Generalization
     pointer-events: none;
 }
 
+.nothing-here-wrapper {
+    text-align: center;
+}
+
+.nothing-here {
+    color: $default;
+}
+
 /*----------------------------------------------------------------
 Login and Register page
 -----------------------------------------------------------------*/
@@ -537,4 +545,8 @@ label:hover {
 .default-photo {
     max-width: 100%;
     height: auto;
+}
+
+.friends-notification {
+    width: 100% !important;
 }

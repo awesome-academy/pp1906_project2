@@ -94,6 +94,5 @@ class ProfileController extends Controller
         }
 
         return back()->with('upload_success', __('profile.' . $updateField . '.success'));
-
     }
 }
