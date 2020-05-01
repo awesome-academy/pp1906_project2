@@ -25,7 +25,7 @@ class NotificationController extends Controller
         $notifications = $this->notificationService->getNotificationById(auth()->id());
 
         return response()->json([
-            'html' => view('pages.blocks.widgets.notification-block', compact('notifications'))->render()
+            'html' => view('pages.blocks.widgets.notification_block', compact('notifications'))->render()
         ]);
     }
 
@@ -43,7 +43,7 @@ class NotificationController extends Controller
         if ($markAllNotification) {
             return response()->json([
                 'status' => true,
-                'html' => view('pages.blocks.widgets.notification-block', compact('notifications'))->render()
+                'html' => view('pages.blocks.widgets.notification_block', compact('notifications'))->render()
             ]);
         }
 

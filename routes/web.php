@@ -75,6 +75,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::get('/notifications/show-notifications', 'NotificationController@getNotificationList')->name('notifications.getNotificationList');
 
     Route::post('/notifications/mark-all', 'NotificationController@markAllAsRead')->name('notifications.mark-all-as-read');
+
+    Route::get('/friend-notifications/show-notifications', 'FriendController@getNotificationList')->name('friendNotifications.getNotificationList');
 });
 
 Route::get('/settings/password', function () {

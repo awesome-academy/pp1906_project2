@@ -128,4 +128,25 @@ class User extends Authenticatable implements MustVerifyEmail
         return Friend::where(['user_id' => auth()->id(), 'friend_id' => $user->id])
             ->orWhere(['user_id' => $user->id, 'friend_id' => auth()->id()]);
     }
+
+    /**
+     * Check relationship between users.
+     *
+     * @param App\Models\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function checkFriends($userId)
+    {
+        return Friend::where(['user_id' => $this->id, 'friend_id' => $userId])->exists();
+    }
+
+    /**
+     * Get all waiting friend requests of a user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getFriendRequestsCount()
+    {
+        return Friend::where('friend_id', auth()->id())->count();
+    }
 }

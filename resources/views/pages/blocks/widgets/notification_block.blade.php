@@ -1,7 +1,7 @@
 @foreach($notifications as $notification)
 <li @if ($notification->isRead()) class="notification-background" @endif>
     <div class="author-thumb">
-        <img class="default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{auth()->user()->name}}">
+        <img class="default-avatar" src="{{ getAvatar($notification->sender->avatar) }}" alt="{{ $notification->sender->name }}">
     </div>
 
     <div class="notification-event">

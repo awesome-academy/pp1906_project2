@@ -61,7 +61,7 @@ $(document).ready(function () {
     });
 
     // accept a friend request
-    $('.friend-icon .requesting').on('click', '.accept', function (e) {
+    $('.requesting').on('click', '.accept', function (e) {
         e.preventDefault();
         var username = $(this).data('friend-name');
 
@@ -92,7 +92,7 @@ $(document).ready(function () {
     });
 
     // reject a friend request
-    $('.friend-icon .requesting').on('click', '.reject', function (e) {
+    $('.requesting').on('click', '.reject', function (e) {
         e.preventDefault();
         var username = $(this).data('friend-name');
 

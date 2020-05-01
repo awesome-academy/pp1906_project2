@@ -4,13 +4,23 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\Friend;
+use App\Events\FriendRequested;
 
 class FriendService
 {
     /**
+     * Send Notification Event.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendNotificationEvent($receiverId)
+    {
+        return event(new FriendRequested($receiverId));
+    }
+
+    /**
      * Create new request data in database.
      *
-     * @param App\Models\Friend $relationship
      * @param Array $data
      * @return Boolean
      */
@@ -64,5 +74,17 @@ class FriendService
         }
 
         return true;
+    }
+
+    /**
+     * Get Notifications data.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getNotificationById($userId)
+    {
+        return Friend::where('friend_id', $userId)
+            ->orderDesc()
+            ->paginate(config('notification.page.number'));
     }
 }
