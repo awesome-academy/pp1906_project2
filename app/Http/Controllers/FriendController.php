@@ -137,4 +137,16 @@ class FriendController extends Controller
             'html' => view('pages.blocks.widgets.friend_request_block', compact('friendNotifications'))->render()
         ]);
     }
+
+    /**
+     * Show all notifications page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllNotification()
+    {
+        $friendNotifications = $this->friendService->getNotificationById(auth()->id());
+
+        return view('pages.settings.request.index', compact('friendNotifications'));
+    }
 }

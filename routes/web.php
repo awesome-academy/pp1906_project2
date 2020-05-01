@@ -49,6 +49,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/settings/notifications', 'NotificationController@showAllNotification')->name('notifications.showAllNotification');
 
+    Route::get('/settings/friend-requests', 'FriendController@showAllNotification')->name('friend.showAllNotification');
+
     Route::get('/{username}', 'ProfileController@showProfile')->name('user.profile');
 
     Route::post('/{username}/image-profile', 'ProfileController@uploadProfileImage')->name('user.uploadProfileImage');

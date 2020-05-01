@@ -41,7 +41,7 @@
             </div>
             <div class="ui-block-title">
                 <a href="" class="h6 title">@lang('Friend Requests')</a>
-                <a href="#" class="items-round-little bg-blue">4</a>
+                <a href="#" class="items-round-little bg-blue friends-notification-count"></a>
             </div>
         </div>
 

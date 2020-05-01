@@ -14,6 +14,6 @@
             </ul>
         </div>
 
-        <a href="#" class="view-all bg-blue"> @lang('View All') </a>
+        <a href="{{ route('friend.showAllNotification') }}" class="view-all bg-blue"> @lang('View All') </a>
     </div>
 </div>

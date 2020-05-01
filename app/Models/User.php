@@ -125,8 +125,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function isFriends($user)
     {
-        return Friend::where(['user_id' => auth()->id(), 'friend_id' => $user->id])
-            ->orWhere(['user_id' => $user->id, 'friend_id' => auth()->id()]);
+        return Friend::where([['user_id', $this->id], ['friend_id', $user->id]])
+            ->orWhere([['user_id', $user->id], ['friend_id', $this->id]]);
     }
 
     /**
