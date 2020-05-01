@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\ReactRequest;
+use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Post;
 use App\Services\CommentService;
 use App\Services\ReactService;
 
@@ -122,6 +124,32 @@ class CommentController extends Controller
         if ($react) {
             return response()->json([
                 'status' => true,
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+        ]);
+    }
+
+    /**
+     * View More Comment in database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function viewMoreComment(Request $request)
+    {
+        $data = $request->only([
+            'post_id',
+        ]);
+
+        $post = Post::findOrFail($data['post_id']);
+
+        if ($post) {
+            return response()->json([
+                'status' => true,
+                'html' => view('pages.blocks.list_comment', compact('post'))->render(),
             ]);
         }
 

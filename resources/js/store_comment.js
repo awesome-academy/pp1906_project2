@@ -7,10 +7,12 @@ $(document).ready(function () {
 
     $('.store-comment').click(function() {
         event.preventDefault();
+
         var url = 'comments';
         var _this = $(this);
         var postId = parseInt($(this).data('post_id'));
         var content = $(this).parent().find('.comment-content').val();
+
         $.ajax({
             url: url,
             type: 'POST',
@@ -19,6 +21,7 @@ $(document).ready(function () {
                 'content': content,
             },
             cache: false,
+
             success: function (result) {
                 if (result.status) {
                     _this.parent().parent().find('.comments-list').append(result.comment);
