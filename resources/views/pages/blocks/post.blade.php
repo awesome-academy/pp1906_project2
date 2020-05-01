@@ -4,7 +4,7 @@
     <article class="hentry post">
 
         <div class="post__author author vcard inline-items">
-            <img class="default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{auth()->user()->name}}">
+            <img class="default-avatar" src="{{ getAvatar($post->user->avatar) }}" alt="{{ $post->user->name }}">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="{{ route('user.profile', $post->user->username) }}">{{ $post->user->name }}</a>
@@ -71,7 +71,7 @@
     <form class="comment-form inline-items">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
+            <img src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{ auth()->user()->name }}">
 
             <div class="form-group with-icon-right ">
                 <textarea class="form-control comment-content" placeholder=""></textarea>

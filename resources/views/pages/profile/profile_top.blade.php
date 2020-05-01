@@ -4,7 +4,7 @@
             <div class="ui-block">
                 <div class="top-header">
                     <div class="top-header-thumb">
-                        <img class="default-photo" src="{{ getCover($user->cover) }}" alt="nature">
+                        <img class="default-photo" src="{{ getCover($user->cover) }}" alt="{{ $user->name }}">
                     </div>
                     <div class="profile-section">
                         <div class="row">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="top-header-author">
                         <a href="{{ asset('user.profile', $user->username) }}" class="author-thumb">
-                            <img id="default-avatar-profile" src="{{ getAvatar($user->avatar) }}" alt="{{auth()->user()->name}}">
+                            <img id="default-avatar-profile" src="{{ getAvatar($user->avatar) }}" alt="{{ $user->name }}">
                         </a>
                         <div class="author-content">
                             <a href="{{ asset('user.profile', $user->username) }}" class="h4 author-name">{{ $user->name }}</a>

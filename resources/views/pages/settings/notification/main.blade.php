@@ -14,7 +14,7 @@
             @foreach($notifications as $notification)
             <li @if ($notification->isRead()) class="un-read" @endif>
                 <div class="author-thumb">
-                    <img src="{{ asset('theme/socialyte/img/avatar1-sm.jpg') }}" alt="author">
+                    <img class="default-avatar" src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{ auth()->user->name }}">
                 </div>
                 <div class="notification-event">
                     <div>
@@ -30,7 +30,7 @@
                     </span>
                 </div>
                 <span class="notification-icon">
-                    <img 
+                    <img
                     @if ($notification->isLike())
                         src="{{ asset('theme/socialyte/svg-icons/center/liked.svg') }}"
                     @elseif ($notification->isLove())

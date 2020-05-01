@@ -25,6 +25,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        $users = User::where('id', '<>', auth()->id())->inRandomOrder()->limit(config('user.suggestion_friend'))->get();
         $userIds = User::pluck('id');
         $posts = Post::with('user')
             ->whereIn('user_id', $userIds)
@@ -40,6 +41,6 @@ class HomeController extends Controller
             ]);
         }
 
-        return view('pages.newsfeed.index', compact('posts'));
+        return view('pages.newsfeed.index', compact('posts', 'users'));
     }
 }

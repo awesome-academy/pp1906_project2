@@ -1,7 +1,7 @@
 @foreach($post->reactUsers->groupBy('id') as $users)
     <div class="birthday-item inline-items">
         <div class="author-thumb">
-            <img src="{{ getAvatar(auth()->user()->avatar) }}" class="default-avatar" alt="author">
+            <img src="{{ getAvatar($post->user->avatar) }}" class="default-avatar" alt="{{ $post->user->name }}">
         </div>
         <div class="birthday-author-name">
              <a href="{{ route('user.profile', $users->first()->username) }}" class="h6 author-name">{{ $users->first()->name }}</a>

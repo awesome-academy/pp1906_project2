@@ -31,6 +31,8 @@
 <script type="module" src="{{ asset('js/load_more.js') }}"></script>
 <script type="module" src="{{ asset('js/preview_avatar.js') }}"></script>
 <script type="module" src="{{ asset('js/preview_cover.js') }}"></script>
+<script type="module" src="{{ asset('js/control_block.js') }}"></script>
+<script src="{{ asset('js/store_react.js') }}"></script>
 <script src="{{ asset('js/store_comment.js') }}"></script>
 <script src="{{ asset('js/update_delete_comment.js') }}"></script>
 <script>
