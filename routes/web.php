@@ -65,8 +65,11 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::resource('posts', 'PostController');
 
+    Route::get('comments/load-more', 'CommentController@viewMoreComment')->name('comments.viewMoreComment');
+
     Route::resource('comments', 'CommentController');
-    Route::post('comments/reacts', 'CommentController@reactComment')->name('comment.react');;
+
+    Route::post('comments/reacts', 'CommentController@reactComment')->name('comment.react');
 
     Route::resource('reacts', 'ReactController');
 

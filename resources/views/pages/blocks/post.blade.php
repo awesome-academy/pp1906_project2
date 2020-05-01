@@ -59,12 +59,21 @@
 
     </article>
 
-    @include('pages.blocks.list_comment')
+    @php
+        $commentFirst = $post->comments()->orderBy('created_at', 'desc')->first();
+    @endphp
+
+    <ul class="comments-list post-comment-list-{{ $post->id }}">
+        @if ($post->comments()->count())
+            @include('pages.blocks.comment', ['comment' => $commentFirst])
+        @endif
+    </ul>
 
     <!-- ... end Comments -->
 
-    <a href="#" class="more-comments"> @lang('View more comments') <span>+</span></a>
-
+    @if ($post->comments()->count())
+        <a href="#" class="more-comments" data-post-id={{ $post->id }} data-comment-first-id={{ $commentFirst->id }}> @lang('View more comments') <span>+</span></a>
+    @endif
 
     <!-- Comment Form  -->
 

@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.sass('resources/sass/style.scss', 'public/css')
    .js('resources/js/app.js', 'public/js')
    .js('resources/js/load_more.js', 'public/js')
+   .js('resources/js/view_more_comment.js', 'public/js')
    .js('resources/js/control_block.js', 'public/js')
    .js('resources/js/functions.js', 'public/js')
    .js('resources/js/store_comment.js', 'public/js')
