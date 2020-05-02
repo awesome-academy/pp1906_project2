@@ -50,4 +50,16 @@ class UserService
 
         return true;
     }
+
+    /**
+     * Get Notifications data.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getSearchPeopleList($inputString)
+    {
+        return User::where('id', '!=', auth()->id())
+            ->where('name', 'LIKE', '%' . $inputString . '%')
+            ->paginate(config('user.search'));
+    }
 }

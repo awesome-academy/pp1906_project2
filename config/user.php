@@ -15,5 +15,6 @@ return [
         'reject' => 3,
         'block' => 4
     ],
-    'suggestion_friend' => 3
+    'suggestion_friend' => 3,
+    'search' => 6,
 ];

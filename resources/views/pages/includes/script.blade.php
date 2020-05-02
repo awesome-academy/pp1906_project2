@@ -41,7 +41,9 @@
 
 <script src="{{ asset('theme/socialyte/Bootstrap/dist/js/bootstrap.bundle.js') }}"></script>
 
+<script src="{{ asset('js/search_people.js') }}"></script>
 <script src="{{ asset('js/friend_requests.js') }}"></script>
+<script src="{{ asset('js/friend_suggestion.js') }}"></script>
 <script src="{{ asset('js/control_block.js') }}"></script>
 <script src="{{ asset('js/notifications.js') }}"></script>
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>

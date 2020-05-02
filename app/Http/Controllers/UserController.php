@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
-use App\Models\User;
 use App\Services\UserService;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -83,5 +83,23 @@ class UserController extends Controller
         }
 
         return back()->with('error', __('user.error'));
+    }
+
+    /**
+     * Get list of people on searching.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getSearchPeopleList(Request $request)
+    {
+        if ($request->ajax()) {
+            $inputString = $request->name;
+
+            $searchResult = $this->userService->getSearchPeopleList($inputString);
+
+            return response()->json([
+                'html' => view('pages.blocks.widgets.search_people_block', compact('searchResult'))->render()
+            ]);
+        }
     }
 }

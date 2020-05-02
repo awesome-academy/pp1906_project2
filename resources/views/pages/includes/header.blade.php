@@ -7,16 +7,15 @@
     </div>
 
     <div class="header-content-wrapper">
-        <form class="search-bar w-search notification-list friend-requests">
+        <div class="search-bar w-search notification-list friend-requests">
             <div class="form-group with-button">
-                <input class="form-control js-user-search" placeholder="Search peoples..." type="text">
-                <button>
-                    <img src="{{ asset('theme/socialyte/svg-icons/top_bar/search.svg') }}">
-                </button>
-            </div>
-        </form>
+                <input class="form-control search-people-input dropdown-toggle" name="name" placeholder="@lang('Search peoples...')" type="text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autocomplete="new-password">
 
-        <a href="#" class="link-find-friend"> @lang('Find Friends') </a>
+                <div class="selectize-dropdown multi form-control dropdown-menu search-people-result" aria-labelledby="searchPeople">
+                </div>
+
+            </div>
+        </div>
 
         <div class="control-block">
             @include('pages.blocks.widgets.friend_requests')
