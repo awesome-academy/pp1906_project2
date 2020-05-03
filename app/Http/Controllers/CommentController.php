@@ -39,11 +39,13 @@ class CommentController extends Controller
 
         $comment = $this->commentService->storeComment($data);
         $postId = $data['post_id'];
+        $post = Post::findOrFail($data['post_id']);
 
         if ($comment) {
             return response()->json([
                 'status' => true,
-                'comment' => view('pages.blocks.comment', compact('comment', 'postId'))->render(),
+                'comment' => view('pages.blocks.comment', compact('comment', 'postId', 'post'))->render(),
+                'count_comments' => $post->comments()->count(),
             ]);
         }
 
@@ -148,9 +150,11 @@ class CommentController extends Controller
         $post = Post::findOrFail($data['post_id']);
 
         if ($post) {
+            $comments = $post->comments()->orderBy('created_at', 'desc')->paginate(config('post.comment.paginate'));
+
             return response()->json([
                 'status' => true,
-                'html' => view('pages.blocks.list_comment', compact('post'))->render(),
+                'html' => view('pages.blocks.list_comment', compact('post', 'comments'))->render(),
             ]);
         }
 

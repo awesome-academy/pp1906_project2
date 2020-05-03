@@ -7,7 +7,12 @@
     </a>
     <div class="comments-shared">
         <a href="#" class="post-add-icon inline-items">
-            <strong>{{ $post->comments->count() }} @lang('comments')</strong>
+            <strong>
+                <strong class="count-comments-{{ $post->id }}">
+                    {{ $post->comments->count() }}
+                </strong>
+                @lang('comments')
+            </strong>
         </a>
         @if ($post->shares->isNotEmpty())
         <a href="#" class="post-add-icon inline-items" data-toggle="modal" data-target="#shareUsersModal{{ $post->id }}">

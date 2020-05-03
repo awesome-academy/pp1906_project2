@@ -5,9 +5,16 @@ $(document).ready(function () {
 
     $('.more-comments').click(function() {
         event.preventDefault();
-        var url = 'comments/load-more';
-        var postId = parseInt($(this).data('post-id'));
-        var commentId = parseInt($(this).data('comment-first-id'));
+
+        var _this = $(this);
+
+        var lastPage = parseInt(_this.attr('data-last_page'));
+        var page = parseInt(_this.attr('data-page'));
+
+        var url = 'comments/load-more/?page=' + page;
+
+        var postId = parseInt(_this.data('post-id'));
+        var commentFirstId = parseInt(_this.data('comment-first-id'));
 
         $.ajax({
             url: url,
@@ -18,7 +25,16 @@ $(document).ready(function () {
             cache: false,
             success: function (result) {
                 if (result.status) {
-                    $('.post-comment-list-' + postId).html('');
+                    if (page >= lastPage) {
+                        _this.remove();
+                    }
+
+                    _this.attr('data-page', page + 1);
+
+                    if (page == 1) {
+                        $('.comment-item-' + commentFirstId).remove();
+                    }
+
                     $('.post-comment-list-' + postId).append(result.html);
                 } else {
                     errorMessage();

@@ -26,6 +26,8 @@ $(document).ready(function () {
                 if (result.status) {
                     _this.parent().parent().find('.comments-list').append(result.comment);
                     $('.comment-content').val('');
+                    $('.count-comments-' + postId).text(result.count_comments);
+
                 } else {
                     errorMessage();
                 }
