@@ -14,13 +14,13 @@
 
                 <div class="friend-item">
                     <div class="friend-header-thumb">
-                        <img src="{{ asset('theme/socialyte/img/friend1.jpg') }}" alt="friend">
+                        <img src="{{ getCover($friend->cover) }}" alt="{{ $friend->name }}">
                     </div>
 
                     <div class="friend-item-content">
                         <div class="friend-avatar">
                             <div class="author-thumb">
-                                <img src="{{ asset('theme/socialyte/img/avatar1.jpg') }}" alt="author">
+                                <img src="{{ getAvatar($friend->avatar) }}" alt="{{ $friend->name }}">
                             </div>
                             <div class="author-content">
                                 <a href="{{ route('user.profile', $friend->username) }}" class="h5 author-name">{{ $friend->name }}</a>

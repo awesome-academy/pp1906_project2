@@ -500,6 +500,10 @@ label:hover {
     left: -30px !important;
 }
 
+.more-with-triangle.triangle-top-center.notifications {
+    left: -70px !important;
+}
+
 .more-with-triangle.triangle-top-center.friends-notifications:before {
     margin-right: 130px;
 }
@@ -549,4 +553,19 @@ label:hover {
 
 .friends-notification {
     width: 100% !important;
+}
+
+.friend-requests .notification-icon {
+    padding: 5px 0;
+}
+
+.dropdown-menu {
+    top: auto !important;
+    transform: none !important;
+}
+
+.friend-avatar .author-thumb img {
+    width: 92px;
+    height: 92px;
+    border: none;
 }

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Friend;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -127,6 +128,22 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return Friend::where([['user_id', $this->id], ['friend_id', $user->id]])
             ->orWhere([['user_id', $user->id], ['friend_id', $this->id]]);
+    }
+
+    /**
+     * Count mutual friends of current user and selected user.
+     *
+     * @param Int $userId
+     * @return Integer
+     */
+    public function countMutualFriends($userId)
+    {
+        return DB::table('friends as f1')
+            ->select('f2.friend_id as mutual_ids')
+            ->join('friends as f2', 'f2.friend_id', '=', 'f1.friend_id')
+            ->where('f1.user_id', auth()->id())
+            ->where('f2.user_id', $userId)
+            ->pluck('mutual_ids')->count();
     }
 
     /**

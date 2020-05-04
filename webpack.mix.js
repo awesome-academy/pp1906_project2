@@ -26,4 +26,6 @@ mix.sass('resources/sass/style.scss', 'public/css')
    .js('resources/js/store_react_comment.js', 'public/js')
    .js('resources/js/notifications.js', 'public/js')
    .js('resources/js/friend_requests.js', 'public/js')
+   .js('resources/js/search_people.js', 'public/js')
+   .js('resources/js/friend_suggestion.js', 'public/js')
    .copyDirectory('resources/views/theme', 'public/theme');

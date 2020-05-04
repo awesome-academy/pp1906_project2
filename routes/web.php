@@ -51,19 +51,7 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/settings/friend-requests', 'FriendController@showAllNotification')->name('friend.showAllNotification');
 
-    Route::get('/{username}', 'ProfileController@showProfile')->name('user.profile');
-
-    Route::post('/{username}/image-profile', 'ProfileController@uploadProfileImage')->name('user.uploadProfileImage');
-
-    Route::get('/{username}/friends', 'ProfileController@showFriends')->name('user.friends');
-
-    Route::post('/{username}/add-friend', 'FriendController@sendRequest')->name('friend.request');
-
-    Route::post('/{username}/un-request', 'FriendController@removeRequest')->name('friend.unRequest');
-
-    Route::post('/{username}/accept-friend', 'FriendController@acceptRequest')->name('friend.acceptRequest');
-
-    Route::post('/{username}/reject-friend', 'FriendController@removeRequest')->name('friend.rejectRequest');
+    Route::get('/search-people', 'UserController@getSearchPeopleList')->name('people.search');
 
     Route::resource('posts', 'PostController');
 
@@ -82,6 +70,20 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::post('/notifications/mark-all', 'NotificationController@markAllAsRead')->name('notifications.mark-all-as-read');
 
     Route::get('/friend-notifications/show-notifications', 'FriendController@getNotificationList')->name('friendNotifications.getNotificationList');
+
+    Route::get('/{username}', 'ProfileController@showProfile')->name('user.profile');
+
+    Route::post('/{username}/image-profile', 'ProfileController@uploadProfileImage')->name('user.uploadProfileImage');
+
+    Route::get('/{username}/friends', 'ProfileController@showFriends')->name('user.friends');
+
+    Route::post('/{username}/add-friend', 'FriendController@sendRequest')->name('friend.request');
+
+    Route::post('/{username}/un-request', 'FriendController@removeRequest')->name('friend.unRequest');
+
+    Route::post('/{username}/accept-friend', 'FriendController@acceptRequest')->name('friend.acceptRequest');
+
+    Route::post('/{username}/reject-friend', 'FriendController@removeRequest')->name('friend.rejectRequest');
 });
 
 Route::get('/settings/password', function () {

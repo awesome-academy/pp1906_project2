@@ -3,14 +3,17 @@
     "/css/style.css": "/css/style.css",
     "/js/control_block.js": "/js/control_block.js",
     "/js/friend_requests.js": "/js/friend_requests.js",
+    "/js/friend_suggestion.js": "/js/friend_suggestion.js",
     "/js/functions.js": "/js/functions.js",
     "/js/load_more.js": "/js/load_more.js",
     "/js/notifications.js": "/js/notifications.js",
     "/js/preview_avatar.js": "/js/preview_avatar.js",
     "/js/preview_cover.js": "/js/preview_cover.js",
     "/js/preview_image.js": "/js/preview_image.js",
+    "/js/search_people.js": "/js/search_people.js",
     "/js/store_comment.js": "/js/store_comment.js",
     "/js/store_react.js": "/js/store_react.js",
     "/js/store_react_comment.js": "/js/store_react_comment.js",
-    "/js/update_delete_comment.js": "/js/update_delete_comment.js"
+    "/js/update_delete_comment.js": "/js/update_delete_comment.js",
+    "/js/view_more_comment.js": "/js/view_more_comment.js"
 }

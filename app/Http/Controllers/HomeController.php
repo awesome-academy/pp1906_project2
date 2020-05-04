@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Friend;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -25,8 +27,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::where('id', '<>', auth()->id())->inRandomOrder()->limit(config('user.suggestion_friend'))->get();
+        $suggestUsers = User::where('id', '!=', auth()->id())->inRandomOrder()->limit(config('user.suggestion_friend'))->get();
+
         $userIds = User::pluck('id');
+
         $posts = Post::with('user')
             ->whereIn('user_id', $userIds)
             ->orderDesc()
@@ -41,6 +45,6 @@ class HomeController extends Controller
             ]);
         }
 
-        return view('pages.newsfeed.index', compact('posts', 'users'));
+        return view('pages.newsfeed.index', compact('posts', 'suggestUsers'));
     }
 }

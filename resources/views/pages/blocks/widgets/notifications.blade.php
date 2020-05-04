@@ -5,7 +5,7 @@
     </a>
 
 
-    <div class="dropdown more-with-triangle triangle-top-center dropdown-menu" aria-labelledby="dropdownMenuLink" style="position: fixed;">
+    <div class="dropdown more-with-triangle triangle-top-center dropdown-menu notifications" aria-labelledby="dropdownMenuLink" style="position: fixed;">
         <div class="ui-block-title ui-block-title-small">
             <h6 class="title"> @lang('Notifications') </h6>
             <a href="#" class="mark-all-as-read"> @lang('Mark all as read') </a>
