@@ -1,3 +1,4 @@
+@if ($post->parentComments->count() > 0 || $post->reacts->count() > 0)
 <div class="post-additional-info inline-items" style="border: none; margin-bottom: 10px;">
     <a href="#" class="post-add-icon inline-items" data-toggle="modal" data-target="#listReactModal{{ $post->id }}">
         <strong>
@@ -21,6 +22,7 @@
         @endif
     </div>
 </div>
+@endif
 
 @include('pages.blocks.modals.share_users')
 @include('pages.blocks.modals.list_react_post')

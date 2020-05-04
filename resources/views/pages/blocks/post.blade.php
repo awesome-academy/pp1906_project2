@@ -19,16 +19,6 @@
                         </span>
                         @endif
                     </a>
-
-                    <span> · </span>
-
-                    @if ($post->isPublic())
-                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
-                    @elseif ($post->isPrivate())
-                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
-                    @elseif ($post->isFriendsOnly())
-                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
-                    @endif
                 </div>
             </div>
             @if (auth()->id() == $post->user->id)
@@ -56,17 +46,6 @@
 
     @include('pages.blocks.list_comment')
 
-    <!-- ... end Comments -->
-    @php
-    $commentFirst = $post->parentComments()->orderBy('created_at', 'desc')->first();
-    @endphp
-
-    <!-- phần của Nam -->
-    @if ($post->parentComments()->count() > 1)
-    <a href="#" class="more-comments more-comments-{{ $post->id }}" data-page="1" data-last_page="{{ $post->parentComments()->paginate(config('post.comment.paginate'))->lastPage() }}" data-post-id="{{ $post->id }}" data-comment-first-id="{{ $commentFirst->id }}"> @lang('View more comments') <span>+</span></a>
-    @endif
-    <!-- /phần của Nam -->
-
     <!-- Comment Form  -->
 
     <form class="comment-form inline-items">
@@ -80,8 +59,6 @@
         </div>
 
         <button class="btn btn-md-2 btn-primary store-comment" data-post_id="{{ $post->id }}"> @lang('Post Comment') </button>
-
-        <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color"> @lang('Cancel') </button>
 
     </form>
 

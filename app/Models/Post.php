@@ -14,7 +14,6 @@ class Post extends Model
         'user_id',
         'content',
         'image',
-        'type',
         'share_from_post_id'
     ];
 

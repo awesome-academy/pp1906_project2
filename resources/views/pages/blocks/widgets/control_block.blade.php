@@ -31,13 +31,5 @@
             @include('pages.blocks.widgets.add_friend')
         @endif
     </span>
-
-    <a href="#" class="btn btn-control bg-purple" title="@lang('Follow')">
-        <img src="{{ asset('theme/socialyte/svg-icons/top/follow.svg') }}">
-    </a>
-
-    <a href="#" class="btn btn-control bg-grey" title="@lang('Block this user')">
-        <img src="{{ asset('theme/socialyte/svg-icons/top/block.svg') }}">
-    </a>
     @endif
 </div>

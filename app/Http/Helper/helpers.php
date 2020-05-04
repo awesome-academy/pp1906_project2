@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 use App\Models\Friend;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 if (!function_exists('getCreatedFromTime')) {
     function getCreatedFromTime($post)
@@ -15,6 +16,21 @@ if (!function_exists('getUpdatedFromTime')) {
     function getUpdatedFromTime($post)
     {
         return Carbon::createFromTimeStamp(strtotime($post->updated_at))->diffForHumans();
+    }
+}
+
+if (!function_exists('formatUserBirthday')) {
+    function formatDate($date, $format = 'd-m-Y')
+    {
+        try {
+            $dateFormatted = Carbon::parse($date)->format($format);
+        } catch (\Throwable $th) {
+            Log::error($th);
+
+            return '';
+        }
+
+        return $dateFormatted;
     }
 }
 

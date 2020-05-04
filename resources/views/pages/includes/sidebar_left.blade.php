@@ -3,7 +3,7 @@
 <div class="fixed-sidebar">
     <div class="fixed-sidebar-left sidebar--small" id="sidebar-left">
 
-        <a href="/" class="logo">
+        <a href="{{ route('home') }}" class="logo">
             <div class="img-wrap">
                 <img src="{{ asset('theme/socialyte/img/logo-2.png') }}" alt="Olympus">
             </div>
@@ -12,7 +12,7 @@
         <div class="mCustomScrollbar" data-mcs-theme="dark">
             <ul class="left-menu">
                 <li>
-                    <a href="/" title="@lang('Newsfeed')">
+                    <a href="{{ route('home') }}" title="@lang('Newsfeed')">
                         <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/newsfeed.svg') }}">
                     </a>
                 </li>

@@ -22,7 +22,7 @@ class UserRequest extends FormRequest
             'gender' => [
                 Rule::in($gender)
             ],
-            'birthday' => 'date|date_format:Y-m-d',
+            'datetimepicker' => 'date|date_format:d-m-Y',
             'language' => [
                 Rule::in($languageSetting),
             ],

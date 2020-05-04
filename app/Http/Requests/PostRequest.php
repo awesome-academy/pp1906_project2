@@ -15,15 +15,9 @@ class PostRequest extends FormRequest
      */
     public function rules()
     {
-        $type = config('post.type');
-
         return [
             'content' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'type' => [
-                'required',
-                Rule::in($type),
-            ],
         ];
     }
 }

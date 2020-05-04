@@ -126,7 +126,7 @@
     "Go to profile": "Trang cá nhân",
     "There's no birthday today..": "Không có sinh nhật ngày hôm nay..",
     "Last Photos": "Ảnh",
-    "Friend Suggestions": "Đề Xuất Bạn Bè",
+    "Friend Suggestions": "Đề xuất bạn bè",
     "Send a friend request": "Gửi yêu cầu kết bạn",
     "No Friend Suggestions": "Không có bạn bè đề xuất",
     "uploaded a": "đã tải lên một",
@@ -141,5 +141,6 @@
     "Your Email": "Địa chỉ email",
     "Password Reset Email Sent": "Email khôi phục đã được gửi",
     "An email has been sent to your email address. Follow the directions in the email to reset your password": "Một email đã được gửi đến hòm thư của bạn. Kiểm tra email và làm theo hướng dẫn để khôi phục mật khẩu",
-    "New posts!": "Xem bài viết mới!"
+    "New posts!": "Xem bài viết mới!",
+    "Your Name": "Họ và tên"
 }
