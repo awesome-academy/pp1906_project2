@@ -72,9 +72,12 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        $notification = Notification::where('post_id', $id)->firstOrFail();
 
-        $this->postService->setPostNotificationIsRead($notification);
+        $notification = Notification::where(['post_id' => $id], ['receiver_id' => auth()->id()])->first();
+
+        if ($notification && !$notification->isRead()) {
+            $this->postService->setPostNotificationIsRead($notification);
+        }
 
         return view('pages.post.index', compact('post'));
     }

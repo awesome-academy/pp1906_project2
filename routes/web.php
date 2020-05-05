@@ -59,6 +59,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::resource('comments', 'CommentController');
 
+    Route::post('comments/{comment}/replies', 'CommentController@replyComment')->name('comments.reply');
+
     Route::post('comments/reacts', 'CommentController@reactComment')->name('comment.react');
 
     Route::resource('reacts', 'ReactController');
