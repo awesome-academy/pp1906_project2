@@ -3,21 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Post;
-use App\Models\Friend;
+use App\Services\PostService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $postService;
+
+    public function __construct(PostService $postService)
     {
-        $this->middleware('auth');
+        $this->postService = $postService;
     }
 
     /**
@@ -29,13 +24,7 @@ class HomeController extends Controller
     {
         $suggestUsers = User::where('id', '!=', auth()->id())->inRandomOrder()->limit(config('user.suggestion_friend'))->get();
 
-        $userIds = User::pluck('id');
-
-        $posts = Post::with('user', 'comments')
-            ->whereIn('user_id', $userIds)
-            ->orderDesc()
-            ->paginate(config('home.page.number'));
-        //note: only show posts of this user and friends.
+        $posts = $this->postService->getListPosts(auth()->user());
 
         if ($request->ajax()) {
             $nextPosts = view('pages.blocks.post', compact('posts'))->render();

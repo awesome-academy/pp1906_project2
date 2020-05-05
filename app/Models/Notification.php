@@ -112,4 +112,16 @@ class Notification extends Model
     {
         return $this->type == config('notification.type.share');
     }
+
+    /**
+     * Scope for get all unread notifications with post of current user.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param Int $postId
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeGetUnReadNotifications($query, $postId)
+    {
+        return $query->where(['post_id' => $postId, 'receiver_id' => auth()->id(), 'is_read' => config('notification.is_not_read')]);
+    }
 }

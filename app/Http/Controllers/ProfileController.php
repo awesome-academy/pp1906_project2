@@ -7,16 +7,19 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Friend;
 use App\Services\ProfileService;
+use App\Services\PostService;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
     protected $profileService;
+    protected $postService;
 
-    public function __construct(ProfileService $profileService)
+    public function __construct(ProfileService $profileService, PostService $postService)
     {
         $this->profileService = $profileService;
+        $this->postService = $postService;
     }
 
     /**
@@ -33,11 +36,7 @@ class ProfileController extends Controller
 
         $relationship = $currentUser->isFriends($user)->first();
 
-        $posts = Post::with('user')
-            ->where('user_id', $user->id)
-            ->orderDesc()
-            ->paginate(config('home.page.number'));
-        //note: only show posts of this user and friends.
+        $posts = $this->postService->getListPosts($user, false);
 
         if ($request->ajax()) {
             $nextPosts = view('pages.blocks.post', compact('posts'))->render();

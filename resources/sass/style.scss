@@ -581,3 +581,23 @@ label:hover {
         background-color: inherit;
     }
 }
+
+.textarea,
+span.prefix {
+    padding: 2px;
+    left: 17.6px;
+    top: 18.6px;
+}
+
+span.prefix {
+    position: absolute;
+}
+
+.comments-list .comment-item:not(.has-children) {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.children .comment-item {
+    padding-bottom: 25px !important;
+}

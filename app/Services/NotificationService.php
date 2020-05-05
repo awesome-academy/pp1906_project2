@@ -52,6 +52,18 @@ class NotificationService
     }
 
     /**
+     * Get all unread notifications with post of current user.
+     *
+     * @param  Int $userId
+     * @param Int $postId
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function getUnReadNotifications($userId, $postId)
+    {
+        return Notification::where(['post_id' => $postId, 'receiver_id' => $userId, 'is_read' => config('notification.is_not_read')]);
+    }
+
+    /**
      * Mark all notification as read.
      *
      * @return Boolean
@@ -100,5 +112,26 @@ class NotificationService
         }
 
         return true;
+    }
+
+    /**
+     * set Notification of post is read.
+     *
+     * @param Int $postId
+     * @return Boolean
+     */
+    public function setPostNotificationsIsRead($postId)
+    {
+        $notifications = $this->getUnReadNotifications(auth()->id(), $postId);
+
+        if ($notifications->count() > 0) {
+            try {
+                $notifications->update(['is_read' => true]);
+            } catch (\Throwable $th) {
+                Log::error($th);
+
+                return false;
+            }
+        }
     }
 }

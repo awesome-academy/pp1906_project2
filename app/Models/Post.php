@@ -41,9 +41,9 @@ class Post extends Model
     /**
      * relationship with Comment.
      */
-    public function comments()
+    public function parentComments()
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany('App\Models\Comment')->whereNull('parent_id');
     }
 
     /**
