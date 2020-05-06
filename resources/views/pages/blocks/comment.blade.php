@@ -8,7 +8,9 @@
                 <time class="published" datetime="2004-07-24T18:18">{{ getCreatedFromTime($comment) }}</time>
             </div>
         </div>
-        @include('pages.blocks.widgets.three_dots_comment')
+        @if (auth()->id() == $comment->user->id)
+            @include('pages.blocks.widgets.three_dots_comment')
+        @endif
     </div>
 
     <p class="comment-content-{{ $comment->id }}">{{ $comment->content ?? ''}}</p>

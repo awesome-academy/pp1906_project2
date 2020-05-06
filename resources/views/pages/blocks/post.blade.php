@@ -38,8 +38,9 @@
                     @endif
                 </div>
             </div>
-
-            @include('pages.blocks.widgets.three_dots')
+            @if (auth()->id() == $post->user->id)
+                @include('pages.blocks.widgets.three_dots')
+            @endif
         </div>
 
         <p>
@@ -71,8 +72,8 @@
 
     <!-- ... end Comments -->
 
-    @if ($post->comments()->count())
-    <a href="#" class="more-comments" data-post-id={{ $post->id }} data-comment-first-id={{ $commentFirst->id }}> @lang('View more comments') <span>+</span></a>
+    @if ($post->comments()->count() > 1)
+        <a href="#" class="more-comments more-comments-{{ $post->id }}" data-page="1" data-last_page="{{ $post->comments()->paginate(config('post.comment.paginate'))->lastPage() }}" data-post-id={{ $post->id }} data-comment-first-id={{ $commentFirst->id }}> @lang('View more comments') <span>+</span></a>
     @endif
 
     <!-- Comment Form  -->

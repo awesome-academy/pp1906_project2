@@ -31,7 +31,7 @@ class HomeController extends Controller
 
         $userIds = User::pluck('id');
 
-        $posts = Post::with('user')
+        $posts = Post::with('user', 'comments')
             ->whereIn('user_id', $userIds)
             ->orderDesc()
             ->paginate(config('home.page.number'));
