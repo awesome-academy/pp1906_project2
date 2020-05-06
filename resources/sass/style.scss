@@ -569,3 +569,15 @@ label:hover {
     height: 92px;
     border: none;
 }
+
+.reply-form {
+    padding: 15px;
+    border-top: none;
+}
+
+.reply-form-group {
+    background-color: $white;
+    .is-focused {
+        background-color: inherit;
+    }
+}

@@ -60,19 +60,19 @@
     </article>
 
     @php
-        $commentFirst = $post->comments()->orderBy('created_at', 'desc')->first();
+    $commentFirst = $post->comments()->orderBy('created_at', 'desc')->first();
     @endphp
 
     <ul class="comments-list post-comment-list-{{ $post->id }}">
         @if ($post->comments()->count())
-            @include('pages.blocks.comment', ['comment' => $commentFirst])
+        @include('pages.blocks.comment', ['comment' => $commentFirst])
         @endif
     </ul>
 
     <!-- ... end Comments -->
 
     @if ($post->comments()->count())
-        <a href="#" class="more-comments" data-post-id={{ $post->id }} data-comment-first-id={{ $commentFirst->id }}> @lang('View more comments') <span>+</span></a>
+    <a href="#" class="more-comments" data-post-id={{ $post->id }} data-comment-first-id={{ $commentFirst->id }}> @lang('View more comments') <span>+</span></a>
     @endif
 
     <!-- Comment Form  -->
@@ -83,7 +83,7 @@
             <img src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{ auth()->user()->name }}">
 
             <div class="form-group with-icon-right ">
-                <textarea class="form-control comment-content" placeholder=""></textarea>
+                <textarea class="form-control comment-content"></textarea>
                 <div class="add-options-message">
                     <a href="#" class="options-message" data-toggle="modal" data-target="#update-header-photo">
                         <svg class="olymp-camera-icon">
@@ -94,7 +94,7 @@
             </div>
         </div>
 
-        <button class="btn btn-md-2 btn-primary store-comment" data-post_id={{ $post->id }}> @lang('Post Comment') </button>
+        <button class="btn btn-md-2 btn-primary store-comment" data-post_id="{{ $post->id }}"> @lang('Post Comment') </button>
 
         <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color"> @lang('Cancel') </button>
 

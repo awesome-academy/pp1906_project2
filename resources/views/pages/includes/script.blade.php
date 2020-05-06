@@ -46,9 +46,28 @@
 <script src="{{ asset('js/friend_suggestion.js') }}"></script>
 <script src="{{ asset('js/control_block.js') }}"></script>
 <script src="{{ asset('js/notifications.js') }}"></script>
+<script src="{{ asset('js/reply_comment.js') }}"></script>
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="{{ asset('js/functions.js') }}"></script>
+
+<script src="{{ asset('js/preview_image.js') }}"></script>
+<script src="{{ asset('js/load_more.js') }}"></script>
+<script src="{{ asset('js/view_more_comment.js') }}"></script>
+<script src="{{ asset('js/store_comment.js') }}"></script>
+<script src="{{ asset('js/update_delete_comment.js') }}"></script>
+<script src="{{ asset('js/store_react.js') }}"></script>
+<script src="{{ asset('js/store_react_comment.js') }}"></script>
+<script>
+    function errorMessage() {
+        Swal.fire({
+            icon: 'error',
+            title: "@lang('Oops...')",
+            text: "@lang('Something went wrong!')",
+        });
+        location.reload();
+    }
+</script>
 
 @yield('script')

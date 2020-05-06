@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\ReactRequest;
+use App\Http\Requests\ReplyRequest;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Post;
@@ -150,6 +151,39 @@ class CommentController extends Controller
             return response()->json([
                 'status' => true,
                 'html' => view('pages.blocks.list_comment', compact('post'))->render(),
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+        ]);
+    }
+
+    /**
+     * Store Reply of a Comment in database.
+     *
+     * @param  \Illuminate\Http\CommentRequest  $request
+     * @param Int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function replyComment(ReplyRequest $request, $id)
+    {
+        $data = $request->only([
+            'post_id',
+            'parent_id',
+            'content',
+        ]);
+
+        $data['user_id'] = auth()->id();
+
+        $comment = $this->commentService->storeComment($data);
+
+        $postId = $data['post_id'];
+
+        if ($comment) {
+            return response()->json([
+                'status' => true,
+                'comment' => view('pages.blocks.comment', compact('comment', 'postId'))->render(),
             ]);
         }
 
