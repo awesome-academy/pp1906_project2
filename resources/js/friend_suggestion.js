@@ -3,13 +3,15 @@ import { ajaxSetup } from './functions.js';
 $(document).ready(function () {
     ajaxSetup();
 
-    $('.friends-suggestion').on('click', '.accept', function () {
+    $('body').on('click', '.friends-suggestion .accept', function () {
+        event.preventDefault();
         var username = $(this).data('friend-name');
+        var friendId = $(this).data('friend-id')
 
-        var url = '/' + username + '/accept-friend';
+        var url = '/' + username + '/add-friend';
 
         var data = {
-            'friend_id': $(this).data('friend-id')
+            'friend_id': friendId
         };
 
         $.ajax({
@@ -19,7 +21,9 @@ $(document).ready(function () {
             cache: false,
             success: function (result) {
                 if (result.status) {
-                    //
+                    $('.friends-suggestion-' + friendId).fadeOut(500);
+                    $('.friends-suggestion-' + friendId).remove();
+                    $('.list-friends-suggestion').append(result.html_friend_suggestion);
                 } else {
                     errorMessage();
                 }

@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\FriendService;
+use App\Services\UserService;
 use App\Models\User;
 
 class FriendController extends Controller
 {
     protected $friendService;
+    protected $userService;
 
-    public function __construct(FriendService $friendService)
+    public function __construct(FriendService $friendService, UserService $userService)
     {
         $this->friendService = $friendService;
+        $this->userService = $userService;
     }
 
     /**
@@ -26,7 +29,7 @@ class FriendController extends Controller
         $currentUser = auth()->user();
         $friendId = $request->friend_id;
         $user = User::findOrFail($friendId);
-
+        $suggestUser = $this->userService->getListNotFriend(auth()->user())->first();
         $relationship = $currentUser->isFriends($user)->first();
 
         $data = [
@@ -40,9 +43,12 @@ class FriendController extends Controller
 
             $this->friendService->sendNotificationEvent($data['friend_id']);
 
+            $htmlFriendSuggestion = $suggestUser ? view('pages.blocks.widgets.one_friend_suggestion', ['user' => $suggestUser])->render() : '';
+
             return response()->json([
                 'status' => true,
                 'html' => view('pages.blocks.widgets.un_request', compact('user'))->render(),
+                'html_friend_suggestion' => $htmlFriendSuggestion,
             ]);
         }
 

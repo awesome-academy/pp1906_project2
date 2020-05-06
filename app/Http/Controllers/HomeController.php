@@ -5,13 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Services\PostService;
 use Illuminate\Http\Request;
+use App\Services\UserService;
 
 class HomeController extends Controller
 {
+    protected $userService;
     protected $postService;
 
-    public function __construct(PostService $postService)
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(UserService $userService, PostService $postService)
     {
+        $this->userService = $userService;
         $this->postService = $postService;
     }
 
@@ -22,7 +30,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $suggestUsers = User::where('id', '!=', auth()->id())->inRandomOrder()->limit(config('user.suggestion_friend'))->get();
+        $suggestUsers = $this->userService->getListNotFriend(
+            auth()->user(),
+            config('user.suggestion_friend')
+        );
 
         $posts = $this->postService->getListPosts(auth()->user());
 
