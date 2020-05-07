@@ -53,6 +53,23 @@ class UserService
     }
 
     /**
+     * Get list not friend database.
+     *
+     * @param Int $user
+     * @return Collection
+     */
+    public function getListNotFriend($user, $limit = 1)
+    {
+        $listFriendId = $user->friends->pluck('id')->push($user->id);
+        $suggestionFriend = User::whereNotIn('id', $listFriendId)
+            ->inRandomOrder()
+            ->limit($limit)
+            ->get();
+
+        return $suggestionFriend;
+    }
+
+    /**
      * Get Notifications data.
      *
      * @return \Illuminate\Http\Response
