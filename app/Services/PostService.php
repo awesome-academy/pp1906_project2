@@ -164,24 +164,23 @@ class PostService
     }
 
     /**
-     * Get Notifications count.
+     * Get list posts for showing in newsfeed.
      *
-     * @return Boolean
+     * @return \Illuminate\Http\Response
      */
-    public function setPostNotificationIsRead($notification)
+    public function getListPosts($user, $isCurrentUser = true)
     {
-        if ($notification->is_read) {
-            return true;
+        $userFriendIds = $user->friends->pluck('id');
+
+        if ($isCurrentUser) {
+            $listUserIds = $userFriendIds->push($user->id);
+        } else {
+            $listUserIds = [$user->id];
         }
 
-        try {
-            $notification->update(['is_read' => true]);
-        } catch (\Throwable $th) {
-            Log::error($th);
-
-            return false;
-        }
-
-        return true;
+        return Post::with('user', 'parentComments')
+            ->whereIn('user_id', $listUserIds)
+            ->orderDesc()
+            ->paginate(config('home.page.number'));
     }
 }

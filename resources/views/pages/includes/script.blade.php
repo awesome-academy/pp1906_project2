@@ -54,6 +54,8 @@
 
 <script src="{{ asset('js/preview_image.js') }}"></script>
 <script src="{{ asset('js/load_more.js') }}"></script>
+<script src="{{ asset('js/preview_avatar.js') }}"></script>
+<script src="{{ asset('js/preview_cover.js') }}"></script>
 <script src="{{ asset('js/view_more_comment.js') }}"></script>
 <script src="{{ asset('js/store_comment.js') }}"></script>
 <script src="{{ asset('js/update_delete_comment.js') }}"></script>
@@ -66,8 +68,11 @@
             title: "@lang('Oops...')",
             text: "@lang('Something went wrong!')",
         });
+
         location.reload();
     }
+
+    var errorImageType = "@lang('Please select only images')";
 </script>
 
 @yield('script')

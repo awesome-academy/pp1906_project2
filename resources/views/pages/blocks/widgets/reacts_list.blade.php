@@ -9,7 +9,7 @@
         <a href="#" class="post-add-icon inline-items">
             <strong>
                 <strong class="count-comments-{{ $post->id }}">
-                    {{ $post->comments->count() }}
+                    {{ $post->parentComments->count() }}
                 </strong>
                 @lang('comments')
             </strong>

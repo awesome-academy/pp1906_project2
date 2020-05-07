@@ -7,16 +7,9 @@
             <img class="default-avatar" src="{{ getAvatar($post->user->avatar) }}" alt="{{ $post->user->name }}">
 
             <div class="author-date">
-                <a class="h6 post__author-name fn" href="{{ route('user.profile', $post->user->username) }}">{{ $post->user->name }}</a>
-
-                @if ($post->share)
-
-                {!! __('share.title', ['name' => $post->share->user->name, 'username' => $post->share->user->username, 'post_id' => $post->share->id]) !!}
-
-                @endif
-
+                <a class="h6 post__author-name fn" href="#">{{ $post->user->name }}</a>
                 <div class="post-type-icon post__date">
-                    <a class="show-post float-left" href="{{ route('posts.show', $post->id) }}">
+                    <a class="show-post" href="{{ route('posts.show', $post->id) }}">
                         <time class="published">{{ getCreatedFromTime($post) }}</time>
 
                         @if ($post->isUpdated())
@@ -27,19 +20,19 @@
                         @endif
                     </a>
 
-                    <span class="float-left" style="margin-left: 3px;"> · </span>
+                    <span> · </span>
 
                     @if ($post->isPublic())
-                    <img class="post-type float-left" src="{{ asset('theme/socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
+                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
                     @elseif ($post->isPrivate())
-                    <img class="post-type float-left" src="{{ asset('theme/socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
+                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
                     @elseif ($post->isFriendsOnly())
-                    <img class="post-type float-left" src="{{ asset('theme/socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
+                    <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
                     @endif
                 </div>
             </div>
             @if (auth()->id() == $post->user->id)
-                @include('pages.blocks.widgets.three_dots')
+            @include('pages.blocks.widgets.three_dots')
             @endif
         </div>
 
@@ -54,27 +47,25 @@
         @if ($post->share)
         @include('pages.blocks.widgets.share', ['post' => $post->share])
         @endif
+
         @include('pages.blocks.widgets.reacts_list')
 
         @include('pages.blocks.widgets.reacts')
 
     </article>
 
-    @php
-    $commentFirst = $post->comments()->orderBy('created_at', 'desc')->first();
-    @endphp
-
-    <ul class="comments-list post-comment-list-{{ $post->id }}">
-        @if ($post->comments()->count())
-        @include('pages.blocks.comment', ['comment' => $commentFirst])
-        @endif
-    </ul>
+    @include('pages.blocks.list_comment')
 
     <!-- ... end Comments -->
+    @php
+    $commentFirst = $post->parentComments()->orderBy('created_at', 'desc')->first();
+    @endphp
 
-    @if ($post->comments()->count() > 1)
-        <a href="#" class="more-comments more-comments-{{ $post->id }}" data-page="1" data-last_page="{{ $post->comments()->paginate(config('post.comment.paginate'))->lastPage() }}" data-post-id={{ $post->id }} data-comment-first-id={{ $commentFirst->id }}> @lang('View more comments') <span>+</span></a>
+    <!-- phần của Nam -->
+    @if ($post->parentComments()->count() > 1)
+    <a href="#" class="more-comments more-comments-{{ $post->id }}" data-page="1" data-last_page="{{ $post->parentComments()->paginate(config('post.comment.paginate'))->lastPage() }}" data-post-id="{{ $post->id }}" data-comment-first-id="{{ $commentFirst->id }}"> @lang('View more comments') <span>+</span></a>
     @endif
+    <!-- /phần của Nam -->
 
     <!-- Comment Form  -->
 
@@ -85,13 +76,6 @@
 
             <div class="form-group with-icon-right ">
                 <textarea class="form-control comment-content"></textarea>
-                <div class="add-options-message">
-                    <a href="#" class="options-message" data-toggle="modal" data-target="#update-header-photo">
-                        <svg class="olymp-camera-icon">
-                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use>
-                        </svg>
-                    </a>
-                </div>
             </div>
         </div>
 

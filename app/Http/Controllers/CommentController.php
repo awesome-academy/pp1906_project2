@@ -6,7 +6,6 @@ use App\Http\Requests\CommentRequest;
 use App\Http\Requests\ReactRequest;
 use App\Http\Requests\ReplyRequest;
 use Illuminate\Http\Request;
-use App\Models\Comment;
 use App\Models\Post;
 use App\Services\CommentService;
 use App\Services\ReactService;
@@ -38,6 +37,7 @@ class CommentController extends Controller
         $data['user_id'] = auth()->id();
 
         $comment = $this->commentService->storeComment($data);
+
         $postId = $data['post_id'];
         $post = Post::findOrFail($data['post_id']);
 
@@ -45,7 +45,7 @@ class CommentController extends Controller
             return response()->json([
                 'status' => true,
                 'comment' => view('pages.blocks.comment', compact('comment', 'postId', 'post'))->render(),
-                'count_comments' => $post->comments()->count(),
+                'count_comments' => $post->parentComments()->count(),
             ]);
         }
 
@@ -150,11 +150,11 @@ class CommentController extends Controller
         $post = Post::findOrFail($data['post_id']);
 
         if ($post) {
-            $comments = $post->comments()->orderBy('created_at', 'desc')->paginate(config('post.comment.paginate'));
+            $comments = $post->parentComments()->orderBy('created_at', 'desc')->paginate(config('post.comment.paginate'));
 
             return response()->json([
                 'status' => true,
-                'html' => view('pages.blocks.list_comment', compact('post', 'comments'))->render(),
+                'html' => view('pages.blocks.list_comment', compact('post', 'parentComments'))->render(),
             ]);
         }
 
@@ -170,7 +170,7 @@ class CommentController extends Controller
      * @param Int $id
      * @return \Illuminate\Http\Response
      */
-    public function replyComment(ReplyRequest $request, $id)
+    public function replyComment(ReplyRequest $request)
     {
         $data = $request->only([
             'post_id',
@@ -187,7 +187,7 @@ class CommentController extends Controller
         if ($comment) {
             return response()->json([
                 'status' => true,
-                'comment' => view('pages.blocks.comment', compact('comment', 'postId'))->render(),
+                'reply' => view('pages.blocks.widgets.single_comment_reply', compact('comment', 'postId'))->render()
             ]);
         }
 

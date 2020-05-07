@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Services\PostService;
-use App\Models\Notification;
+use App\Services\NotificationService;
 
 class PostController extends Controller
 {
     protected $postService;
 
-    public function __construct(PostService $postService)
+    public function __construct(PostService $postService, NotificationService $notificationService)
     {
         $this->postService = $postService;
+        $this->notificationService = $notificationService;
     }
 
     /**
@@ -73,11 +74,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        $notification = Notification::where(['post_id' => $id], ['receiver_id' => auth()->id()])->first();
-
-        if ($notification && !$notification->isRead()) {
-            $this->postService->setPostNotificationIsRead($notification);
-        }
+        $this->notificationService->setPostNotificationsIsRead($id);
 
         return view('pages.post.index', compact('post'));
     }

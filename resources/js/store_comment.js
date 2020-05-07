@@ -5,7 +5,7 @@ $(document).ready(function () {
         }
     });
 
-    $('.store-comment').click(function() {
+    $('body').on('click', '.store-comment', function (event) {
         event.preventDefault();
 
         var url = 'comments';
