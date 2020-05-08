@@ -601,3 +601,24 @@ span.prefix {
 .children .comment-item {
     padding-bottom: 25px !important;
 }
+
+.more-birthdays {
+    color: #fff;
+    font-weight: bold;
+}
+
+.more-birthdays:hover {
+    color: #fff;
+}
+
+.birthday-item .btn {
+    max-width: none;
+}
+
+.content-bg-wrap.bg-birthday {
+    margin-left: 35px;
+}
+
+.nothing-here-notification {
+    list-style-type: none;
+}

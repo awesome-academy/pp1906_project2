@@ -38,7 +38,6 @@ class UserController extends Controller
         return view('pages.settings.language.index');
     }
 
-
     /**
      * Update the specified resource in storage.
      *

@@ -5,7 +5,10 @@
     <div class="row">
         <!-- Left Sidebar -->
         <aside class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
+            @if ($todayBirthdayUsers->count() > 0)
             @include('pages.blocks.widgets.birthday')
+            @endif
+
             @include('pages.blocks.widgets.friend_suggestion')
         </aside>
         <!-- ... end Left Sidebar -->

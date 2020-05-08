@@ -39,6 +39,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
 
+    Route::get('/birthdays', 'HomeController@showTodayBirthdays')->name('birthdays.index');
+
     Route::get('/settings', 'UserController@showInformation')->name('user.showInformation');
 
     Route::post('/settings/update', 'UserController@updateInformation')->name('user.updateInformation');
