@@ -4,8 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
-use App\Models\Friend;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 
 class UserService
 {
@@ -17,7 +16,7 @@ class UserService
      */
     public function getUserData($request)
     {
-        $birthday = Carbon::parse($request->datetimepicker)->toDateString();
+        $birthday = Carbon::createFromFormat('d/m/Y', $request->datetimepicker)->toDateString();
 
         $request->merge(['birthday' => $birthday]);
 

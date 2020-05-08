@@ -42,3 +42,18 @@ if (!function_exists('getCover')) {
         return $imagePath;
     }
 }
+
+if (!function_exists('getTranslatedDate')) {
+    function getTranslatedDate($date)
+    {
+        $currentLanguage = app()->getLocale();
+
+        $newDate = new Carbon($date);
+
+        if ($currentLanguage == 'vi') {
+            return $newDate->translatedFormat('jS F, Y');
+        } else {
+            return $newDate->translatedFormat('F jS, Y');
+        }
+    }
+}

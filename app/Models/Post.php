@@ -110,7 +110,8 @@ class Post extends Model
     /**
      * Scope order posts in descending order.
      *
-     * @return Boolean
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Http\Response
      */
     public function scopeOrderDesc($query)
     {

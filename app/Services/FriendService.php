@@ -5,6 +5,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\Log;
 use App\Models\Friend;
 use App\Events\FriendRequested;
+use Illuminate\Support\Carbon;
 
 class FriendService
 {
@@ -86,5 +87,23 @@ class FriendService
         return Friend::where('friend_id', $userId)
             ->orderDesc()
             ->paginate(config('notification.page.number'));
+    }
+
+
+    /**
+     * Get list friend of a user.
+     *
+     * @param Int $user
+     * @param String $date
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getListFriendBirthdays($user, $date)
+    {
+        $date = new Carbon($date);
+
+        return $user->friends()->where('friends.status', config('friend.status.accept'))
+            ->whereMonth('birthday', $date->month)
+            ->whereDay('birthday', $date->day)
+            ->get();
     }
 }

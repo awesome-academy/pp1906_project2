@@ -32,8 +32,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="@lang('Videos')">
-                        <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/video.svg') }}">
+                    <a href="{{ route('birthdays.index') }}" title="@lang('Birthday')">
+                        <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/cake.svg') }}">
                     </a>
                 </li>
                 <li>
