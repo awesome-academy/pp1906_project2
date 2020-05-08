@@ -38,6 +38,8 @@ class ProfileController extends Controller
 
         $posts = $this->postService->getListPosts($user, false);
 
+        $postImages = $this->postService->getPhoto($user, config('user.last_photo'));
+
         if ($request->ajax()) {
             $nextPosts = view('pages.blocks.post', compact('posts'))->render();
 
@@ -46,7 +48,7 @@ class ProfileController extends Controller
             ]);
         }
 
-        return view('pages.profile.timeline.index', compact('user', 'posts', 'relationship'));
+        return view('pages.profile.timeline.index', compact('user', 'posts', 'relationship', 'postImages'));
     }
 
     /**

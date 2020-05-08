@@ -183,4 +183,22 @@ class PostService
             ->orderDesc()
             ->paginate(config('home.page.number'));
     }
+
+    public function getPhoto($user, $photoNumber)
+    {
+        $postImages = $user->posts()->whereNotNull('image')->orderDesc()->pluck('image');
+        $imageArray = [];
+
+        foreach ($postImages as $image) {
+            foreach (json_decode($image) as $postImage) {
+                if (count($imageArray) == $photoNumber) {
+                    return $imageArray;
+                }
+
+                $imageArray[] = $postImage;
+            }
+        }
+
+        return $imageArray;
+    }
 }
