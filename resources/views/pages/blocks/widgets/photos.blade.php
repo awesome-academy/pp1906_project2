@@ -1,60 +1,20 @@
 <div class="ui-block">
     <div class="ui-block-title">
-        <h6 class="title">Last Photos</h6>
+        <h6 class="title">@lang('Last Photos')</h6>
     </div>
     <div class="ui-block-content">
 
         <!-- W-Latest-Photo -->
 
         <ul class="widget w-last-photo js-zoom-gallery">
-            <li>
-                <a href="{{ asset('theme/socialyte/img/last-photo10-large.jpg') }}">
-                    <img src="{{ asset('theme/socialyte/img/last-photo10-large.jpg') }}" alt="photo">
-                </a>
-            </li>
-            <li>
-                <a href="{{ asset('theme/socialyte/img/last-phot11-large.jpg') }}">
-                    <img src="{{ asset('theme/socialyte/img/last-phot11-large.jpg') }}" alt="photo">
-                </a>
-            </li>
-            <li>
-                <a href="{{ asset('theme/socialyte/img/last-phot12-large.jpg') }}">
-                    <img src="{{ asset('theme/socialyte/img/last-phot12-large.jpg') }}" alt="photo">
-                </a>
-            </li>
-            <li>
-                <a href="{{ asset('theme/socialyte/img/last-phot13-large.jpg') }}">
-                    <img src="{{ asset('theme/socialyte/img/last-phot13-large.jpg') }}" alt="photo">
-                </a>
-            </li>
-            <li>
-                <a href="{{ asset('theme/socialyte/img/last-phot14-large.jpg') }}">
-                    <img src="{{ asset('theme/socialyte/img/last-phot14-large.jpg') }}" alt="photo">
-                </a>
-            </li>
-            <li>
-                <a href="{{ asset('theme/socialyte/img/last-phot15-large.jpg') }}">
-                    <img src="{{ asset('theme/socialyte/img/last-phot15-large.jpg') }}" alt="photo">
-                </a>
-            </li>
-            <li>
-                <a href="{{ asset('theme/socialyte/img/last-phot16-large.jpg') }}">
-                    <img src="{{ asset('theme/socialyte/img/last-phot16-large.jpg') }}" alt="photo">
-                </a>
-            </li>
-            <li>
-                <a href="{{ asset('theme/socialyte/img/last-phot17-large.jpg') }}">
-                    <img src="{{ asset('theme/socialyte/img/last-phot17-large.jpg') }}" alt="photo">
-                </a>
-            </li>
-            <li>
-                <a href="{{ asset('theme/socialyte/img/last-phot18-large.jpg') }}">
-                    <img src="{{ asset('theme/socialyte/img/last-phot18-large.jpg') }}" alt="photo">
-                </a>
-            </li>
+            @foreach ($postImages as $image)
+                <li>
+                    <a href="{{ asset('storage/images/posts/' . $image) }}">
+                        <img class="last-photos" src="{{ asset('storage/images/posts/' . $image) }}" alt="photo">
+                    </a>
+                </li>
+            @endforeach
         </ul>
-
-
         <!-- .. end W-Latest-Photo -->
     </div>
 </div>
