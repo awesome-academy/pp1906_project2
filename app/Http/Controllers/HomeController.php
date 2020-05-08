@@ -6,22 +6,30 @@ use App\Services\FriendService;
 use App\Services\PostService;
 use Illuminate\Http\Request;
 use App\Services\UserService;
+use App\Services\ActivityService;
 
 class HomeController extends Controller
 {
     protected $userService;
     protected $postService;
+    protected $friendService;
+    protected $activityService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(UserService $userService, PostService $postService, FriendService $friendService)
-    {
+    public function __construct(
+        UserService $userService,
+        PostService $postService,
+        FriendService $friendService,
+        ActivityService $activityService
+    ) {
         $this->userService = $userService;
         $this->postService = $postService;
         $this->friendService = $friendService;
+        $this->activityService = $activityService;
     }
 
     /**
@@ -53,6 +61,8 @@ class HomeController extends Controller
 
         $todayBirthdayUsers = $this->friendService->getListFriendBirthdays(auth()->user(), now());
 
+        $activities = $this->activityService->getListActivities(auth()->user());
+
         if ($todayBirthdayUsers->count() > 1) {
             $randomTodayBirthdayUser = $todayBirthdayUsers->random(1)->first();
         }
@@ -69,7 +79,8 @@ class HomeController extends Controller
             'posts',
             'suggestUsers',
             'todayBirthdayUsers',
-            'randomTodayBirthdayUser'
+            'randomTodayBirthdayUser',
+            'activities'
         ));
     }
 }

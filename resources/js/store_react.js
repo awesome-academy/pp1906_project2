@@ -3,7 +3,7 @@ import { ajaxSetup } from './functions.js';
 $(document).ready(function () {
     ajaxSetup();
 
-    $('body').on('click', '.btn-react-post-like, .btn-react-post-love',  function () {
+    $('body').on('click', '.btn-react-post-like, .btn-react-post-love', function () {
         event.preventDefault();
 
         var _this = $(this);
@@ -63,4 +63,3 @@ $(document).ready(function () {
         });
     }
 });
-

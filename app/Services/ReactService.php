@@ -7,15 +7,19 @@ use Illuminate\Support\Facades\DB;
 use App\Models\React;
 use App\Events\PostReacted;
 use App\Models\Post;
+use App\Models\Activity;
 use App\Services\NotificationService;
+use App\Services\ActivityService;
 
 class ReactService
 {
     protected $notificationService;
+    protected $activityService;
 
-    public function __construct(NotificationService $notificationService)
+    public function __construct(NotificationService $notificationService, ActivityService $activityService)
     {
         $this->notificationService = $notificationService;
+        $this->activityService = $activityService;
     }
 
     /**
@@ -35,6 +39,12 @@ class ReactService
             'post_id' => $data['reactable_id'],
         ];
 
+        $activityData = [
+            'user_id' => $data['user_id'],
+            'post_id' => $data['reactable_id'],
+            'type' => $data['type']
+        ];
+
         DB::beginTransaction(); //begin transaction
 
         try {
@@ -42,6 +52,7 @@ class ReactService
 
             if ($data['user_id'] != $post->user->id) {
                 $this->notificationService->storeNotification($notificationData);
+                $this->activityService->storeActivity($activityData);
             }
 
             DB::commit(); //commit transaction
