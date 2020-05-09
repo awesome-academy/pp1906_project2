@@ -11,7 +11,7 @@
     <form method="POST" action="{{ route('password.confirm') }}">
         @csrf
 
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="@lang('Your Password')">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="@lang('Password')">
 
         @error('password')
         <span class="invalid-feedback" role="alert">
@@ -24,7 +24,7 @@
     </form>
     @if (Route::has('password.request'))
     <a href="{{ route('password.request') }}" class="login-action" title="Forgot password">
-        <p> @lang('Forgot your password?') </p>
+        <p> @lang('Forgot password?') </p>
     </a>
     @endif
 </div>

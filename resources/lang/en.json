@@ -1,7 +1,7 @@
 {
     "Remember me": "Remember me",
     "SIGN IN": "SIGN IN",
-    "Forgot your password?": "Forgot your password?",
+    "Forgot password?": "Forgot password?",
     "New User?": "New User?",
     "SIGN UP": "SIGN UP",
     "Have an account?": "Have an account?",
@@ -15,10 +15,10 @@
     "Enter your email address and we will send you a reset link": "Enter your email address and we will send you a reset link",
     "Send Password Reset Link": "Send Password Reset Link",
     "Reset Password": "Reset Password",
-    "Your Name": "Your Name",
-    "Your Username": "Your Username",
-    "Your Email": "Your Email",
-    "Your Password": "Your Password",
+    "Name": "Name",
+    "Username": "Username",
+    "Email": "Email",
+    "Password": "Password",
     "Post your status": "Post your status",
     "Share what you are thinking here...": "Share what you are thinking here...",
     "Post Status": "Post Status",
@@ -99,7 +99,7 @@
     "Share post": "Share post",
     "Show post": "Show post",
     "shares": "shares",
-    "person reacted this post": "person reacted this post",
+    "react this post": "react this post",
     "Mark all as read": "Mark all as read",
     "View All": "View All",
     "Previous": "Previous",
@@ -123,5 +123,8 @@
     "Today's Birthdays": "Today's Birthdays",
     "Go to profile": "Go to profile",
     "There's no birthday today..": "There's no birthday today..",
-    "Last Photos": "Last Photos"
+    "Last Photos": "Last Photos",
+    "Friend Suggestions": "Friend Suggestions",
+    "Send a friend request": "Send a friend request",
+    "No Friend Suggestions": "No Friend Suggestions"
 }

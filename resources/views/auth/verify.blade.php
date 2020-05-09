@@ -16,7 +16,7 @@
         @endif
 
         @lang('Before proceeding, please check your email for a verification link.')
-        @lang('If you did not receive the email'),
+        @lang('If you did not receive the email')
         <form method="POST" action="{{ route('verification.resend') }}">
             @csrf
             <button type="submit" class="btn btn-social"> @lang('Click here to request another') </button>
