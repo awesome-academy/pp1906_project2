@@ -41,3 +41,9 @@
     </div>
 </div>
 @endsection
+
+@section('script')
+<script src="{{ asset('js/activity_feed.js') }}"></script>
+<script src="{{ asset('js/load_more.js') }}"></script>
+<script src="{{ asset('js/friend_suggestion.js') }}"></script>
+@endsection

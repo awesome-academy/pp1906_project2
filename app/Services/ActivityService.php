@@ -4,9 +4,22 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\Activity;
+use App\Services\FriendService;
 
 class ActivityService
 {
+    protected $friendService;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(FriendService $friendService)
+    {
+        $this->friendService = $friendService;
+    }
+
     /**
      * Store Activity in database.
      *
@@ -15,12 +28,6 @@ class ActivityService
      */
     public function storeActivity($data)
     {
-        $activityExists = Activity::where($data)->exists();
-
-        if ($activityExists) {
-            return true;
-        }
-
         try {
             Activity::create($data);
         } catch (\Throwable $th) {
@@ -36,17 +43,55 @@ class ActivityService
     /**
      * Get list activities for showing in newsfeed.
      *
+     * @param App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function getListActivities($user)
     {
-        $userFriendIds = $user->friends()
-            ->where('friends.status', config('friend.status.accept'))
-            ->pluck('friend_id');
+        $userFriendIds = $this->friendService->getFriendIds($user);
 
         return Activity::with('user')
             ->whereIn('user_id', $userFriendIds)
             ->orderDesc()
             ->paginate(config('activity.page'));
+    }
+
+    /**
+     * Get latest activities for showing in newsfeed.
+     *
+     * @param App\Models\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function getLatestActivities($user)
+    {
+        $userFriendIds = $this->friendService->getFriendIds($user);
+
+        return Activity::with('user')
+            ->whereIn('user_id', $userFriendIds)
+            ->whereBetween('created_at', [now()->subMinutes(10), now()])
+            ->limit(10)
+            ->orderDesc()
+            ->get();
+    }
+
+    /**
+     * Delete Activity.
+     *
+     * @param  int $postId
+     * @return Boolean
+     */
+    public function deleteActivity($postId)
+    {
+        $activity = Activity::where('post_id', $postId);
+
+        try {
+            $activity->delete();
+        } catch (\Throwable $th) {
+            Log::error($th);
+
+            return false;
+        }
+
+        return true;
     }
 }

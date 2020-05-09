@@ -42,7 +42,7 @@
                         <div class="author-content">
                             <a href="{{ asset('user.profile', $user->username) }}" class="h4 author-name">{{ $user->name }}</a>
                             <span class="friends-mark">
-                                @if ($relationship && $relationship->status == config('user.friend.accept') && auth()->user()->checkFriends($user->id))
+                                @if (auth()->user()->bothFriends($user->id))
                                 @include('pages.blocks.widgets.friends_mark')
                                 @endif
                             </span>
