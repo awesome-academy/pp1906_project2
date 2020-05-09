@@ -10,7 +10,7 @@
         @csrf
 
         <!-- Email -->
-        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('Your Email')">
+        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('Email')">
 
         @error('email')
         <span class="invalid-feedback" role="alert">

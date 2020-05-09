@@ -1,7 +1,7 @@
 {
     "Remember me": "Nhớ tài khoản",
     "SIGN IN": "ĐĂNG NHẬP",
-    "Forgot your password?": "Quên mật khẩu?",
+    "Forgot password?": "Quên mật khẩu?",
     "New User?": "Chưa có tài khoản?",
     "SIGN UP": "ĐĂNG KÝ",
     "Have an account?": "Đã có tài khoản?",
@@ -15,10 +15,10 @@
     "Enter your email address and we will send you a reset link": "Nhập địa chỉ email của bạn để nhận link phục hồi mật khẩu",
     "Send Password Reset Link": "Gửi link phục hồi mật khẩu",
     "Reset Password": "Phục hồi mật khẩu",
-    "Your Name": "Tên đầy đủ của bạn",
-    "Your Username": "Tên định danh của bạn",
-    "Your Email": "Địa chỉ email của bạn",
-    "Your Password": "Mật khẩu của bạn",
+    "Name": "Tên đầy đủ của bạn",
+    "Username": "Tên định danh của bạn",
+    "Email": "Địa chỉ email của bạn",
+    "Password": "Mật khẩu của bạn",
     "Post your status": "Tạo bài viết",
     "Share what you are thinking here...": "Bạn đang nghĩ gì thế...?",
     "Post Status": "Đăng bài viết",
@@ -100,7 +100,7 @@
     "Share post": "Chia sẻ bài viết",
     "Show post": "Xem",
     "shares": "lượt chia sẻ",
-    "person reacted this post": "người đã bày tỏ cảm xúc",
+    "react this post": "cảm xúc trong bài viết",
     "Mark all as read": "Đánh dấu tất cả là đã đọc",
     "View All": "Xem tất cả",
     "Previous": "Trước",
@@ -125,5 +125,8 @@
     "Today's Birthdays": "Sinh nhật ngày hôm nay",
     "Go to profile": "Trang cá nhân",
     "There's no birthday today..": "Không có sinh nhật ngày hôm nay..",
-    "Last Photos": "Ảnh"
+    "Last Photos": "Ảnh",
+    "Friend Suggestions": "Đề Xuất Bạn Bè",
+    "Send a friend request": "Gửi yêu cầu kết bạn",
+    "No Friend Suggestions": "Không có bạn bè đề xuất"
 }

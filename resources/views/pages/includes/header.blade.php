@@ -21,19 +21,20 @@
             @include('pages.blocks.widgets.friend_requests')
 
             @include('pages.blocks.widgets.notifications')
-
-            <div class="author-page author vcard inline-items more">
-                <div class="author-thumb">
-                    <img src="{{ getAvatar(auth()->user()->avatar) }}" class="avatar default-avatar" alt="{{auth()->user()->name}}">
-                    <span class="icon-status online"></span>
-                </div>
-                <a href="#" class="author-name fn">
-                    <div class="author-title">
-                        {{ auth()->user()->name }}
+            <a href="{{ route('user.profile', auth()->user()->username) }}">
+                <div class="author-page author vcard inline-items more">
+                    <div class="author-thumb">
+                        <img src="{{ getAvatar(auth()->user()->avatar) }}" class="avatar default-avatar" alt="{{auth()->user()->name}}">
+                        <span class="icon-status online"></span>
                     </div>
-                    <span class="author-subtitle">{{ auth()->user()->username }}</span>
-                </a>
-            </div>
+                    <a href="{{ route('user.profile', auth()->user()->username) }}" class="author-name fn">
+                        <div class="author-title">
+                            {{ auth()->user()->name }}
+                        </div>
+                        <span class="author-subtitle">{{ auth()->user()->username }}</span>
+                    </a>
+                </div>
+            </a>
         </div>
     </div>
 </header>

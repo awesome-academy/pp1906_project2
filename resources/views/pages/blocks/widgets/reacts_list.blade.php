@@ -2,7 +2,7 @@
     <a href="#" class="post-add-icon inline-items" data-toggle="modal" data-target="#listReactModal{{ $post->id }}">
         <strong>
             <strong class="count-reacts"> {{ $post->reacts->count() }} </strong>
-            @lang('person reacted this post')
+            @lang('react this post')
         </strong>
     </a>
     <div class="comments-shared">

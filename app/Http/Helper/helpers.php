@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\Friend;
+use Illuminate\Support\Str;
 
 if (!function_exists('getCreatedFromTime')) {
     function getCreatedFromTime($post)
@@ -55,5 +56,12 @@ if (!function_exists('getTranslatedDate')) {
         } else {
             return $newDate->translatedFormat('F jS, Y');
         }
+    }
+}
+
+if (!function_exists('strLimit')) {
+    function strLimit($str, $length = 15)
+    {
+        return Str::limit($str, $length);
     }
 }

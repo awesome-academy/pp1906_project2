@@ -6,7 +6,7 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
         <!-- User name -->
-        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="@lang('Your Name')">
+        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="@lang('Name')">
 
         @error('name')
         <span class="invalid-feedback" role="alert">
@@ -15,7 +15,7 @@
         @enderror
 
         <!-- User name -->
-        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="@lang('Your Username')">
+        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="@lang('Username')">
 
         @error('username')
         <span class="invalid-feedback" role="alert">
@@ -24,7 +24,7 @@
         @enderror
 
         <!-- Email -->
-        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="@lang('Your Email')">
+        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="@lang('Email')">
 
         @error('email')
         <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
         @enderror
 
         <!-- Password -->
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="@lang('Your Password')">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="@lang('Password')">
 
         @error('password')
         <span class="invalid-feedback" role="alert">
