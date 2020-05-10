@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use Illuminate\Http\Request;
 use App\Services\PostService;
 use App\Services\NotificationService;
 
@@ -116,5 +117,29 @@ class PostController extends Controller
         }
 
         return back()->with('error', __('share.error'));
+    }
+
+    /**
+     * Get latest posts to show on newsfeed.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLatestPost()
+    {
+        $newPostCounts = $this->postService->getLatestPostsCount(auth()->user());;
+
+        $html = '';
+
+        if ($newPostCounts > 0) {
+            $posts = $this->postService->getListPosts(auth()->user());
+
+            $html = view('pages.blocks.post', compact('posts'))->render();
+        }
+
+        return response()->json([
+            'status' => true,
+            'html' => $html,
+            'count' => $newPostCounts,
+        ]);
     }
 }

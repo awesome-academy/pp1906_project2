@@ -64,6 +64,10 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::resource('posts', 'PostController');
 
+    Route::get('/get-latest-posts', 'PostController@getLatestPost')->name('post.getLatest');
+
+    Route::post('/get-latest-posts/remove-session', 'PostController@removePostsCountSession');
+
     Route::get('comments/load-more', 'CommentController@viewMoreComment')->name('comments.viewMoreComment');
 
     Route::resource('comments', 'CommentController');

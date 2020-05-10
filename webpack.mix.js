@@ -30,4 +30,5 @@ mix.sass('resources/sass/style.scss', 'public/css')
    .js('resources/js/friend_suggestion.js', 'public/js')
    .js('resources/js/reply_comment.js', 'public/js')
    .js('resources/js/activity_feed.js', 'public/js')
+   .js('resources/js/live_reload_posts.js', 'public/js')
    .copyDirectory('resources/views/theme', 'public/theme');

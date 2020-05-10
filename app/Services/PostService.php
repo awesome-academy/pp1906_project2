@@ -35,6 +35,24 @@ class PostService
     }
 
     /**
+     * Get list user's friends or exactly this user.
+     *
+     * @param  App\Models\User $user
+     * @param Boolean $isCurrentUser
+     * @return Array
+     */
+    public function getListUsers($user, $isCurrentUser = true)
+    {
+        $userFriendIds = $user->friends->pluck('id');
+
+        if ($isCurrentUser) {
+            return $userFriendIds->push($user->id);
+        }
+
+        return [$user->id];
+    }
+
+    /**
      * Save Images.
      *
      * @param  Array $images
@@ -186,22 +204,33 @@ class PostService
     /**
      * Get list posts for showing in newsfeed.
      *
+     * @param App\Models\User $user
+     * @param Boolean $isCurrentUser
      * @return \Illuminate\Http\Response
      */
     public function getListPosts($user, $isCurrentUser = true)
     {
-        $userFriendIds = $user->friends->pluck('id');
-
-        if ($isCurrentUser) {
-            $listUserIds = $userFriendIds->push($user->id);
-        } else {
-            $listUserIds = [$user->id];
-        }
+        $listUserIds = $this->getListUsers($user, $isCurrentUser);
 
         return Post::with('user', 'parentComments')
             ->whereIn('user_id', $listUserIds)
             ->orderDesc()
             ->paginate(config('home.page.number'));
+    }
+
+    /**
+     * Get latest posts for showing in newsfeed.
+     *
+     * @param App\Models\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function getLatestPostsCount($user)
+    {
+        $userFriendIds = $user->friends->pluck('id');
+
+        return Post::whereIn('user_id', $userFriendIds)
+            ->whereBetween('created_at', [now()->subMinutes(config('post.minutes_between')), now()])
+            ->count();
     }
 
     public function getPhoto($user, $photoNumber)
