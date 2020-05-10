@@ -20,6 +20,19 @@ class FriendService
     }
 
     /**
+     * Get friends Id list of a user.
+     *
+     * @param App\Models\User $user
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getFriendIds($user)
+    {
+        return $user->friends()
+            ->where('friends.status', config('friend.status.accept'))
+            ->pluck('friend_id');
+    }
+
+    /**
      * Create new request data in database.
      *
      * @param Array $data

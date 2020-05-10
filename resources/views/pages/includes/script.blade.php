@@ -43,7 +43,6 @@
 
 <script src="{{ asset('js/search_people.js') }}"></script>
 <script src="{{ asset('js/friend_requests.js') }}"></script>
-<script src="{{ asset('js/friend_suggestion.js') }}"></script>
 <script src="{{ asset('js/control_block.js') }}"></script>
 <script src="{{ asset('js/notifications.js') }}"></script>
 <script src="{{ asset('js/reply_comment.js') }}"></script>
@@ -53,7 +52,6 @@
 <script src="{{ asset('js/functions.js') }}"></script>
 
 <script src="{{ asset('js/preview_image.js') }}"></script>
-<script src="{{ asset('js/load_more.js') }}"></script>
 <script src="{{ asset('js/preview_avatar.js') }}"></script>
 <script src="{{ asset('js/preview_cover.js') }}"></script>
 <script src="{{ asset('js/view_more_comment.js') }}"></script>

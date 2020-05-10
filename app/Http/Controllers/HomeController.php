@@ -12,8 +12,8 @@ class HomeController extends Controller
 {
     protected $userService;
     protected $postService;
-    protected $friendService;
     protected $activityService;
+    protected $friendService;
 
     /**
      * Create a new controller instance.

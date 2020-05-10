@@ -26,3 +26,7 @@
 <!-- ... end Right Sidebar -->
 
 @endsection
+
+@section('script')
+<script src="{{ asset('js/load_more.js') }}"></script>
+@endsection

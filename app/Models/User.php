@@ -148,14 +148,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Check relationship between users.
+     * Check if current user and specific user is both friends.
      *
-     * @param App\Models\User $user
+     * @param Int $userId
      * @return \Illuminate\Http\Response
      */
-    public function checkFriends($userId)
+    public function bothFriends($userId)
     {
-        return Friend::where(['user_id' => $this->id, 'friend_id' => $userId])->exists();
+        return Friend::where(['user_id' => $this->id, 'friend_id' => $userId, 'status' => config('user.friend.accept')])->exists();
     }
 
     /**

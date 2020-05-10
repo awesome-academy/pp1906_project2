@@ -170,6 +170,8 @@ class PostService
     {
         $post = Post::findOrFail($id);
 
+        $this->activityService->deleteActivity($id);
+
         try {
             $post->delete();
         } catch (\Throwable $th) {
