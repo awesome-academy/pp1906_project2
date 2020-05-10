@@ -6,14 +6,17 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Services\NotificationService;
+use App\Services\ActivityService;
 
 class PostService
 {
     protected $notificationService;
+    protected $activityService;
 
-    public function __construct(NotificationService $notificationService)
+    public function __construct(NotificationService $notificationService, ActivityService $activityService)
     {
         $this->notificationService = $notificationService;
+        $this->activityService = $activityService;
     }
 
     /**
@@ -64,7 +67,15 @@ class PostService
     public function storePost($data)
     {
         try {
-            Post::create($data);
+            $post = Post::create($data);
+
+            $activityData = [
+                'user_id' => $data['user_id'],
+                'post_id' => $post->id,
+                'type' => config('activity.type.upload')
+            ];
+
+            $this->activityService->storeActivity($activityData);
         } catch (\Throwable $th) {
             Log::error($th);
 
@@ -114,6 +125,12 @@ class PostService
             'type' => config('notification.type.share'),
         ];
 
+        $activityData = [
+            'user_id' => $data['user_id'],
+            'post_id' => $id,
+            'type' => config('activity.type.share')
+        ];
+
         DB::beginTransaction();
 
         try {
@@ -128,6 +145,7 @@ class PostService
             if ($data['user_id'] != $post->user->id) {
                 $notificationData['post_id'] = $sharePost->id;
                 $this->notificationService->storeNotification($notificationData);
+                $this->activityService->storeActivity($activityData);
             }
 
             DB::commit();

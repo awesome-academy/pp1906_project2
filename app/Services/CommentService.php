@@ -3,10 +3,19 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
+use App\Models\Post;
 use App\Models\Comment;
+use App\Services\ActivityService;
 
 class CommentService
 {
+    protected $activityService;
+
+    public function __construct(ActivityService $activityService)
+    {
+        $this->activityService = $activityService;
+    }
+
     /**
      * Store Comment in database.
      *
@@ -15,8 +24,17 @@ class CommentService
      */
     public function storeComment($data)
     {
+        $activityData = [
+            'user_id' => $data['user_id'],
+            'post_id' => $data['post_id'],
+        ];
+
+        $activityData['type'] = config('activity.type.comment');
+
         try {
             $comment = Comment::create($data);
+
+            $this->activityService->storeActivity($activityData);
         } catch (\Throwable $th) {
             Log::error($th);
 
@@ -38,7 +56,7 @@ class CommentService
         $comment = Comment::findOrFail($id);
 
         try {
-           $comment->update($data);
+            $comment->update($data);
         } catch (\Throwable $th) {
             Log::error($th);
 
