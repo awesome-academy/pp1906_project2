@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Post;
 use App\Models\Comment;
 use App\Services\ActivityService;
+use App\Services\NotificationService;
 
 class CommentService
 {
     protected $activityService;
 
-    public function __construct(ActivityService $activityService)
+    public function __construct(ActivityService $activityService, NotificationService $notificationService)
     {
         $this->activityService = $activityService;
+        $this->notificationService = $notificationService;
     }
 
     /**
@@ -24,6 +26,8 @@ class CommentService
      */
     public function storeComment($data)
     {
+        $post = Post::findOrFail($data['post_id']);
+
         $activityData = [
             'user_id' => $data['user_id'],
             'post_id' => $data['post_id'],
@@ -31,9 +35,30 @@ class CommentService
 
         $activityData['type'] = config('activity.type.comment');
 
+        $notificationData = [
+            'sender_id' => $data['user_id'],
+            'receiver_id' => $post->user->id,
+            'post_id' => $data['post_id'],
+        ];
+
         try {
             $comment = Comment::create($data);
 
+            if (is_null($comment['parent_id'])) {
+                $notificationData['type'] = config('notification.type.comment');
+            } else {
+                $parentComment = Comment::findOrFail($comment['parent_id']);
+
+                if (is_null($parentComment->parent_id)) {
+                    $notificationData['type'] = config('notification.type.reply');
+                } else {
+                    $notificationData['type'] = config('notification.type.replies_of_reply');
+                }
+
+                $notificationData['receiver_id'] = $parentComment->user_id;
+            }
+
+            $this->notificationService->storeNotification($notificationData);
             $this->activityService->storeActivity($activityData);
         } catch (\Throwable $th) {
             Log::error($th);

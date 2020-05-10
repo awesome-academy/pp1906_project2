@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Notification extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'sender_id',
         'receiver_id',
@@ -111,6 +114,36 @@ class Notification extends Model
     public function scopeIsShare()
     {
         return $this->type == config('notification.type.share');
+    }
+
+    /**
+     * Scope if notification type is a comment.
+     *
+     * @return Boolean
+     */
+    public function scopeIsComment()
+    {
+        return $this->type == config('notification.type.comment');
+    }
+
+    /**
+     * Scope if notification type is a reply.
+     *
+     * @return Boolean
+     */
+    public function scopeIsReply()
+    {
+        return $this->type == config('notification.type.reply');
+    }
+
+    /**
+     * Scope if notification type is a reply of a reply.
+     *
+     * @return Boolean
+     */
+    public function scopeIsChildReply()
+    {
+        return $this->type == config('notification.type.replies_of_reply');
     }
 
     /**

@@ -90,18 +90,7 @@ class NotificationService
      */
     public function storeNotification($data)
     {
-        $notificationExists = Notification::where([
-            'sender_id' => $data['sender_id'],
-            'receiver_id' => $data['receiver_id'],
-            'type' => $data['type'],
-            'post_id' => $data['post_id']
-        ])->exists();
-
         try {
-            if ($notificationExists) {
-                return true;
-            }
-
             Notification::create($data);
 
             $this->sendNotificationEvent($data);
