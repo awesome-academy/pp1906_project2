@@ -36,7 +36,7 @@
                         @include('pages.blocks.widgets.control_block')
                     </div>
                     <div class="top-header-author">
-                        <a href="{{ asset('user.profile', $user->username) }}" class="author-thumb">
+                        <a href="#" class="author-thumb">
                             <img id="default-avatar-profile" src="{{ getAvatar($user->avatar) }}" alt="{{ $user->name }}">
                         </a>
                         <div class="author-content">
