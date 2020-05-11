@@ -69,7 +69,7 @@ class ActivityService
         return Activity::with('user')
             ->whereIn('user_id', $userFriendIds)
             ->whereBetween('created_at', [now()->subMinutes(config('activity.minutes_between')), now()])
-            ->limit(10)
+            ->limit(config('activity.display.limit'))
             ->orderDesc()
             ->get();
     }

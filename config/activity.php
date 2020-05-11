@@ -9,5 +9,8 @@ return [
         'share' => 5
     ],
     'page' => 10,
-    'minutes_between' => 10
+    'minutes_between' => 5,
+    'display' => [
+        'limit' => 10
+    ]
 ];

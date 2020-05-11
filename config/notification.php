@@ -10,6 +10,8 @@ return [
         'like' => 1,
         'love' => 2,
         'comment' => 3,
-        'share' => 4
+        'share' => 4,
+        'reply' => 5,
+        'replies_of_reply' => 6,
     ]
 ];

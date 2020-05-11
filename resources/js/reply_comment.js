@@ -7,6 +7,8 @@ $(document).ready(function () {
         $('.prefix').remove();
 
         replyForm.show();
+        replyForm.find('.reply-content').val('');
+
         replyForm.data('comment-id', commentId);
         replyForm.attr('data-comment-id', commentId);
 

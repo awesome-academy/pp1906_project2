@@ -18,6 +18,12 @@
                     <a href="#" class="h6 notification-friend sender">{{ $notification->sender->name }}</a>
                     @if ($notification->isShare())
                         {!! __('notification.share', ['post_id' => $notification->post_id]) !!}
+                    @elseif ($notification->isComment())
+                        {!! __('notification.comment', ['post_id' => $notification->post_id]) !!}
+                    @elseif ($notification->isReply())
+                        {!! __('notification.reply', ['post_id' => $notification->post_id]) !!}
+                    @elseif ($notification->isChildReply())
+                        {!! __('notification.replies_of_reply', ['post_id' => $notification->post_id]) !!}
                     @else
                         {!! __('notification.react', ['post_id' => $notification->post_id]) !!}
                     @endif
@@ -35,6 +41,10 @@
                     src="{{ asset('theme/socialyte/svg-icons/center/loved.svg') }}"
                 @elseif ($notification->isShare())
                     src="{{ asset('theme/socialyte/svg-icons/center/shared.svg') }}"
+                @elseif ($notification->isComment())
+                    src="{{ asset('theme/socialyte/svg-icons/center/commented.svg') }}"
+                @else
+                    src="{{ asset('theme/socialyte/svg-icons/center/commented.svg') }}"
                 @endif
                 >
             </span>

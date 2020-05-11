@@ -9,5 +9,5 @@ return [
     'comment' => [
         'paginate' => 4,
     ],
-    'minutes_between' => 20
+    'minutes_between' => 5
 ];
