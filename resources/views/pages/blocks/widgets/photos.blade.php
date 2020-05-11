@@ -7,13 +7,17 @@
         <!-- W-Latest-Photo -->
 
         <ul class="widget w-last-photo js-zoom-gallery">
-            @foreach ($postImages as $image)
-                <li>
-                    <a href="{{ asset('storage/images/posts/' . $image) }}">
-                        <img class="last-photos" src="{{ asset('storage/images/posts/' . $image) }}" alt="photo">
-                    </a>
-                </li>
-            @endforeach
+            @if ($postImages)
+                @foreach ($postImages as $image)
+                    <li>
+                        <a href="{{ asset('storage/images/posts/' . $image) }}">
+                            <img class="last-photos" src="{{ asset('storage/images/posts/' . $image) }}" alt="photo">
+                        </a>
+                    </li>
+                @endforeach
+            @else
+                @lang('No photo')
+            @endif
         </ul>
         <!-- .. end W-Latest-Photo -->
     </div>

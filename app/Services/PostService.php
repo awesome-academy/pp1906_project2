@@ -250,4 +250,19 @@ class PostService
 
         return $imageArray;
     }
+
+    public function getAllPhoto($user)
+    {
+        $postImages = $user->posts()->whereNotNull('image')->orderDesc()->pluck('image');
+        $imageArray = [];
+
+        foreach ($postImages as $image) {
+            foreach (json_decode($image) as $postImage) {
+
+                $imageArray[] = $postImage;
+            }
+        }
+
+        return $imageArray;
+    }
 }
