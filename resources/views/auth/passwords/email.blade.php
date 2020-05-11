@@ -3,9 +3,17 @@
 @section('content')
 <div class="email form-box">
     @include('auth.form_logo')
-    <h3>
-        <p> @lang('Enter your email address and we will send you a reset link') </p>
-    </h3>
+
+    @if (session('status'))
+        <h3>
+            <p>{{ session('status') }}</p>
+        </h3>
+    @else
+        <h3>
+            <p> @lang('Enter your email address and we will send you a reset link') </p>
+        </h3>
+    @endif
+
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
 

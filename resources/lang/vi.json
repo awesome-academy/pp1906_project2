@@ -13,7 +13,7 @@
     "Please confirm your password before continuing.": "Hãy xác nhận mật khẩu của bạn trước khi tiếp tục",
     "Confirm Password": "Xác nhận mật khẩu",
     "Enter your email address and we will send you a reset link": "Nhập địa chỉ email của bạn để nhận link phục hồi mật khẩu",
-    "Send Password Reset Link": "Gửi link phục hồi mật khẩu",
+    "Send Password Reset Link": "Gửi email khôi phục mật khẩu",
     "Reset Password": "Phục hồi mật khẩu",
     "Name": "Tên đầy đủ của bạn",
     "Username": "Tên định danh của bạn",
@@ -131,5 +131,14 @@
     "No Friend Suggestions": "Không có bạn bè đề xuất",
     "uploaded a": "đã tải lên một",
     " post": " bài viết",
-    "Activity Feed": "Bảng tin"
+    "Activity Feed": "Bảng tin",
+    "Confirm Current Password": "Mật khẩu hiện tại",
+    "Your New Password": "Mật khẩu mới",
+    "Confirm New Password": "Xác nhận mật khẩu mới",
+    "Forgot my Password": "Quên mật khẩu",
+    "Restore your Password": "Khôi phục mật khẩu",
+    "Enter your email and click the send password reset link button. You’ll receive a link in your email. Access the link to change the old password for a new one": "Nhập địa chỉ email của bạn và ấn nút gửi email khôi phục. Chúng tôi sẽ gửi một địa chỉ tới hòm thư của bạn, sau đó, truy cập địa chỉ để thay đổi mật khẩu",
+    "Your Email": "Địa chỉ email",
+    "Password Reset Email Sent": "Email khôi phục đã được gửi",
+    "An email has been sent to your email address. Follow the directions in the email to reset your password": "Một email đã được gửi đến hòm thư của bạn. Kiểm tra email và làm theo hướng dẫn để khôi phục mật khẩu"
 }
