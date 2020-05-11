@@ -43,15 +43,22 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/settings', 'UserController@showInformation')->name('user.showInformation');
 
+
     Route::post('/settings/update', 'UserController@updateInformation')->name('user.updateInformation');
 
+
     Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
+
+    Route::get('/settings/password', 'UserController@showEditPassword')->name('user.showEditPassword');
+
+    Route::put('/settings/password/update-password', 'UserController@updatePassword')->name('user.updatePassword');
 
     Route::post('/settings/language/update', 'UserController@updateLanguage')->name('user.updateLanguage');
 
     Route::get('/settings/notifications', 'NotificationController@showAllNotification')->name('notifications.showAllNotification');
 
     Route::get('/settings/friend-requests', 'FriendController@showAllNotification')->name('friend.showAllNotification');
+
 
     Route::get('/search-people', 'UserController@getSearchPeopleList')->name('people.search');
 
@@ -90,10 +97,6 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::post('/{username}/accept-friend', 'FriendController@acceptRequest')->name('friend.acceptRequest');
 
     Route::post('/{username}/reject-friend', 'FriendController@removeRequest')->name('friend.rejectRequest');
-});
-
-Route::get('/settings/password', function () {
-    return view('pages.settings.password.index');
 });
 
 Route::get('/settings/requests', function () {

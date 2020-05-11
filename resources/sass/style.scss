@@ -93,6 +93,10 @@ Generalization
     color: $default;
 }
 
+.word-wrap {
+    word-wrap: break-word;
+}
+
 /*----------------------------------------------------------------
 Login and Register page
 -----------------------------------------------------------------*/
@@ -138,11 +142,11 @@ Login and Register page
 }
 
 .login.form-box {
-    height: 400px;
+    height: auto;
 }
 
 .register.form-box {
-    height: 500px;
+    height: auto;
     top: 40%;
 }
 
@@ -631,4 +635,19 @@ span.prefix {
 .last-photos {
     width: 78px;
     height: 78px;
+}
+
+.remember .forgot {
+    float: none;
+    color: $theme;
+    font-weight: bold;
+}
+
+.icon-close {
+    top: 15px;
+    right: 25px;
+}
+
+.email-success-image {
+    padding: 10px 80px;
 }

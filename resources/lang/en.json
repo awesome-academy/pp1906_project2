@@ -129,5 +129,14 @@
     "No Friend Suggestions": "No Friend Suggestions",
     "uploaded a": "uploaded a",
     " post": " post",
-    "Activity Feed": "Activity Feed"
+    "Activity Feed": "Activity Feed",
+    "Confirm Current Password": "Confirm Current Password",
+    "Your New Password": "Your New Password",
+    "Confirm New Password": "Confirm New Password",
+    "Forgot my Password": "Forgot my Password",
+    "Restore your Password": "Restore your Password",
+    "Enter your email and click the send password reset link button. You’ll receive a link in your email. Access the link to change the old password for a new one": "Enter your email and click the send password reset link button. You’ll receive a link in your email. Access the link to change the old password for a new one",
+    "Your Email": "Your Email",
+    "Password Reset Email Sent": "Password Reset Email Sent",
+    "An email has been sent to your email address. Follow the directions in the email to reset your password": "An email has been sent to your email address. Follow the directions in the email to reset your password"
 }

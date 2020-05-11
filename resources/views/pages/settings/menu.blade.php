@@ -25,7 +25,7 @@
                                 <a href="{{ route('user.showInformation') }}">@lang('Personal Information')</a>
                             </li>
                             <li>
-                                <a href="">@lang('Change Password')</a>
+                                <a href="{{ route('user.showEditPassword') }}">@lang('Change Password')</a>
                             </li>
                             <li>
                                 <a href="{{ route('user.showLanguage') }}">@lang('Change Language')</a>
