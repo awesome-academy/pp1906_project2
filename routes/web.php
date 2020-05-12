@@ -96,6 +96,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/{username}/photos', 'ProfileController@showPhotos')->name('user.photos');
 
+    Route::get('/{username}/about', 'ProfileController@showAbout')->name('user.about');
+
     Route::post('/{username}/add-friend', 'FriendController@sendRequest')->name('friend.request');
 
     Route::post('/{username}/un-request', 'FriendController@removeRequest')->name('friend.unRequest');

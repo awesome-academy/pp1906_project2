@@ -5,10 +5,14 @@
 <div class="col col-xl-12 order-xl-1 col-lg-12 order-lg-1 col-md-12 order-md-2 col-sm-12 col-12">
     <div class="ui-block">
         <div class="ui-block-title">
-            <h6 class="title">Personal Info</h6>
-            <a href="#" class="social-item change-profile bg-facebook">
-                Change profile
+            <h6 class="title">@lang('Personal Info')</h6>
+
+            @if (auth()->id() == $user->id)
+            <a href="/settings" class="social-item change-profile bg-facebook">
+                @lang('Change profile')
             </a>
+            @endif
+
         </div>
         <div class="ui-block-content">
 
@@ -16,31 +20,49 @@
 
             <ul class="widget w-personal-info">
                 <li>
-                    <span class="title">{{ __('Name:') }}</span>
-                    <span class="text">James Spiegel
+                    <span class="title">@lang('Name'):</span>
+                    <span class="text">{{ $user->name }}
                     </span>
                 </li>
+
                 <li>
-                    <span class="title">{{ __('Gender:') }}</span>
-                    <span class="text">Male</span>
+                    <span class="title">@lang('Username'):</span>
+                    <span class="text">{{ $user->username }}
+                    </span>
                 </li>
+
+                @if ($user->gender != '')
                 <li>
-                    <span class="title">{{ __('Email:') }}</span>
-                    <a href="#" class="text">jspiegel@yourmail.com</a>
+                    <span class="title">@lang('Gender'):</span>
+                    <span class="text">{{ $user->gender }}</span>
                 </li>
+                @endif
+
                 <li>
-                    <span class="title">{{ __('Birthday:') }}</span>
-                    <span class="text">December 14th, 1980</span>
+                    <span class="title">@lang('Email'):</span>
+                    <a href="#" class="text">{{ $user->email }}</a>
                 </li>
+
+                @if ($user->birthday != '')
                 <li>
-                    <span class="title">{{ __('Introduce:') }}</span>
-                    <span class="text">Hi, I’m James, I’m 36 and I work as a Digital Designer for the
-                        “Daydreams” Agency in Pier 56</span>
+                    <span class="title">@lang('Birthday'):</span>
+                    <span class="text">{{ $user->birthday }}</span>
                 </li>
+                @endif
+
+                @if ($user->introduce != '')
                 <li>
-                    <span class="title">{{ __('Address:') }}</span>
-                    <span class="text">Austin, Texas, USA</span>
+                    <span class="title">@lang('Introduce'):</span>
+                    <span class="text">{{ $user->introduce }}</span>
                 </li>
+                @endif
+
+                @if ($user->address != '')
+                <li>
+                    <span class="title">@lang('Address'):</span>
+                    <span class="text">{{ $user->address }}</span>
+                </li>
+                @endif
             </ul>
 
             <!-- ... end W-Personal-Info -->
