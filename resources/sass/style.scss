@@ -200,6 +200,7 @@ input:focus {
 }
 
 .change-profile {
+    padding: 10px;
     width: 200px;
     float: right;
     font-size: inherit;
@@ -675,4 +676,16 @@ span.prefix {
 .no-photo {
     margin-left: 24px;
     font-weight: bold;
+}
+
+.nothing-here-photos {
+    margin: 40px 410px;
+}
+
+.photo-item:last-child {
+    margin-right: -3px;
+}
+
+.profile-photos {
+    margin-left: 15px;
 }

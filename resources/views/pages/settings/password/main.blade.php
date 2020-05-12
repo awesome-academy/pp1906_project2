@@ -74,18 +74,18 @@
 @include('pages.settings.password.email_success')
 
 @section('script')
-    @if ($errors->has('email'))
-        <script>
-            $(document).ready(function() {
-                $('#restore-password').modal('show');
-            });
-        </script>
-    @endif
-    @if (session('status'))
-        <script>
-            $(document).ready(function() {
-                $('#email-success').modal('show');
-            });
-        </script>
-    @endif
+@if ($errors->has('email'))
+<script>
+    $(document).ready(function() {
+        $('#restore-password').modal('show');
+    });
+</script>
+@endif
+@if (session('status'))
+<script>
+    $(document).ready(function() {
+        $('#email-success').modal('show');
+    });
+</script>
+@endif
 @endsection
