@@ -10,15 +10,12 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
             <div class="modal-body">
-
                 <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="ui-block list-react-post">
                         @include('pages.blocks.modals.react_user')
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
