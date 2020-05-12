@@ -114,4 +114,19 @@ class ProfileController extends Controller
 
         return view('pages.profile.photos.index', compact('user', 'posts', 'relationship', 'postImages'));
     }
+
+    public function showAbout(Request $request, $username)
+    {
+        $currentUser = auth()->user();
+
+        if ($currentUser->username == $username) {
+            $user = $currentUser;
+            $relationship = null;
+        } else {
+            $user = User::where('username', $username)->firstOrFail();
+            $relationship = $currentUser->isFriends($user)->first();
+        }
+
+        return view('pages.profile.about.index', compact('user', 'relationship'));
+    }
 }

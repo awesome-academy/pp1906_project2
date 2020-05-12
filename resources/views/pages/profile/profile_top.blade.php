@@ -14,7 +14,7 @@
                                         <a href="#" class="active">@lang('Timeline')</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="active">@lang('About')</a>
+                                        <a href="{{ route('user.about', $user->username) }}" class="active">@lang('About')</a>
                                     </li>
                                 </ul>
                             </div>
