@@ -18,16 +18,15 @@
                 @csrf
                 <div class="row">
 
-                    <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="form-group label-floating is-select">
-                            <select name="language" class="selectpicker form-control">
-                                <option value="{{ config('user.language.en') }}" {{ auth()->user()->language == config('user.language.en') ? 'selected' : '' }}>@lang('English')</option>
-                                <option value="{{ config('user.language.vi') }}" {{ auth()->user()->language == config('user.language.vi') ? 'selected' : '' }}>@lang('Vietnamese')</option>
-                            </select>
-                        </div>
+                    <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                        <label class="control-label">@lang('Choose Language')</label>
+                        <select name="language" class="selectpicker form-control">
+                            <option value="{{ config('user.language.en') }}" {{ auth()->user()->language == config('user.language.en') ? 'selected' : '' }}>@lang('English')</option>
+                            <option value="{{ config('user.language.vi') }}" {{ auth()->user()->language == config('user.language.vi') ? 'selected' : '' }}>@lang('Vietnamese')</option>
+                        </select>
                     </div>
-                    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 padding-top">
-                        <button href="" class="btn btn-primary btn-lg full-width">@lang('Save all Changes')</button>
+                    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <button class="btn btn-primary btn-lg save-changes">@lang('Save all Changes')</button>
                     </div>
                 </div>
             </form>

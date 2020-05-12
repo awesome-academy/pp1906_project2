@@ -3,7 +3,7 @@
 <header class="header" id="site-header">
 
     <div class="page-title">
-        <h6> @lang('Newsfeed') </h6>
+        <h6><a href="{{ route('home') }}"> @lang('Socialyte') </a></h6>
     </div>
 
     <div class="header-content-wrapper">
@@ -21,20 +21,17 @@
             @include('pages.blocks.widgets.friend_requests')
 
             @include('pages.blocks.widgets.notifications')
-            <a href="{{ route('user.profile', auth()->user()->username) }}">
-                <div class="author-page author vcard inline-items more">
-                    <div class="author-thumb">
-                        <img src="{{ getAvatar(auth()->user()->avatar) }}" class="avatar default-avatar" alt="{{auth()->user()->name}}">
-                        <span class="icon-status online"></span>
-                    </div>
-                    <a href="{{ route('user.profile', auth()->user()->username) }}" class="author-name fn">
-                        <div class="author-title">
-                            {{ auth()->user()->name }}
-                        </div>
-                        <span class="author-subtitle">{{ auth()->user()->username }}</span>
-                    </a>
+
+            <div class="author-page author vcard inline-items more">
+                <div class="author-thumb">
+                    <img src="{{ getAvatar(auth()->user()->avatar) }}" class="avatar default-avatar" alt="{{ auth()->user()->name }}">
                 </div>
-            </a>
+                <a href="{{ route('user.profile', auth()->user()->username) }}" class="author-name fn">
+                    <div class="author-title">
+                        {{ auth()->user()->name }}
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </header>

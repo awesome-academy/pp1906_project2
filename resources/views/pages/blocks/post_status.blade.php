@@ -1,16 +1,6 @@
 <div class="ui-block">
 
     <!-- News Feed Form  -->
-    @if (session('upload_error'))
-    <div class="alert alert-danger" role="alert" style="text-align: center;">
-        {{ session('upload_error') }}
-    </div>
-    @endif
-    @if (session('upload_success'))
-    <div class="alert alert-success" role="alert" style="text-align: center;">
-        {{ session('upload_success') }}
-    </div>
-    @endif
     <div class="news-feed-form single-post">
         <!-- Nav tabs -->
         <div class="ui-block-title">
@@ -47,20 +37,6 @@
                             <input class="input-image form-control @error('image') is-invalid @enderror" type="file" id="upload-image" name="image[]" multiple>
                         </a>
                         <button class="btn btn-primary btn-md-2"> @lang('Post Status') </button>
-                        <div class="form-group post-type">
-                            <select class="selectpicker form-control" name="type">
-                                <option value="{{ config('post.type.public') }}" selected="selected"> @lang('Public') </option>
-                                <option value="{{ config('post.type.private') }}"> @lang('Private') </option>
-                                <option value="{{ config('post.type.only_friends') }}"> @lang('Only Friends') </option>
-                            </select>
-                            @error('type')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>
-                                    {{ $message }}
-                                </strong>
-                            </span>
-                            @enderror
-                        </div>
 
                         @error('image.*')
                         <span class="image-error" role="alert">

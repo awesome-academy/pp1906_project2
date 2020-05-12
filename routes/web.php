@@ -36,7 +36,7 @@ Route::get('/profile/videos', function () {
 });
 
 Route::middleware(['auth', 'verified', 'language'])->group(function () {
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index');
 
     Route::get('/birthdays', 'HomeController@showTodayBirthdays')->name('birthdays.index');

@@ -14,20 +14,17 @@
                                         <a href="#" class="active">@lang('Timeline')</a>
                                     </li>
                                     <li>
-                                        <a href="#">@lang('About')</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('user.friends', $user->username) }}">@lang('Friends')</a>
+                                        <a href="#" class="active">@lang('About')</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col col-lg-5 ml-auto col-md-5 col-sm-12 col-12">
                                 <ul class="profile-menu">
                                     <li>
-                                        <a href="#">@lang('Photos')</a>
+                                        <a href="{{ route('user.friends', $user->username) }}" class="active">@lang('Friends')</a>
                                     </li>
                                     <li>
-                                        <a href="#">@lang('Videos')</a>
+                                        <a href="#" class="active">@lang('Photos')</a>
                                     </li>
                                 </ul>
                             </div>

@@ -21,7 +21,6 @@
 <!-- Right Sidebar -->
 <div class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
     @include('pages.blocks.widgets.photos')
-    @include('pages.blocks.widgets.videos')
 </div>
 <!-- ... end Right Sidebar -->
 

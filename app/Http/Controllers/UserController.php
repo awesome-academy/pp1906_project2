@@ -7,6 +7,7 @@ use App\Http\Requests\PasswordRequest;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -90,6 +91,7 @@ class UserController extends Controller
     public function updateInformation(UserRequest $request)
     {
         $currentUserId = auth()->id();
+
         $data = $this->userService->getUserData($request);
 
         $updateUser = $this->userService->updateUser($currentUserId, $data);

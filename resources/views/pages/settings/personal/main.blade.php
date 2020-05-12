@@ -26,13 +26,12 @@
                         <label class="control-label">@lang('Your Name')</label>
                         <div class="form-group">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $currentUser->name }}" autocomplete="name" autofocus placeholder="@lang('Your Name')">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-                        @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-
                     </div>
 
 
@@ -62,10 +61,11 @@
                     <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <label class="control-label">@lang('Your Birthday')</label>
                         <div class="form-group label-floating date-time-picker">
-                            <input class="form-control" name="datetimepicker" value="{{ old('birthday') ?? $currentUser->birthday }}" />
+                            <input class="form-control @error('datetimepicker') is-invalid @enderror" name="datetimepicker" value="{{ old('datetimepicker') ?? formatDate($currentUser->birthday) }}" />
                             <span class="input-group-addon">
                                 <img src="{{ asset('theme/socialyte/svg-icons/settings/calendar.svg') }}">
                             </span>
+
                             @error('datetimepicker')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
