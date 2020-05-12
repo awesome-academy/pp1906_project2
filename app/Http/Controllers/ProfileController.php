@@ -96,4 +96,22 @@ class ProfileController extends Controller
 
         return back()->with('upload_success', __('profile.' . $updateField . '.success'));
     }
+
+    public function showPhotos($username)
+    {
+        $currentUser = auth()->user();
+
+        if ($currentUser->username == $username) {
+            $user = $currentUser;
+            $relationship = null;
+        } else {
+            $user = User::where('username', $username)->firstOrFail();
+            $relationship = $currentUser->isFriends($user)->first();
+        }
+
+        $posts = $this->postService->getListPosts($user, false);
+        $postImages = $this->postService->getAllPhoto($user);
+
+        return view('pages.profile.photos.index', compact('user', 'posts', 'relationship', 'postImages'));
+    }
 }

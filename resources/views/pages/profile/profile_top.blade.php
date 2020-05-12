@@ -21,10 +21,10 @@
                             <div class="col col-lg-5 ml-auto col-md-5 col-sm-12 col-12">
                                 <ul class="profile-menu">
                                     <li>
-                                        <a href="{{ route('user.friends', $user->username) }}" class="active">@lang('Friends')</a>
+                                        <a href="{{ route('user.photos', $user->username) }}" class="active">@lang('Photos')</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="active">@lang('Photos')</a>
+                                        <a href="{{ route('user.friends', $user->username) }}" class="active">@lang('Friends')</a>
                                     </li>
                                 </ul>
                             </div>
