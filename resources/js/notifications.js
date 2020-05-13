@@ -54,7 +54,7 @@ $(document).ready(function () {
     });
 
     // make dropdown not close when clicked
-    $('.dropdown-menu').on('click', function (event) {
+    $('.dropdown-menu.notifications, .dropdown-menu.friends-notifications').on('click', function (event) {
         event.stopPropagation();
     });
 

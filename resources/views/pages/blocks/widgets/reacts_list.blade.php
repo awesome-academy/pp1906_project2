@@ -1,4 +1,4 @@
-@if ($post->parentComments->count() > 0 || $post->reacts->count() > 0)
+@if ($post->reacts->count() > 0)
 <div class="post-additional-info inline-items" style="border: none; margin-bottom: 10px;">
     <a href="#" class="post-add-icon inline-items" data-toggle="modal" data-target="#listReactModal{{ $post->id }}">
         <strong>
@@ -7,14 +7,6 @@
         </strong>
     </a>
     <div class="comments-shared">
-        <a href="#" class="post-add-icon inline-items">
-            <strong>
-                <strong class="count-comments-{{ $post->id }}">
-                    {{ $post->parentComments->count() }}
-                </strong>
-                @lang('comments')
-            </strong>
-        </a>
         @if ($post->shares->isNotEmpty())
         <a href="#" class="post-add-icon inline-items" data-toggle="modal" data-target="#shareUsersModal{{ $post->id }}">
             <strong> {{ $post->shares->count() }} @lang('shares')</strong>
