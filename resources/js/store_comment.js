@@ -12,29 +12,32 @@ $(document).ready(function () {
         var _this = $(this);
         var postId = parseInt($(this).data('post_id'));
         var content = $(this).parent().find('.comment-content').val();
+        if (content == '') {
+            errorEmptyContent();
+        } else {
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    'post_id': postId,
+                    'content': content,
+                },
+                cache: false,
 
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: {
-                'post_id': postId,
-                'content': content,
-            },
-            cache: false,
+                success: function (result) {
+                    if (result.status) {
+                        _this.parent().parent().find('.comments-list').append(result.comment);
+                        $('.comment-content').val('');
+                        $('.count-comments-' + postId).text(result.count_comments);
 
-            success: function (result) {
-                if (result.status) {
-                    _this.parent().parent().find('.comments-list').append(result.comment);
-                    $('.comment-content').val('');
-                    $('.count-comments-' + postId).text(result.count_comments);
-
-                } else {
+                    } else {
+                        errorMessage();
+                    }
+                },
+                error: function () {
                     errorMessage();
                 }
-            },
-            error: function () {
-                errorMessage();
-            }
-        });
+            });
+        }
     });
 });

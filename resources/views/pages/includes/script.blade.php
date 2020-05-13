@@ -70,6 +70,14 @@
         location.reload();
     }
 
+    function errorEmptyContent() {
+        Swal.fire(
+            "@lang('Content ?')",
+            "@lang('Content can\'t be empty!')",
+            'question'
+        );
+    }
+
     var errorImageType = "@lang('Please select only images')";
 </script>
 
