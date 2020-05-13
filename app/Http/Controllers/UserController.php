@@ -7,7 +7,6 @@ use App\Http\Requests\PasswordRequest;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -142,6 +141,7 @@ class UserController extends Controller
             $searchResult = $this->userService->getSearchPeopleList($inputString);
 
             return response()->json([
+                'count' => $searchResult->count(),
                 'html' => view('pages.blocks.widgets.search_people_block', compact('searchResult'))->render()
             ]);
         }

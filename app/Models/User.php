@@ -60,7 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function friends()
     {
-        return $this->belongsToMany('App\Models\User', 'friends', 'user_id', 'friend_id')->withPivot('status');
+        return $this->belongsToMany('App\Models\User', 'friends', 'user_id', 'friend_id')->wherePivot('status', config('friend.status.accept'));
     }
 
     /**
@@ -123,12 +123,17 @@ class User extends Authenticatable implements MustVerifyEmail
      * Check relationship between users.
      *
      * @param App\Models\User $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function isFriends($user)
+    public function relationship($user)
     {
-        return Friend::where([['user_id', $this->id], ['friend_id', $user->id]])
-            ->orWhere([['user_id', $user->id], ['friend_id', $this->id]]);
+        return Friend::where(function ($query) use ($user) {
+            $query->where('user_id', $this->id)
+                ->where('friend_id', $user->id);
+        })->orWhere(function ($query) use ($user) {
+            $query->where('user_id', $user->id)
+                ->where('friend_id', $this->id);
+        });
     }
 
     /**
@@ -153,9 +158,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @param Int $userId
      * @return \Illuminate\Http\Response
      */
-    public function bothFriends($userId)
+    public function bothFriends($user)
     {
-        return Friend::where(['user_id' => $this->id, 'friend_id' => $userId, 'status' => config('user.friend.accept')])->exists();
+        return Friend::where(['user_id' => $this->id, 'friend_id' => $user->id, 'status' => config('user.friend.accept')])->exists();
     }
 
     /**

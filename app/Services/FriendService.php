@@ -27,9 +27,7 @@ class FriendService
      */
     public function getFriendIds($user)
     {
-        return $user->friends()
-            ->where('friends.status', config('friend.status.accept'))
-            ->pluck('friend_id');
+        return $user->friends()->pluck('friend_id');
     }
 
     /**
@@ -74,13 +72,13 @@ class FriendService
     /**
      * Remove friend request.
      *
-     * @param  App\Models\Friend $model
+     * @param  \Illuminate\Database\Eloquent\Builder $data
      * @return Boolean
      */
-    public function destroyRequest($model)
+    public function destroyRequest($data)
     {
         try {
-            $model->delete();
+            $data->delete();
         } catch (\Throwable $th) {
             Log::error($th);
 
@@ -114,8 +112,7 @@ class FriendService
     {
         $date = new Carbon($date);
 
-        return $user->friends()->where('friends.status', config('friend.status.accept'))
-            ->whereMonth('birthday', $date->month)
+        return $user->friends()->whereMonth('birthday', $date->month)
             ->whereDay('birthday', $date->day)
             ->get();
     }

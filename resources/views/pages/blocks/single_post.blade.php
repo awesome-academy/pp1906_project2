@@ -25,16 +25,6 @@
                         </span>
                         @endif
                     </a>
-
-                    <span class="float-left" style="margin-left: 3px;"> · </span>
-
-                    @if ($post->isPublic())
-                    <img class="post-type float-left" src="{{ asset('theme/socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
-                    @elseif ($post->isPrivate())
-                    <img class="post-type float-left" src="{{ asset('theme/socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
-                    @elseif ($post->isFriendsOnly())
-                    <img class="post-type float-left" src="{{ asset('theme/socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
-                    @endif
                 </div>
             </div>
 
@@ -84,9 +74,7 @@
             </div>
         </div>
 
-        <button class="btn btn-md-2 btn-primary store-comment" data-post_id={{ $post->id }}> @lang('Post Comment') </button>
-
-        <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color"> @lang('Cancel') </button>
+        <button class="btn btn-md-2 btn-primary store-comment" data-post_id="{{ $post->id }}"> @lang('Post Comment') </button>
 
     </form>
 

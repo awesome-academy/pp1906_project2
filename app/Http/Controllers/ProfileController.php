@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
 use App\Models\User;
-use App\Models\Friend;
 use App\Services\ProfileService;
 use App\Services\PostService;
 use App\Http\Requests\ProfileRequest;
@@ -31,10 +29,9 @@ class ProfileController extends Controller
      */
     public function showProfile(Request $request, $username)
     {
-        $currentUser = auth()->user();
         $user = User::with('friends')->where('username', $username)->firstOrFail();
 
-        $relationship = $currentUser->isFriends($user)->first();
+        $relationship = auth()->user()->relationship($user)->first();
 
         $posts = $this->postService->getListPosts($user, false);
 
@@ -60,10 +57,9 @@ class ProfileController extends Controller
      */
     public function showFriends(Request $request, $username)
     {
-        $currentUser = auth()->user();
         $user = User::with('friends')->where('username', $username)->firstOrFail();
 
-        $relationship = $currentUser->isFriends($user)->first();
+        $relationship = auth()->user()->relationship($user)->first();
 
         return view('pages.profile.friends.index', compact('user', 'relationship'));
     }
@@ -71,6 +67,7 @@ class ProfileController extends Controller
     public function uploadProfileImage(ProfileRequest $request)
     {
         $user = auth()->user();
+
         $data = $request->only([
             'avatar',
             'cover'
@@ -99,14 +96,12 @@ class ProfileController extends Controller
 
     public function showPhotos($username)
     {
-        $currentUser = auth()->user();
-
-        if ($currentUser->username == $username) {
-            $user = $currentUser;
+        if (auth()->user()->username == $username) {
+            $user = auth()->user();
             $relationship = null;
         } else {
             $user = User::where('username', $username)->firstOrFail();
-            $relationship = $currentUser->isFriends($user)->first();
+            $relationship = auth()->user()->relationship($user)->first();
         }
 
         $posts = $this->postService->getListPosts($user, false);
@@ -117,14 +112,12 @@ class ProfileController extends Controller
 
     public function showAbout(Request $request, $username)
     {
-        $currentUser = auth()->user();
-
-        if ($currentUser->username == $username) {
-            $user = $currentUser;
+        if (auth()->user()->username == $username) {
+            $user = auth()->user();
             $relationship = null;
         } else {
             $user = User::where('username', $username)->firstOrFail();
-            $relationship = $currentUser->isFriends($user)->first();
+            $relationship = auth()->user()->relationship($user)->first();
         }
 
         return view('pages.profile.about.index', compact('user', 'relationship'));

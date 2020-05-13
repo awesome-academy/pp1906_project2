@@ -75,16 +75,6 @@
                                     </span>
                                     @endif
                                 </a>
-
-                                <span> · </span>
-
-                                @if ($post->isPublic())
-                                <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/public.svg') }}" title="@lang('Public')">
-                                @elseif ($post->isPrivate())
-                                <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/private.svg') }}" title="@lang('Private')">
-                                @elseif ($post->isFriendsOnly())
-                                <img class="post-type" src="{{ asset('theme/socialyte/svg-icons/center/only_friends.svg') }}" title="@lang('Only Friends')">
-                                @endif
                             </div>
                         </div>
 

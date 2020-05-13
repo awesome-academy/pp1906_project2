@@ -15,9 +15,9 @@
 
         </div>
         
-        @if (auth()->user()->isFriends($user)->exists())
+        @if (auth()->user()->bothFriends($user))
             <span class="notification-icon">
-                <img src="{{ asset('theme/socialyte/svg-icons/top_bar/friend.svg') }}">
+                <img src="{{ asset('theme/socialyte/svg-icons/top_bar/is_friend.svg') }}">
             </span>
         @endif
     </div>

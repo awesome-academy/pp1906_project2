@@ -59,7 +59,6 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/settings/friend-requests', 'FriendController@showAllNotification')->name('friend.showAllNotification');
 
-
     Route::get('/search-people', 'UserController@getSearchPeopleList')->name('people.search');
 
     Route::resource('posts', 'PostController');
@@ -105,6 +104,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::post('/{username}/accept-friend', 'FriendController@acceptRequest')->name('friend.acceptRequest');
 
     Route::post('/{username}/reject-friend', 'FriendController@removeRequest')->name('friend.rejectRequest');
+
+    Route::post('/{username}/un-friend', 'FriendController@removeFriend')->name('friend.unFriend');
 });
 
 Route::get('/settings/requests', function () {
