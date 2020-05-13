@@ -114,6 +114,10 @@ class PostService
     {
         $post = Post::findOrFail($id);
 
+        if ($post->user_id != auth()->id()) {
+            return false;
+        }
+
         try {
             $post->update($data);
         } catch (\Throwable $th) {
@@ -187,6 +191,10 @@ class PostService
     public function deletePost($id)
     {
         $post = Post::findOrFail($id);
+
+        if ($post->user_id != auth()->id()) {
+            return false;
+        }
 
         $this->activityService->deleteActivity($id);
 
