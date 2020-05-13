@@ -25,7 +25,7 @@ $(document).ready(function () {
                 }
             }
         } else {
-            Swal.fire(errorImageType);
+            errorImages();
         }
     });
 });

@@ -16,6 +16,7 @@
     "/js/search_friend.js": "/js/search_friend.js",
     "/js/search_people.js": "/js/search_people.js",
     "/js/store_comment.js": "/js/store_comment.js",
+    "/js/store_post.js": "/js/store_post.js",
     "/js/store_react.js": "/js/store_react.js",
     "/js/store_react_comment.js": "/js/store_react_comment.js",
     "/js/update_delete_comment.js": "/js/update_delete_comment.js",

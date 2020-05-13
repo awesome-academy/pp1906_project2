@@ -153,5 +153,7 @@
     "Regards": "Thân ái",
     "Introduce": "Giới thiệu về bản thân",
     "Content ?": "Nội dung ?",
-    "Content can't be empty!": "Hãy nhập nội dung trước khi gửi!"
+    "Content can't be empty!": "Hãy nhập nội dung trước khi gửi!",
+    "Image ?": "Đây có phải là ảnh ?",
+    "Please select only images!": "Hãy chọn file có định dạng là ảnh"
 }
