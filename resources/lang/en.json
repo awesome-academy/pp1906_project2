@@ -152,5 +152,7 @@
     "Regards": "Regards",
     "Introduce": "Introduce",
     "Content ?": "Content ?",
-    "Content can't be empty!": "Content can't be empty!"
+    "Content can't be empty!": "Content can't be empty!",
+    "Image ?": "Image ?",
+    "Please select only images!": "Please select only images!"
 }

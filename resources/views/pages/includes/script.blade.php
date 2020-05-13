@@ -78,7 +78,13 @@
         );
     }
 
-    var errorImageType = "@lang('Please select only images')";
+    function errorImages() {
+        Swal.fire(
+            "@lang('Image ?')",
+            "@lang('Please select only images!')",
+            'warning'
+        );
+    }
 </script>
 
 @yield('script')

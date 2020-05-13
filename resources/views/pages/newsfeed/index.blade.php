@@ -42,5 +42,6 @@
 <script src="{{ asset('js/activity_feed.js') }}"></script>
 <script src="{{ asset('js/load_more.js') }}"></script>
 <script src="{{ asset('js/live_reload_posts.js') }}"></script>
+<script src="{{ asset('js/store_post.js') }}"></script>
 <script src="{{ asset('js/friend_suggestion.js') }}"></script>
 @endsection

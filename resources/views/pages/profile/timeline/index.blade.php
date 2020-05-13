@@ -28,4 +28,5 @@
 
 @section('script')
 <script src="{{ asset('js/load_more.js') }}"></script>
+<script src="{{ asset('js/store_post.js') }}"></script>
 @endsection
