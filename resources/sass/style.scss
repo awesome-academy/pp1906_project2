@@ -498,19 +498,19 @@ label:hover {
 }
 
 .more-with-triangle.triangle-top-center:before {
-    margin-right: 100px;
+    margin-right: -40px;
 }
 
 .more-with-triangle.triangle-top-center.friends-notifications {
-    left: -30px !important;
+    left: -200px !important;
 }
 
 .more-with-triangle.triangle-top-center.notifications {
-    left: -70px !important;
+    left: -220px !important;
 }
 
 .more-with-triangle.triangle-top-center.friends-notifications:before {
-    margin-right: 130px;
+    margin-right: -27px;
 }
 
 .control-icon .label-avatar {
@@ -688,4 +688,24 @@ span.prefix {
 
 .profile-photos {
     margin-left: 15px;
+}
+
+.friend-avatar {
+    margin-bottom: 0;
+}
+
+.friend-count {
+    margin-bottom: 20px;
+}
+
+.friend-item .swiper-container {
+    padding-bottom: 0;
+}
+
+.author-page-left {
+    margin-left: 0;
+}
+
+.notification-control-block {
+    margin-right: 50px;
 }

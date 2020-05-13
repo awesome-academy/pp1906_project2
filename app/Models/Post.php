@@ -77,36 +77,6 @@ class Post extends Model
     }
 
     /**
-     * Scope if post is public.
-     *
-     * @return Boolean
-     */
-    public function scopeIsPublic()
-    {
-        return $this->type == config('post.type.public');
-    }
-
-    /**
-     * Scope if post is private.
-     *
-     * @return Boolean
-     */
-    public function scopeIsPrivate()
-    {
-        return $this->type == config('post.type.private');
-    }
-
-    /**
-     * Scope if post is friends only.
-     *
-     * @return Boolean
-     */
-    public function scopeIsFriendsOnly()
-    {
-        return $this->type == config('post.type.only_friends');
-    }
-
-    /**
      * Scope order posts in descending order.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query

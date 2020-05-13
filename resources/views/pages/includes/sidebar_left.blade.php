@@ -13,7 +13,7 @@
             <ul class="left-menu">
                 <li>
                     <a href="{{ route('user.profile', auth()->user()->username) }}" title="@lang('Profile')">
-                        <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/profile.svg') }}">
+                        <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/newsfeed.svg') }}">
                     </a>
                 </li>
                 <li>

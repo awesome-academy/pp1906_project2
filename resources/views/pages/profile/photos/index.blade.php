@@ -13,7 +13,7 @@
                         @foreach ($postImages as $image)
                         <div class="photo-item col-4-width">
                             <a href="{{ asset('storage/images/posts/' . $image) }}">
-                                <img class="all-photos" src="{{ asset('storage/images/posts/' . $image) }}" alt="photo">
+                                <img class="all-photos" src="{{ asset('storage/images/posts/' . $image) }}">
                             </a>
                         </div>
                         @endforeach

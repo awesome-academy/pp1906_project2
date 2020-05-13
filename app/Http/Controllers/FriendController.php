@@ -26,14 +26,16 @@ class FriendController extends Controller
      */
     public function sendRequest(Request $request)
     {
-        $currentUser = auth()->user();
         $friendId = $request->friend_id;
+
         $user = User::findOrFail($friendId);
+
         $suggestUser = $this->userService->getListNotFriend(auth()->user())->first();
-        $relationship = $currentUser->isFriends($user)->first();
+
+        $relationship = auth()->user()->relationship($user)->first();
 
         $data = [
-            'user_id' => $currentUser->id,
+            'user_id' => auth()->id(),
             'friend_id' => $friendId,
             'status' => config('user.friend.request'),
         ];
@@ -65,11 +67,11 @@ class FriendController extends Controller
      */
     public function removeRequest(Request $request)
     {
-        $currentUser = auth()->user();
         $friendId = $request->friend_id;
+
         $user = User::findOrFail($friendId);
 
-        $relationship = $currentUser->isFriends($user)->first();
+        $relationship = auth()->user()->relationship($user)->first();
 
         if ($relationship && $relationship->status == config('user.friend.request')) {
             $this->friendService->destroyRequest($relationship);
@@ -96,20 +98,20 @@ class FriendController extends Controller
      */
     public function acceptRequest(Request $request)
     {
-        $currentUser = auth()->user();
         $friendId = $request->friend_id;
+
         $user = User::findOrFail($friendId);
 
-        $relationship = $currentUser->isFriends($user)->first();
+        $relationship = auth()->user()->relationship($user)->first();
 
         $data = [
-            'user_id' => $currentUser->id,
+            'user_id' => auth()->id(),
             'friend_id' => $friendId,
             'status' => config('user.friend.accept')
         ];
 
         if ($relationship && $relationship->status == config('user.friend.request')) {
-            $this->friendService->update($currentUser->isFriends($user), $data['status']);
+            $this->friendService->update(auth()->user()->relationship($user), $data['status']);
             $this->friendService->create($data);
 
             $this->friendService->sendNotificationEvent($relationship->user_id);
@@ -130,12 +132,41 @@ class FriendController extends Controller
     }
 
     /**
-     * Get list of notifications.
+     * Remove friend (unfriend).
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getNotificationList(Request $request)
+    public function removeFriend(Request $request)
+    {
+        $friendId = $request->friend_id;
+
+        $user = User::findOrFail($friendId);
+
+        $relationship = auth()->user()->relationship($user)
+            ->where('status', config('user.friend.accept'));
+
+        if ($relationship->count() > 0) {
+            $this->friendService->destroyRequest($relationship);
+
+            return response()->json([
+                'status' => true,
+                'html' => view('pages.blocks.widgets.add_friend', compact('user'))->render(),
+                'mark' => view('pages.blocks.widgets.friends_mark')->render(),
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+        ]);
+    }
+
+    /**
+     * Get list of notifications.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getNotificationList()
     {
         $friendNotifications = $this->friendService->getNotificationById(auth()->id());
 

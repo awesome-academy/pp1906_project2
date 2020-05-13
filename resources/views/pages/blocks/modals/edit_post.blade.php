@@ -38,20 +38,6 @@
                                         <img src="{{ asset('theme/socialyte/svg-icons/center/tag.svg') }}">
                                     </a>
                                     <button type="submit" class="btn btn-primary btn-md-2"> @lang('Accept Changes') </button>
-                                    <div class="form-group post-type">
-                                        <select class="selectpicker form-control" name="type">
-                                            <option value="{{ config('post.type.public') }}" {{ $post->isPublic() ? 'selected' : '' }}>@lang('Public')</option>
-                                            <option value="{{ config('post.type.private') }}" {{ $post->isPrivate() ? 'selected' : '' }}>@lang('Private')</option>
-                                            <option value="{{ config('post.type.only_friends') }}" {{ $post->isFriendsOnly() ? 'selected' : '' }}>@lang('Only Friends')</option>
-                                        </select>
-                                        @error('type')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>
-                                                {{ $message }}
-                                            </strong>
-                                        </span>
-                                        @enderror
-                                    </div>
 
                                 </div>
 

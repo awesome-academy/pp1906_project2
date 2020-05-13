@@ -3,25 +3,33 @@ import { ajaxSetup } from './functions.js';
 $(document).ready(function () {
     ajaxSetup();
 
+    $('.search-people-result').hide();
+
     $('.search-people-input').on('keyup', function () {
         var inputString = $(this).val();
-        var url = '/search-people?name=' + inputString;
+        if (inputString) {
+            var url = '/search-people?name=' + inputString;
 
-        $.ajax({
-            url: url,
-            type: 'GET',
-            cache: false,
-            success: function (result) {
-                if (inputString.length === 0) {
-                    $('.search-people-result').hide();
-                } else {
-                    $('.search-people-result').show();
-                    $('.search-people-result').html(result.html);
+            $.ajax({
+                url: url,
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    if (result.count > 0) {
+                        var resultDropdown = $('.search-people-result');
+
+                        resultDropdown.show();
+                        resultDropdown.html(result.html);
+                    } else {
+                        $('.search-people-result').hide();
+                    }
+                },
+                error: function () {
+                    errorMessage();
                 }
-            },
-            error: function () {
-                errorMessage();
-            }
-        });
+            });
+        } else {
+            $('.search-people-result').hide();
+        }
     });
 });

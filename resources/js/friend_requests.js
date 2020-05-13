@@ -128,7 +128,6 @@ $(document).ready(function () {
         });
     }
 
-
     // show notifications
     $('.dropdown-friends-notifications').on('show.bs.dropdown', function () {
         var url = '/friend-notifications/show-notifications';
