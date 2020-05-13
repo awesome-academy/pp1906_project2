@@ -18,4 +18,5 @@ return [
     'suggestion_friend' => 3,
     'search' => 6,
     'last_photo' => 12,
+    'friend_limit' => 3
 ];
