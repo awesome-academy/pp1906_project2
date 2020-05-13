@@ -28,7 +28,9 @@
                 </div>
             </div>
 
-            @include('pages.blocks.widgets.three_dots')
+            @if (auth()->id() == $post->user->id)
+                @include('pages.blocks.widgets.three_dots')
+            @endif
         </div>
 
         <p>
