@@ -133,6 +133,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'datetimepicker' => [
+            'before' => ':attribute must be a date before today.'
+        ],
     ],
 
     /*

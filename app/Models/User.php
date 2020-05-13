@@ -147,8 +147,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return DB::table('friends as f1')
             ->select('f2.friend_id as mutual_ids')
             ->join('friends as f2', 'f2.friend_id', '=', 'f1.friend_id')
-            ->where('f1.user_id', auth()->id())
-            ->where('f2.user_id', $userId)
+            ->where(function ($query) {
+                $query->where('f1.user_id', auth()->id())
+                    ->where('f1.status', config('user.friend.accept'));
+            })
+            ->where(function ($query) use ($userId) {
+                $query->where('f2.user_id', $userId)
+                    ->where('f2.status', config('user.friend.accept'));
+            })
             ->pluck('mutual_ids')->count();
     }
 

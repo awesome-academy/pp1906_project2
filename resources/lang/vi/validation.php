@@ -15,6 +15,7 @@ return [
 
     'accepted' => ':attribute phải được chấp nhận.',
     'active_url' => 'Đường dẫn của :attribute không hợp lệ.',
+    'before' => ':attribute phải trước ngày :date.',
     'after' => ':attribute phải sau ngày :date.',
     'after_or_equal' => ':attribute phải là ngày :date hoặc các ngày sau nó.',
     'between' => [
@@ -72,6 +73,9 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message'
+        ],
+        'datetimepicker' => [
+            'before' => ':attribute phải trước ngày hôm nay.'
         ],
     ],
 

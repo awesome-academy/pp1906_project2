@@ -5,16 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\PasswordRequest;
 use App\Services\UserService;
+use App\Services\FriendService;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     protected $userService;
+    protected $friendService;
 
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService, FriendService $friendService)
     {
         $this->userService = $userService;
+        $this->friendService = $friendService;
     }
 
     /**
@@ -52,7 +56,7 @@ class UserController extends Controller
     /**
      * Update the user password.
      *
-     * @param  app\Http\Requests\UserRequest $request
+     * @param  \App\Http\Requests\UserRequest $request
      * @return \Illuminate\Http\Response
      */
     public function updatePassword(PasswordRequest $request)
@@ -84,7 +88,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\UserRequest  $request
+     * @param  \App\Http\Requests\UserRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function updateInformation(UserRequest $request)
@@ -105,7 +109,7 @@ class UserController extends Controller
     /**
      * Change the language of website.
      *
-     * @param  \Illuminate\Http\UserRequest  $request
+     * @param  \App\Http\Requests\UserRequest $request
      * @return \Illuminate\Http\Response
      */
     public function updateLanguage(UserRequest $request)
@@ -131,6 +135,7 @@ class UserController extends Controller
     /**
      * Get list of people on searching.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function getSearchPeopleList(Request $request)
@@ -143,6 +148,29 @@ class UserController extends Controller
             return response()->json([
                 'count' => $searchResult->count(),
                 'html' => view('pages.blocks.widgets.search_people_block', compact('searchResult'))->render()
+            ]);
+        }
+    }
+
+    /**
+     * Get list of friends on searching.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param String $username
+     * @return \Illuminate\Http\Response
+     */
+    public function getSearchFriendList(Request $request, $username)
+    {
+        $user = User::with('friends')->where('username', $username)->firstOrFail();
+
+        if ($request->ajax()) {
+            $inputString = $request->name;
+
+            $searchResult = $this->friendService->getSearchFriendList($user, $inputString);
+
+            return response()->json([
+                'count' => $searchResult->count(),
+                'html' => view('pages.blocks.widgets.friend_list_block', ['userFriends' => $searchResult])->render()
             ]);
         }
     }

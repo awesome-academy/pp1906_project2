@@ -6,14 +6,15 @@
                     <div class="h6 title">
                         {{ __('friends.title', ['name' => $user->name]) }}
                     </div>
-                    <form class="w-search">
+                    <div class="w-search">
                         <div class="form-group with-button">
-                            <input class="form-control" type="text" placeholder="@lang('Search Friends...')">
-                            <button>
+                            <input class="form-control search-friend-form" type="text" placeholder="@lang('Search Friends...')" data-user-name="{{ $user->username }}">
+
+                            <button class="search-friends" data-user-name="{{ $user->username }}">
                                 <img src="{{ asset('theme/socialyte/svg-icons/top_bar/search.svg') }}">
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

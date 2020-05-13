@@ -3,35 +3,69 @@ import { ajaxSetup } from './functions.js';
 $(document).ready(function () {
     ajaxSetup();
 
-    $('body').on('click', '.friends-suggestion .accept', function () {
-        event.preventDefault();
-        var username = $(this).data('friend-name');
-        var friendId = $(this).data('friend-id')
+    var page = 1;
 
-        var url = '/' + username + '/add-friend';
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            page++;
+            loadMoreData(page);
+        }
+    });
 
-        var data = {
-            'friend_id': friendId
-        };
+    function loadMoreData(page) {
+        var url = '?page=' + page;
 
         $.ajax({
             url: url,
-            type: 'POST',
-            data: data,
+            type: 'GET',
             cache: false,
             success: function (result) {
-                if (result.status) {
-                    $('.friends-suggestion-' + friendId).fadeOut(500);
-                    $('.friends-suggestion-' + friendId).remove();
-                    $('.list-friends-suggestion').append(result.html_friend_suggestion);
-                } else {
-                    errorMessage();
+                if (result.html.length != 0) {
+                    $(".search-friend-result").append(result.html);
                 }
             },
             error: function () {
                 errorMessage();
             }
         });
+    }
+
+    function findFriends(inputString, userName) {
+
+        var url = '/' + userName + '/friends/search?name=' + inputString;
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            cache: false,
+            success: function (result) {
+                if (result.count > 0) {
+                    $('.search-friend-result').html(result.html);
+                } else {
+                    resultNotFound();
+                }
+            },
+            error: function () {
+                errorMessage();
+            }
+        });
+    }
+
+    $('body').on('click', '.search-friends', function () {
+        var inputString = $(this).prev().val();
+        var userName = $(this).data('user-name');
+
+        findFriends(inputString, userName);
     });
 
+    $('body').on('keypress', '.search-friend-form', function (event) {
+        if (((event.keyCode || event.which) == 13) && !event.shiftKey) {
+            event.preventDefault();
+
+            var inputString = $(this).val();
+            var userName = $(this).data('user-name');
+
+            findFriends(inputString, userName);
+        }
+    });
 });

@@ -71,19 +71,24 @@
     }
 
     function errorEmptyContent() {
-        Swal.fire(
-            "@lang('Content ?')",
-            "@lang('Content can\'t be empty!')",
-            'question'
-        );
+        Swal.fire({
+            icon: 'question',
+            text: "@lang('Content can\'t be empty!')",
+        });
     }
 
     function errorImages() {
-        Swal.fire(
-            "@lang('Image ?')",
-            "@lang('Please select only images!')",
-            'warning'
-        );
+        Swal.fire({
+            icon: 'warning',
+            text: "@lang('Please select only images!')",
+        });
+    }
+
+    function resultNotFound() {
+        Swal.fire({
+            icon: 'warning',
+            text: "@lang('Search result not found..')",
+        });
     }
 </script>
 
