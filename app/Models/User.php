@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Friend;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Carbon;
+use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -166,5 +166,28 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getFriendRequestsCount()
     {
         return Friend::where('friend_id', auth()->id())->count();
+    }
+
+    /**
+     * Get user's chose language.
+     *
+     * @return String
+     */
+    public function getUserLanguage()
+    {
+        $languages = array_flip(config('user.language'));
+
+        return $languages[$this->language];
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify((new ResetPasswordNotification($token, $this->name))->locale($this->getUserLanguage()));
     }
 }

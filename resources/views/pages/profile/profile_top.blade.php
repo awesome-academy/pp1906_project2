@@ -11,7 +11,7 @@
                             <div class="col col-lg-5 col-md-5 col-sm-12 col-12">
                                 <ul class="profile-menu">
                                     <li>
-                                        <a href="#" class="active">@lang('Timeline')</a>
+                                        <a href="{{ route('user.profile', $user->username) }}" class="active">@lang('Timeline')</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('user.about', $user->username) }}" class="active">@lang('About')</a>

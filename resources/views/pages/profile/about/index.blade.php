@@ -7,7 +7,7 @@
         <div class="ui-block-title">
             <h6 class="title">@lang('Personal Info')</h6>
 
-            @if (auth()->id() == $user->id)
+            @if ($user->isCurrentUser())
             <a href="/settings" class="social-item change-profile bg-facebook">
                 @lang('Change profile')
             </a>
@@ -34,7 +34,7 @@
                 @if ($user->gender != '')
                 <li>
                     <span class="title">@lang('Gender'):</span>
-                    <span class="text">{{ $user->gender }}</span>
+                    <span class="text">@choice('user.gender', $user->gender)</span>
                 </li>
                 @endif
 
@@ -46,7 +46,7 @@
                 @if ($user->birthday != '')
                 <li>
                     <span class="title">@lang('Birthday'):</span>
-                    <span class="text">{{ $user->birthday }}</span>
+                    <span class="text">{{ formatDate($user->birthday) }}</span>
                 </li>
                 @endif
 
