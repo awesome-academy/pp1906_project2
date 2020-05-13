@@ -7,7 +7,8 @@
             <div class="control-block">
                 <div class="author-page author-page-left author vcard inline-items more">
                     <div class="author-thumb">
-                        <img src="{{ getAvatar(auth()->user()->avatar) }}" class="avatar default-avatar" alt="{{ auth()->user()->name }}">
+                        <a href="{{ route('user.profile', auth()->user()->username) }}"> <img src="{{ getAvatar(auth()->user()->avatar) }}" class="avatar default-avatar" alt="{{ auth()->user()->name }}">
+                        </a>
                     </div>
                     <a href="{{ route('user.profile', auth()->user()->username) }}" class="author-name fn">
                         <div class="author-title">

@@ -28,21 +28,19 @@
                         </div>
 
                         <div class="swiper-container" data-slide="fade">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="friend-count" data-swiper-parallax="-500">
-                                        <span class="chat-message-item">
-                                            @if ($countMutuals = auth()->user()->countMutualFriends($friend->id))
-                                                {{ $countMutuals }} @lang('Mutual friends')
-                                            @endif
-                                        </span>
-                                    </div>
-                                    <div class="control-block-button" data-swiper-parallax="-100">
-                                        <a href="{{ route('user.profile', $friend->username) }}" class="btn btn-control bg-purple" title="@lang('Go to profile page')">
-                                            <img src="{{ asset('theme/socialyte/svg-icons/center/friend_profile.svg') }}">
-                                        </a>
-                                    </div>
-                                </div>
+                            <div class="friend-count">
+                                <span class="chat-message-item">
+                                    @if ($countMutuals = auth()->user()->countMutualFriends($friend->id))
+                                    {{ $countMutuals }} @lang('Mutual friends')
+                                    @else
+                                    &nbsp;
+                                    @endif
+                                </span>
+                            </div>
+                            <div class="control-block-button" data-swiper-parallax="-100">
+                                <a href="{{ route('user.profile', $friend->username) }}" class="btn btn-control bg-purple" title="@lang('Go to profile page')">
+                                    <img src="{{ asset('theme/socialyte/svg-icons/center/friend_profile.svg') }}">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -57,4 +55,8 @@
 </div>
 
 <!-- ... end Friends -->
+@endsection
+
+@section('script')
+<script src="{{ asset('js/search_friend.js') }}"></script>
 @endsection

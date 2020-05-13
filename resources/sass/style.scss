@@ -564,7 +564,8 @@ label:hover {
     padding: 5px 0;
 }
 
-.dropdown-menu {
+.dropdown-menu.notifications,
+.dropdown-menu.friends-notifications {
     top: auto !important;
     transform: none !important;
 }
@@ -708,4 +709,9 @@ span.prefix {
 
 .notification-control-block {
     margin-right: 50px;
+}
+
+.friend-header-thumb {
+    width: 293px;
+    height: 166px;
 }

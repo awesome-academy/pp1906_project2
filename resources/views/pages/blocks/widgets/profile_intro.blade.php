@@ -31,10 +31,6 @@
                 <span class="text">{{ date('d/m/Y', strtotime($user->birthday)) }}</span>
             </li>
             @endif
-            <li>
-                <span class="title">@lang('Email')</span>
-                <span class="text">{{ $user->email }}</span>
-            </li>
         </ul>
 
         <!-- .. end W-Personal-Info -->

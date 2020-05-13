@@ -25,23 +25,12 @@
                     </span>
                 </li>
 
-                <li>
-                    <span class="title">@lang('Username'):</span>
-                    <span class="text">{{ $user->username }}
-                    </span>
-                </li>
-
                 @if ($user->gender != '')
                 <li>
                     <span class="title">@lang('Gender'):</span>
                     <span class="text">@choice('user.gender', $user->gender)</span>
                 </li>
                 @endif
-
-                <li>
-                    <span class="title">@lang('Email'):</span>
-                    <a href="#" class="text">{{ $user->email }}</a>
-                </li>
 
                 @if ($user->birthday != '')
                 <li>
