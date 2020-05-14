@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\React;
 use App\Events\PostReacted;
 use App\Models\Post;
+use App\Models\Comment;
 use App\Models\Activity;
 use App\Services\NotificationService;
 use App\Services\ActivityService;
@@ -30,19 +31,31 @@ class ReactService
      */
     public function storeReact($data)
     {
-        $post = Post::findOrFail($data['reactable_id']);
+        $senderId = $data['user_id'];
+
+        if ($data['reactable_type'] == 'App\Models\Comment') {
+            $comment = Comment::findOrFail($data['reactable_id']);
+            $receiverId = $comment->user->id;
+            $postId = $comment->post->id;
+            $commentId = $comment->id;
+        } else {
+            $post = Post::findOrFail($data['reactable_id']);
+            $receiverId = $post->user->id;
+            $postId = $post->id;
+
+            $activityData = [
+                'user_id' => $senderId,
+                'post_id' => $data['reactable_id'],
+                'type' => $data['type']
+            ];
+        }
 
         $notificationData = [
-            'sender_id' => $data['user_id'],
-            'receiver_id' => $post->user->id,
+            'sender_id' => $senderId,
+            'receiver_id' => $receiverId,
             'type' => $data['type'],
-            'post_id' => $data['reactable_id'],
-        ];
-
-        $activityData = [
-            'user_id' => $data['user_id'],
-            'post_id' => $data['reactable_id'],
-            'type' => $data['type']
+            'post_id' => $postId,
+            'comment_id' => $commentId ?? null,
         ];
 
         DB::beginTransaction(); //begin transaction
@@ -50,9 +63,12 @@ class ReactService
         try {
             React::create($data);
 
-            if ($data['user_id'] != $post->user->id) {
+            if ($senderId != $receiverId) {
                 $this->notificationService->storeNotification($notificationData);
-                $this->activityService->storeActivity($activityData);
+
+                if (isset($activityData)) {
+                    $this->activityService->storeActivity($activityData);
+                }
             }
 
             DB::commit(); //commit transaction

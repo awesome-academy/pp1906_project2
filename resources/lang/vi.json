@@ -156,5 +156,8 @@
     "Please select only images!": "Hãy chọn file có định dạng là ảnh",
     "You have no friend..": "Bạn chưa có bạn bè..",
     "Search result not found..": "Không tìm thấy dữ liệu tìm kiếm..",
-    "No more friends found": "Không còn bạn bè để hiển thị"
+    "No more friends found": "Không còn bạn bè để hiển thị",
+    "REMOVE ALL IMAGES": "XÓA TOÀN BỘ ẢNH",
+    "Image size must not be larger than 2 Megabytes!": "Dung lượng ảnh không được vượt quá 2 Mb!",
+    "Nothing changes..": "Không có thay đổi.."
 }

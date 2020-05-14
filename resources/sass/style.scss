@@ -724,3 +724,50 @@ span.prefix {
     margin-left: 550px;
     padding: 40px;
 }
+
+.edit-image img {
+    width: 200px;
+    height: auto;
+    padding: 5px;
+    border-radius: 0;
+    overflow: hidden;
+    margin-right: 0;
+}
+
+.news-feed-form .options-message.edit-image-message {
+    margin-top: -20px;
+}
+
+.add-options-message.edit-image-message {
+    position: relative;
+    margin-bottom: 0;
+    float: left;
+}
+
+.remove-image {
+    position: absolute;
+    top: -28px;
+    left: 730px;
+}
+
+.edit-post-textarea {
+    padding-left: 80px !important;
+}
+
+.edit-post-button.disabled {
+    background-color: #9a9fbf;
+    border-color: #9a9fbf;
+}
+
+.nothing-here-birthdays,
+.birthdays-title {
+    padding-left: 70px;
+}
+
+#sidebar-left .profile-icon {
+    padding-left: 27px;
+}
+
+#sidebar-left .profile-icon:hover {
+    color: #9a9fbf;
+}

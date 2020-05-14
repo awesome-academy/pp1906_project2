@@ -56,6 +56,10 @@ class PostController extends Controller
 
         $data['user_id'] = auth()->id();
 
+        if (isset($data['image'])) {
+            $data['image'] = $this->postService->saveImage($data['image']);
+        }
+
         $updatePost = $this->postService->updatePost($id, $data);
 
         if ($updatePost) {
@@ -140,6 +144,29 @@ class PostController extends Controller
             'status' => true,
             'html' => $html,
             'count' => $newPostCounts,
+        ]);
+    }
+
+    /**
+     * Get post's images.
+     *
+     * @param Int $postId
+     * @return \Illuminate\Http\Response
+     */
+    public function getPostImages($postId)
+    {
+        $post = Post::findOrFail($postId);
+
+        $postImages = json_decode($post->image);
+
+        $html = '';
+
+        if ($postImages) {
+            $html = view('pages.blocks.modals.edit_image_block', compact('postImages', 'post'))->render();
+        }
+
+        return response()->json([
+            'html' => $html
         ]);
     }
 }

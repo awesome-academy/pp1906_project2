@@ -25,6 +25,9 @@
     @endif
 
     <div class="comments-shared">
+        <a href="#" class="post-add-icon inline-items add-comment-button" data-post-id="{{ $post->id }}">
+            <img src="{{ asset('theme/socialyte/svg-icons/center/not_comment.svg') }}">
+        </a>
         <a href="#" class="post-add-icon inline-items" data-toggle="modal" data-target="#sharePostModal{{ $post->share ? $post->share->id : $post->id }}" title="@lang('Share post')">
             <img src="{{ asset('theme/socialyte/svg-icons/center/not_share.svg') }}">
         </a>

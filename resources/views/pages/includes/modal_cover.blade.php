@@ -4,9 +4,7 @@
     <div class="modal-dialog window-popup update-header-photo" role="document">
         <div class="modal-content">
             <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
-                <svg class="olymp-close-icon">
-                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-close-icon"></use>
-                </svg>
+                <img src="{{ asset('theme/socialyte/svg-icons/center/close.svg') }}">
             </a>
             <div class="modal-header">
                 <h6 class="title">@lang('Update Header Cover')</h6>
@@ -15,9 +13,7 @@
                 <form method="POST" action="{{ route('user.uploadProfileImage', auth()->user()->username) }}" enctype="multipart/form-data">
                     @csrf
                     <a href="#" class="upload-photo-item photo-item-margin">
-                        <svg class="olymp-computer-icon">
-                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
-                        </svg>
+                        <img src="{{ asset('theme/socialyte/svg-icons/center/computer.svg') }}">
                         <h6><label for="upload-cover" class="display-inline">@lang('Upload Photo')</label></h6>
                         <span>@lang('Browse your computer.')</span>
                     </a>

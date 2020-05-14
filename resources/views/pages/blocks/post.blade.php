@@ -48,7 +48,7 @@
 
     <!-- Comment Form  -->
 
-    <form class="comment-form inline-items">
+    <form class="comment-form inline-items display-none post-{{ $post->id }}">
 
         <div class="post__author author vcard inline-items">
             <img src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{ auth()->user()->name }}">

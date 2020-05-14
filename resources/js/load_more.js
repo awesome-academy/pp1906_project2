@@ -5,7 +5,7 @@ $(document).ready(function () {
     //first pagination post start at 0, the second pagination post will start at 1
     var page = 1;
 
-    $(window).scroll(function () {
+    $(window).on('scroll', function () {
         if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
             page++;
             loadMoreData(page);
@@ -24,6 +24,9 @@ $(document).ready(function () {
                     $('.no-more').show();
                 }
                 $(".post-data").append(result.html);
+
+                zoomImage();
+                zoomGallery();
             },
             error: function () {
                 errorMessage();

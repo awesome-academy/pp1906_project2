@@ -61,6 +61,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/search-people', 'UserController@getSearchPeopleList')->name('people.search');
 
+    Route::get('posts/{post}/get-images', 'PostController@getPostImages');
+
     Route::resource('posts', 'PostController');
 
     Route::get('/get-latest-posts', 'PostController@getLatestPost')->name('post.getLatest');
@@ -69,11 +71,11 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('comments/load-more', 'CommentController@viewMoreComment')->name('comments.viewMoreComment');
 
+    Route::post('comments/reacts', 'CommentController@reactComment')->name('comment.react');
+
     Route::resource('comments', 'CommentController');
 
     Route::post('comments/{comment}/replies', 'CommentController@replyComment')->name('comments.reply');
-
-    Route::post('comments/reacts', 'CommentController@reactComment')->name('comment.react');
 
     Route::resource('reacts', 'ReactController');
 

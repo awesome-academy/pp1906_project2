@@ -32,25 +32,7 @@
                                     @enderror
                                 </div>
                                 <div class="add-options-message">
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="@lang('TAG YOUR FRIENDS')">
-                                        <img src="{{ asset('theme/socialyte/svg-icons/center/tag.svg') }}">
-                                    </a>
                                     <button type="submit" class="btn btn-primary btn-md-2"> @lang('Share') </button>
-                                    <div class="form-group post-type">
-                                        <select class="selectpicker form-control" name="type">
-                                            <option value="{{ config('post.type.public') }}" selected="selected"> @lang('Public') </option>
-                                            <option value="{{ config('post.type.private') }}"> @lang('Private') </option>
-                                            <option value="{{ config('post.type.only_friends') }}"> @lang('Only Friends') </option>
-                                        </select>
-                                        @error('type')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>
-                                                {{ $message }}
-                                            </strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-
                                 </div>
 
                             </form>

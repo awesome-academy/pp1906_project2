@@ -84,12 +84,63 @@
         });
     }
 
+    function errorImageSize() {
+        Swal.fire({
+            icon: 'warning',
+            text: "@lang('Image size must not be larger than 2 Megabytes!')",
+        });
+    }
+
     function resultNotFound() {
         Swal.fire({
             icon: 'warning',
             text: "@lang('Search result not found..')",
         });
     }
+
+    function nothingChanges() {
+        Swal.fire({
+            icon: 'warning',
+            text: "@lang('Nothing changes..')",
+        });
+    }
+
+    function zoomImage() {
+        $(".zoom-image").magnificPopup({
+            type: "image",
+            removalDelay: 500,
+            callbacks: {
+                beforeOpen: function() {
+                    this.st.image.markup = this.st.image.markup.replace("mfp-figure", "mfp-figure mfp-with-anim"), this.st.mainClass = "mfp-zoom-in"
+                }
+            },
+            closeOnContentClick: !0,
+            midClick: !0
+        });
+    }
+
+    function zoomGallery() {
+        $(".zoom-gallery").each(function() {
+            $(this).magnificPopup({
+                delegate: "a",
+                type: "image",
+                gallery: {
+                    enabled: !0
+                },
+                removalDelay: 500,
+                callbacks: {
+                    beforeOpen: function() {
+                        this.st.image.markup = this.st.image.markup.replace("mfp-figure", "mfp-figure mfp-with-anim"), this.st.mainClass = "mfp-zoom-in"
+                    }
+                },
+                closeOnContentClick: !0,
+                midClick: !0
+            })
+        });
+    }
+
+    zoomImage();
+    zoomGallery();
 </script>
 
 @yield('script')
