@@ -10,7 +10,7 @@
             @foreach ($user->friends->take(config('user.friend_limit')) as $friend)
                 <li>
                     <a href="{{ route('user.profile', $friend->username) }}">
-                        <img src="{{ getAvatar($friend->avatar) }}" alt="{{ $friend->name }}">
+                        <img class="defaul-avatar" src="{{ getAvatar($friend->avatar) }}" alt="{{ $friend->name }}">
                     </a>
                 </li>
             @endforeach

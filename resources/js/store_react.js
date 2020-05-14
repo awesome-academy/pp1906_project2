@@ -49,6 +49,12 @@ $(document).ready(function () {
                         react.attr('hidden', '');
                     }
 
+                    if (result.count_react == 1) {
+                        $('.react-this-post-' + reactableId).removeAttr('hidden');
+                    } else if (result.count_react == 0) {
+                        $('.react-this-post-' + reactableId).attr('hidden', '');
+                    }
+
                     reactElement.parent().parent().find('.count-reacts').text(result.count_react);
                     userReact.html();
                     userReact.html(result.view);
