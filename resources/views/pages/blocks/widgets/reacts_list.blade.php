@@ -1,6 +1,9 @@
-@if ($post->reacts->count() > 0)
 <div class="post-additional-info inline-items" style="border: none; margin-bottom: 10px;">
-    <a href="#" class="post-add-icon inline-items" data-toggle="modal" data-target="#listReactModal{{ $post->id }}">
+    <a href="#" class="post-add-icon inline-items react-this-post-{{ $post->id }}"
+        @if ($post->reacts->count() == 0)
+            hidden
+        @endif
+        data-toggle="modal" data-target="#listReactModal{{ $post->id }}">
         <strong>
             <strong class="count-reacts"> {{ $post->reacts->count() }} </strong>
             @lang('react this post')
@@ -14,7 +17,6 @@
         @endif
     </div>
 </div>
-@endif
 
 @include('pages.blocks.modals.share_users')
 @include('pages.blocks.modals.list_react_post')
