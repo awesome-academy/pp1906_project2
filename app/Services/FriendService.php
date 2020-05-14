@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\Friend;
+use App\Models\User;
 use App\Events\FriendRequested;
 use Illuminate\Support\Carbon;
 
@@ -115,5 +116,20 @@ class FriendService
         return $user->friends()->whereMonth('birthday', $date->month)
             ->whereDay('birthday', $date->day)
             ->get();
+    }
+
+    /**
+     * Get search friends data.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getSearchFriendList($user, $inputString)
+    {
+        $friendIds = $this->getFriendIds($user);
+
+        return User::where('id', '!=', $user->id)
+            ->whereIn('id', $friendIds)
+            ->where('name', 'LIKE', '%' . $inputString . '%')
+            ->paginate(config('friend.search'));
     }
 }

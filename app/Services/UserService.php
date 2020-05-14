@@ -69,8 +69,9 @@ class UserService
     }
 
     /**
-     * Get Notifications data.
+     * Get search people data.
      *
+     * @param String $inputString
      * @return \Illuminate\Http\Response
      */
     public function getSearchPeopleList($inputString)

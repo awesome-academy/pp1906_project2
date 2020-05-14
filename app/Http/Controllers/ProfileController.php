@@ -61,7 +61,17 @@ class ProfileController extends Controller
 
         $relationship = auth()->user()->relationship($user)->first();
 
-        return view('pages.profile.friends.index', compact('user', 'relationship'));
+        $userFriends = $user->friends()->paginate(config('friend.page.number'));
+
+        if ($request->ajax()) {
+            $nextFriends = view('pages.blocks.widgets.friend_list_block', compact('userFriends'))->render();
+
+            return response()->json([
+                'html' => $nextFriends
+            ]);
+        }
+
+        return view('pages.profile.friends.index', compact('user', 'relationship', 'userFriends'));
     }
 
     public function uploadProfileImage(ProfileRequest $request)

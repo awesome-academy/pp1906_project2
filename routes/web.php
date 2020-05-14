@@ -93,6 +93,8 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
     Route::get('/{username}/friends', 'ProfileController@showFriends')->name('user.friends');
 
+    Route::get('/{username}/friends/search', 'UserController@getSearchFriendList')->name('friends.search');
+
     Route::get('/{username}/photos', 'ProfileController@showPhotos')->name('user.photos');
 
     Route::get('/{username}/about', 'ProfileController@showAbout')->name('user.about');

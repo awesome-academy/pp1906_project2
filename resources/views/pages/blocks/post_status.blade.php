@@ -34,7 +34,7 @@
                             <label for="upload-image" class="display-inline">
                                 <img src="{{ asset('theme/socialyte/svg-icons/center/camera.svg') }}">
                             </label>
-                            <input class="input-image form-control @error('image') is-invalid @enderror" type="file" id="upload-image" name="image[]" multiple>
+                            <input class="input-image form-control @error('image') is-invalid @enderror" type="file" id="upload-image" name="image[]" accept="image/*" multiple>
                         </a>
                         <button class="btn btn-primary btn-md-2 store-post"> @lang('Post Status') </button>
 
