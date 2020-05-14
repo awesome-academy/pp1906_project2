@@ -93,7 +93,15 @@ return [
     'attributes' => [
         'new_password' => 'Mật khẩu mới',
         'new_password_confirm' => 'Mật khẩu mới',
-        'current_password' => 'Mật khẩu hiện tại'
+        'current_password' => 'Mật khẩu hiện tại',
+        'name' => 'Họ và tên',
+        'gender' => 'Giới tính',
+        'language' => 'Ngôn ngữ',
+        'datetimepicker' => 'Ngày sinh',
+        'content' => 'Nội dung',
+        'type' => 'Kiểu',
+        'image.*' => 'Các ảnh',
+        'image' => 'Ảnh',
     ],
 
 ];

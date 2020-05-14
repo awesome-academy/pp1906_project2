@@ -152,7 +152,15 @@ return [
     'attributes' => [
         'new_password' => 'New Password',
         'new_password_confirm' => 'New Password',
-        'current_password' => 'Current Password'
+        'current_password' => 'Current Password',
+        'name' => 'Name',
+        'gender' => 'Gender',
+        'language' => 'Language',
+        'datetimepicker' => 'Birthday',
+        'content' => 'Content',
+        'type' => 'Type',
+        'image.*' => 'Images',
+        'image' => 'Image',
     ],
 
 ];

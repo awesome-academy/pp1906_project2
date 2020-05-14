@@ -40,6 +40,10 @@ class UserService
     {
         $user = User::findOrFail($id);
 
+        if ($user->id != auth()->id()) {
+            return false;
+        }
+
         try {
             $user->update($data);
         } catch (\Throwable $th) {
