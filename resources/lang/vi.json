@@ -159,5 +159,8 @@
     "No more friends found": "Không còn bạn bè để hiển thị",
     "REMOVE ALL IMAGES": "XÓA TOÀN BỘ ẢNH",
     "Image size must not be larger than 2 Megabytes!": "Dung lượng ảnh không được vượt quá 2 Mb!",
-    "Nothing changes..": "Không có thay đổi.."
+    "Nothing changes..": "Không có thay đổi..",
+    "Image ?": "Đây có phải là ảnh ?",
+    "Please select only images!": "Hãy chọn file có định dạng là ảnh",
+    "react this comment": "cảm xúc cho bình luận này"
 }

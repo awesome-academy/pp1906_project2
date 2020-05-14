@@ -7,6 +7,7 @@ use App\Http\Requests\ReactRequest;
 use App\Http\Requests\ReplyRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Comment;
 use App\Services\CommentService;
 use App\Services\ReactService;
 
@@ -119,6 +120,7 @@ class CommentController extends Controller
             'reactable_id',
         ]);
 
+        $comment = Comment::findOrFail($data['reactable_id']);
         $data['reactable_type'] = 'App\Models\Comment';
         $data['user_id'] = auth()->id();
 
@@ -127,6 +129,8 @@ class CommentController extends Controller
         if ($react) {
             return response()->json([
                 'status' => true,
+                'count_react' => $comment->reacts->count(),
+                'view' => view('pages.blocks.modals.react_user_comment', compact('comment'))->render(),
             ]);
         }
 
