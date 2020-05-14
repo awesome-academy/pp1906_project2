@@ -80,6 +80,10 @@ class CommentService
     {
         $comment = Comment::findOrFail($id);
 
+        if ($comment->user_id != auth()->id()) {
+            return false;
+        }
+
         try {
             $comment->update($data);
         } catch (\Throwable $th) {
@@ -100,6 +104,10 @@ class CommentService
     public function deleteComment($id)
     {
         $comment = Comment::findOrFail($id);
+
+        if ($comment->user_id != auth()->id()) {
+            return false;
+        }
 
         try {
             $comment->delete();
