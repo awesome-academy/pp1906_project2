@@ -81,27 +81,31 @@ $(document).ready(function () {
                 'content': content
             };
 
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: data,
-                cache: false,
-                success: function (result) {
-                    if (result.status) {
-                        childrenRepliesBlock.append(result.reply);
+            if (content == '') {
+                errorEmptyContent();
+            } else {
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                    cache: false,
+                    success: function (result) {
+                        if (result.status) {
+                            childrenRepliesBlock.append(result.reply);
 
-                        $('.prefix').remove();
+                            $('.prefix').remove();
 
-                        replyForm.find('.reply-content').removeAttr("style");
-                        replyForm.find('.reply-content').val('');
-                    } else {
+                            replyForm.find('.reply-content').removeAttr("style");
+                            replyForm.find('.reply-content').val('');
+                        } else {
+                            errorMessage();
+                        }
+                    },
+                    error: function () {
                         errorMessage();
                     }
-                },
-                error: function () {
-                    errorMessage();
-                }
-            });
+                });
+            }
         }
     });
 
