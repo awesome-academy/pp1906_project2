@@ -27,7 +27,7 @@ $(document).ready(function () {
         var userReact = reactElement.parent().parent().parent().parent().parent().find('.list-react-post');
 
         $.ajax({
-            url: 'reacts',
+            url: '/reacts',
             type: 'POST',
             data: {
                 'type': reactType,

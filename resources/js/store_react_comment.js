@@ -26,7 +26,7 @@ $(document).ready(function () {
         var userReact = reactElement.parent().parent().parent().parent().parent().find('.list-react-comment');
 
         $.ajax({
-            url: 'comments/reacts',
+            url: '/comments/reacts',
             type: 'POST',
             data: {
                 'type': reactType,

@@ -24,6 +24,8 @@
                         {!! __('notification.reply', ['post_id' => $notification->post_id]) !!}
                     @elseif ($notification->isChildReply())
                         {!! __('notification.replies_of_reply', ['post_id' => $notification->post_id]) !!}
+                    @elseif (isset($notification->comment_id))
+                        {!! __('notification.react_comment', ['post_id' => $notification->post_id]) !!}
                     @else
                         {!! __('notification.react', ['post_id' => $notification->post_id]) !!}
                     @endif

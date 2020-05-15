@@ -7,7 +7,7 @@ $(document).ready(function () {
         event.preventDefault();
         var postId = parseInt($(this).data('post_id'));
         var commentId = parseInt($(this).data('comment_id'));
-        var url = 'comments/' + commentId;
+        var url = '/comments/' + commentId;
         var content = $(this).parent().parent().find('.edit-comment-content').val();
         var _this = $(this);
 
@@ -49,7 +49,7 @@ $(document).ready(function () {
     $('body').on('click', '.delete-comment', function () {
         event.preventDefault();
         var commentId = parseInt($(this).data('comment_delete_id'));
-        var url = 'comments/' + commentId;
+        var url = '/comments/' + commentId;
         $.ajax({
             url: url,
             type: 'DELETE',

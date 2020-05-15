@@ -23,7 +23,7 @@ $(document).ready(function () {
     $('body').on('click', '.store-comment', function (event) {
         event.preventDefault();
 
-        var url = 'comments';
+        var url = '/comments';
         var _this = $(this);
         var postId = parseInt($(this).data('post_id'));
         var content = $(this).parent().find('.comment-content').val();

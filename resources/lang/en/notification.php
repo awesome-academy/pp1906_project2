@@ -7,4 +7,5 @@ return [
     'comment' => "commented on your <a href='/posts/:post_id'>post</a>",
     'reply' => "replied your comment on a <a href='/posts/:post_id'>post</a>",
     'replies_of_reply' => "mentioned you in a <a href='/posts/:post_id'>post's</a> comment",
+    'react_comment' => "reacted to your comment in a <a href='/posts/:post_id'>post's</a>"
 ];

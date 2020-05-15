@@ -11,7 +11,7 @@
                         @if ($post->isUpdated())
                         <span>
                             (@lang('updated')
-                            <time class="published" datetime="2004-07-24T18:18">{{ getUpdatedFromTime($post) }}</time>)
+                            <time class="published">{{ getUpdatedFromTime($post) }}</time>)
                         </span>
                         @endif
                     </a>
