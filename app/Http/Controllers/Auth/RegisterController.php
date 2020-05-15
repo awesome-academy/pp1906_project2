@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'language' => config('user.language.en'),
         ]);
 
         request()->session()->put('userId', $registered->id);
