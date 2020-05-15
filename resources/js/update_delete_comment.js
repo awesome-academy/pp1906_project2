@@ -59,7 +59,7 @@ $(document).ready(function () {
                     $('.delete-comment-modal').modal('hide');
                     setTimeout(function () {
                         $('.comment-item-' + commentId).remove();
-                    }, 100);
+                    }, 500);
                 }
             },
             error: function () {

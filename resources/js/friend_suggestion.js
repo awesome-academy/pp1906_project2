@@ -6,7 +6,7 @@ $(document).ready(function () {
     $('body').on('click', '.friends-suggestion .accept', function () {
         event.preventDefault();
         var username = $(this).data('friend-name');
-        var friendId = $(this).data('friend-id')
+        var friendId = $(this).data('friend-id');
 
         var url = '/' + username + '/add-friend';
 
@@ -19,6 +19,7 @@ $(document).ready(function () {
             type: 'POST',
             data: data,
             cache: false,
+
             success: function (result) {
                 if (result.status) {
                     $('.friends-suggestion-' + friendId).fadeOut(500);
