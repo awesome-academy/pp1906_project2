@@ -3,6 +3,13 @@
 @section('content')
 <div class="login form-box">
     @include('auth.form_logo')
+
+    @if (session('error'))
+    <div class="alert alert-danger" role="alert" style="text-align: center;">
+        {{ session('error') }}
+    </div>
+    @endif
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <!-- Username -->

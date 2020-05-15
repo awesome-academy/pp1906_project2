@@ -11,5 +11,6 @@ return [
     'delete' => [
         'success' => 'Your share has been deleted!',
     ],
-    'title' => "shared <a href='/:username'>:name</a>'s <a href='/posts/:post_id'>post</a>"
+    'title' => "shared <a href='/:username'>:name</a>'s <a href='/posts/:post_id'>post</a>",
+    'title_self' => "shared their <a href='/posts/:post_id'>post</a>"
 ];

@@ -156,7 +156,7 @@ Forgot password page
 
 .email.form-box {
     width: 450px;
-    height: 280px;
+    height: auto;
 }
 
 /*----------------------------------------------------------------
@@ -770,4 +770,9 @@ span.prefix {
 
 #sidebar-left .profile-icon:hover {
     color: #9a9fbf;
+}
+
+.clear-cache {
+    color: $theme !important;
+    font-weight: bold;
 }

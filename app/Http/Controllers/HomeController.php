@@ -7,6 +7,8 @@ use App\Services\PostService;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Services\ActivityService;
+use App\Models\User;
+
 
 class HomeController extends Controller
 {
@@ -82,5 +84,26 @@ class HomeController extends Controller
             'randomTodayBirthdayUser',
             'activities'
         ));
+    }
+
+    /**
+     * Clear register cache and remove created sessions.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function clearViewCache(Request $request)
+    {
+        $registerId = $request->session()->get('userId');
+
+        $request->session()->flush();
+
+        $forceDeleteUser = $this->userService->forceDeleteUser($registerId);
+
+        if ($forceDeleteUser) {
+            return redirect('/register');
+        }
+
+        return back()->with('error', __('user.error'));
     }
 }

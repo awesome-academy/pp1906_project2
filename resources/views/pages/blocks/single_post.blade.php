@@ -9,9 +9,11 @@
                 <a class="h6 post__author-name fn" href="{{ route('user.profile', $post->user->username) }}">{{ $post->user->name }}</a>
 
                 @if ($post->share)
-
-                {!! __('share.title', ['name' => $post->share->user->name, 'username' => $post->share->user->username, 'post_id' => $post->share->id]) !!}
-
+                    @if ($post->share->user->isCurrentUser())
+                        {!! __('share.title_self', ['post_id' => $post->share->id]) !!}
+                    @else
+                        {!! __('share.title', ['name' => $post->share->user->name, 'username' => $post->share->user->username, 'post_id' => $post->share->id]) !!}
+                    @endif
                 @endif
 
                 <div class="post-type-icon post__date">
