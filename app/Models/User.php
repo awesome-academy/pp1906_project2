@@ -55,6 +55,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $dates = ['deleted_at'];
 
+    public function newQuery($excludeDeleted = true) {
+        return parent::newQuery($excludeDeleted)
+            ->whereNotNull('email_verified_at');
+    }
+
     /**
      * relationship with friends
      */
