@@ -113,9 +113,17 @@ class FriendService
     {
         $date = new Carbon($date);
 
-        return $user->friends()->whereMonth('birthday', $date->month)
+        $friendBirthdays = $user->friends()->whereMonth('birthday', $date->month)
             ->whereDay('birthday', $date->day)
             ->get();
+
+        $currentUserBirthday = new Carbon($user->birthday);
+
+        if ($currentUserBirthday->day == $date->day && $currentUserBirthday->month == $date->month) {
+            return $friendBirthdays->push($user);
+        }
+
+        return $friendBirthdays;
     }
 
     /**

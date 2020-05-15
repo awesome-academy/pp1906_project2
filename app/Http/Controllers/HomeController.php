@@ -65,7 +65,7 @@ class HomeController extends Controller
 
         $activities = $this->activityService->getListActivities(auth()->user());
 
-        if ($todayBirthdayUsers->count() > 1) {
+        if ($todayBirthdayUsers->count() > 0) {
             $randomTodayBirthdayUser = $todayBirthdayUsers->random(1)->first();
         }
 
