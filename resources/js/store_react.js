@@ -58,7 +58,6 @@ $(document).ready(function () {
                     reactElement.parent().parent().find('.count-reacts').text(result.count_react);
                     userReact.html();
                     userReact.html(result.view);
-
                 } else {
                     errorMessage();
                 }

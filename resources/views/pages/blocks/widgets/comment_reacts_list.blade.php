@@ -21,9 +21,18 @@
     <img class="love-comment" hidden="" src="{{ asset('theme/socialyte/svg-icons/center/loved.svg') }}">
 </a>
 @endif
-<a href="#" class="post-add-icon inline-items">
-    <strong>You and 16 other people reacted this comment</strong>
+<a href="#" class="post-add-icon inline-items react-this-comment-{{ $comment->id }}"
+    data-toggle="modal" data-target="#listReactCommentModal{{ $comment->id }}"
+    @if ($comment->reacts->count() == 0)
+        hidden
+    @endif
+    >
+    <strong class="count-reacts-{{ $comment->id }}">{{ $comment->reacts->count() }}
+    </strong>
+        <strong>@lang('react this comment')</strong>
 </a>
 <a href="#" class="reply reply-comment" data-comment-id="{{ $comment->id }}" data-parent-comment-id="{{ $comment->getOriginalParent() }}" data-comment-user="{{ $comment->user->name }}">
     <strong>@lang('Reply')</strong>
 </a>
+
+@include('pages.blocks.modals.list_react_comment')

@@ -158,5 +158,8 @@
     "No more friends found": "No more friends found",
     "REMOVE ALL IMAGES": "REMOVE ALL IMAGES",
     "Image size must not be larger than 2 Megabytes!": "Image size must not be larger than 2 Megabytes!",
-    "Nothing changes..": "Nothing changes.."
+    "Nothing changes..": "Nothing changes..",
+    "Image ?": "Image ?",
+    "Please select only images!": "Please select only images!",
+    "react this comment": "react this comment"
 }

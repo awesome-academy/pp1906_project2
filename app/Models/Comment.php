@@ -97,4 +97,12 @@ class Comment extends Model
 
         return collect($arr);
     }
+
+    public function reactUsers()
+    {
+        return $this->belongsToMany('App\Models\User', 'reacts', 'reactable_id', 'user_id')
+            ->select('users.id', 'name', 'username', 'avatar')
+            ->where('reactable_type', 'App\Models\Comment')
+            ->withPivot('type');
+    }
 }

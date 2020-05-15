@@ -23,6 +23,7 @@ $(document).ready(function () {
         var reactableId = parseInt(reactElement.data('comment-id'));
         var react = reactElement.find(reactClass);
         var unReact = reactElement.find(unReactClass);
+        var userReact = reactElement.parent().parent().parent().parent().parent().find('.list-react-comment');
 
         $.ajax({
             url: 'comments/reacts',
@@ -47,6 +48,15 @@ $(document).ready(function () {
                         react.attr('hidden', '');
                     }
 
+                    if (result.count_react == 1) {
+                        $('.react-this-comment-' + reactableId).removeAttr('hidden');
+                    } else if (result.count_react == 0) {
+                        $('.react-this-comment-' + reactableId).attr('hidden', '');
+                    }
+
+                    $('.count-reacts-' + reactableId).text(result.count_react);
+                    userReact.html();
+                    userReact.html(result.view);
                 } else {
                     errorMessage();
                 }
