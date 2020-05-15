@@ -49,7 +49,6 @@
                                 @include('pages.blocks.widgets.friends_mark')
                                 @endif
                             </span>
-                            <div class="country">{{ $user->address ?? ''}}</div>
                         </div>
                     </div>
                 </div>

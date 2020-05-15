@@ -25,7 +25,7 @@ $(document).ready(function () {
         var unReact = reactElement.find(unReactClass);
 
         $.ajax({
-            url: 'comments/reacts',
+            url: '/comments/reacts',
             type: 'POST',
             data: {
                 'type': reactType,

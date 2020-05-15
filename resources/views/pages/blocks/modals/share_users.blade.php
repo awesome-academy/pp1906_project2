@@ -1,4 +1,4 @@
-<div class="modal fade edit-post-modal" id="shareUsersModal{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="shareUsersModalLabel" aria-hidden="true">
+<div class="modal fade" id="shareUsersModal{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="shareUsersModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
