@@ -147,18 +147,24 @@ class CommentController extends Controller
      */
     public function viewMoreComment(Request $request)
     {
-        $data = $request->only([
-            'post_id',
-        ]);
+        $postId = $request->post_id;
 
-        $post = Post::findOrFail($data['post_id']);
+        $post = Post::findOrFail($postId);
 
         if ($post) {
             $comments = $post->parentComments()->orderBy('created_at', 'desc')->paginate(config('post.comment.paginate'));
 
+            $moreComments = $comments->sortBy('created_at');
+
+            $html = '';
+
+            if ($moreComments->count() > 0) {
+                $html = view('pages.blocks.list_comment', compact('post', 'moreComments'))->render();
+            }
+
             return response()->json([
                 'status' => true,
-                'html' => view('pages.blocks.list_comment', compact('post', 'parentComments'))->render(),
+                'html' => $html,
             ]);
         }
 
@@ -171,7 +177,6 @@ class CommentController extends Controller
      * Store Reply of a Comment in database.
      *
      * @param  \Illuminate\Http\CommentRequest  $request
-     * @param Int $id
      * @return \Illuminate\Http\Response
      */
     public function replyComment(ReplyRequest $request)

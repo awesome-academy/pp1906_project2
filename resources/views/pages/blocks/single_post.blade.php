@@ -52,12 +52,20 @@
 
     </article>
 
-    @include('pages.blocks.list_comment')
+    @php
+        $lastParentComment = $post->parentComments()->latest()->first();
+        $lastChildComment = $post->childComments()->latest()->first();
+    @endphp
+
+    @if ($post->allComments()->count() > config('post.comment.max'))
+        <a href="#" class="more-comments post-{{ $post->id }}" data-post-id="{{ $post->id }}" data-page="1"> @lang('View more comments') <span>+</span></a>
+    @endif
+
+    <ul class="comments-list post-{{ $post->id }}">
+        @include('pages.blocks.list_comment')
+    </ul>
 
     <!-- ... end Comments -->
-
-    <a href="#" class="more-comments"> @lang('View more comments') <span>+</span></a>
-
 
     <!-- Comment Form  -->
 

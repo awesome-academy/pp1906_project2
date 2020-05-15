@@ -3,39 +3,43 @@ import { ajaxSetup } from './functions.js';
 $(document).ready(function () {
     ajaxSetup();
 
-    $('.more-comments').click(function() {
+
+    $('body').on('click', '.more-comments', function (event) {
         event.preventDefault();
 
-        var _this = $(this);
+        var postId = $(this).data('post-id');
+        var page = $(this).data('page');
 
-        var lastPage = parseInt(_this.attr('data-last_page'));
-        var page = parseInt(_this.attr('data-page'));
+        loadMoreComment(postId, page);
+    });
 
-        var url = 'comments/load-more/?page=' + page;
+    function loadMoreComment(postId, page) {
+        var url = '/comments/load-more?page=' + page;
 
-        var postId = parseInt(_this.data('post-id'));
-        var commentFirstId = parseInt(_this.data('comment-first-id'));
+        var data = {
+            'post_id': postId,
+        }
 
         $.ajax({
             url: url,
             type: 'GET',
-            data: {
-                'post_id': postId,
-            },
+            data: data,
             cache: false,
             success: function (result) {
                 if (result.status) {
-                    if (page >= lastPage) {
-                        _this.remove();
+                    if (result.html.length != '') {
+                        if (page == 1) {
+                            $('.comments-list.post-' + postId).html(result.html);
+                        } else {
+                            console.log(result.html);
+                            $('.comments-list.post-' + postId).prepend(result.html);
+                        }
+                    } else {
+                        $('.more-comments.post-' + postId).remove();
                     }
 
-                    _this.attr('data-page', page + 1);
-
-                    if (page == 1) {
-                        $('.comment-item-' + commentFirstId).remove();
-                    }
-
-                    $('.post-comment-list-' + postId).append(result.html);
+                    $('.more-comments.post-' + postId).data('page', page + 1);
+                    $('.more-comments.post-' + postId).attr('data-page', page + 1);
                 } else {
                     errorMessage();
                 }
@@ -44,5 +48,5 @@ $(document).ready(function () {
                 errorMessage();
             }
         });
-    });
+    };
 });

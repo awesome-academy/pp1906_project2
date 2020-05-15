@@ -38,7 +38,23 @@ class Post extends Model
     }
 
     /**
-     * relationship with Comment.
+     * relationship with Comment (get all comments replies).
+     */
+    public function allComments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    /**
+     * relationship with Comment (get all replies).
+     */
+    public function childComments()
+    {
+        return $this->hasMany('App\Models\Comment')->whereNotNull('parent_id');
+    }
+
+    /**
+     * relationship with Comment (get all parent comments).
      */
     public function parentComments()
     {
