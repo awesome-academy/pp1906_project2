@@ -18,9 +18,9 @@ Auth::routes(['verify' => true]);
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
-Route::get('/newsfeed', function () {
-    return view('pages.newsfeed.index');
-});
+// Route::get('/newsfeed', function () {
+//     return view('pages.newsfeed.index');
+// });
 
 Route::get('/clear-cache', 'HomeController@clearViewCache')->name('cache.clear');
 
