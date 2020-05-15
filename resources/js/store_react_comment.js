@@ -2,7 +2,7 @@ import { ajaxSetup } from './functions.js';
 
 $(document).ready(function () {
     ajaxSetup();
-    $('body').on('click', '.btn-react-comment-like, .btn-react-comment-love',  function () {
+    $('body').on('click', '.btn-react-comment-like, .btn-react-comment-love', function () {
         event.preventDefault();
 
         var _this = $(this);

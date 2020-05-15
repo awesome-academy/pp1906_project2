@@ -13,7 +13,7 @@
 
     <p class="comment-content-{{ $comment->id }}">
         @if (!$comment->parent->isOriginalParent())
-        <a class="h6 post__author-name fn reply__author-name" href="02-ProfilePage.html">{{ $comment->parent->user->name }}
+        <a class="h6 post__author-name fn reply__author-name" href="{{ route('user.profile', $comment->parent->user->username) }}">{{ $comment->parent->user->name }}
         </a>
         @endif
         {{ $comment->content ?? ''}}

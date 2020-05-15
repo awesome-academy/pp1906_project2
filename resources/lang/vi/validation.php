@@ -58,6 +58,9 @@ return [
     ],
     'string' => 'Trường :attribute phải dưới dạng chữ.',
     'unique' => ':attribute đã tồn tại.',
+    'uploaded' => 'Tải :attribute lên thất bại.',
+    'image' => ':attribute phải là dạng ảnh.',
+    'in' => ':attribute đã chọn không hợp lệ.',
 
     /*
     |--------------------------------------------------------------------------
@@ -100,7 +103,7 @@ return [
         'datetimepicker' => 'Ngày sinh',
         'content' => 'Nội dung',
         'type' => 'Kiểu',
-        'image.*' => 'Các ảnh',
+        'image.*' => 'Ảnh',
         'image' => 'Ảnh',
     ],
 

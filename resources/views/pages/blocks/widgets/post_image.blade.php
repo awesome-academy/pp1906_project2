@@ -1,4 +1,4 @@
-<div class="post-block-photo js-zoom-gallery">
+<div class="post-block-photo zoom-gallery">
     @php
         $images = json_decode($post->image);
     @endphp

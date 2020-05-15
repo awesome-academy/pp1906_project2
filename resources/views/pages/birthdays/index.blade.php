@@ -4,7 +4,7 @@
 
 <!-- Main Header Birthday -->
 
-<div class="main-header">
+<div class="main-header birthdays-title">
     <div class="content-bg-wrap bg-birthday"></div>
     <div class="container">
         <div class="row">
@@ -23,7 +23,7 @@
 <!-- ... end Main Header Birthday -->
 @if ($todayBirthdayUsers->count() == 0)
 <div class="mCustomScrollbar" data-mcs-theme="dark">
-    <li class="nothing-here-wrapper nothing-here-notification">
+    <li class="nothing-here-wrapper nothing-here-notification nothing-here-birthdays">
         <div class="notification-event">
             <h6 class="nothing-here">@lang('There\'s no birthday today..')<h6>
         </div>

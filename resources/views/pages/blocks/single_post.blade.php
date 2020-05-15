@@ -3,7 +3,7 @@
     <article class="hentry post">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('theme/socialyte/img/avatar10-sm.jpg') }}" alt="author">
+            <img src="{{ getAvatar($post->user->avatar) }}" alt="{{ $post->user->name }}">
 
             <div class="author-date">
                 <a class="h6 post__author-name fn" href="{{ route('user.profile', $post->user->username) }}">{{ $post->user->name }}</a>
@@ -29,7 +29,7 @@
             </div>
 
             @if (auth()->id() == $post->user->id)
-                @include('pages.blocks.widgets.three_dots')
+            @include('pages.blocks.widgets.three_dots')
             @endif
         </div>
 
@@ -62,17 +62,10 @@
     <form class="comment-form inline-items">
 
         <div class="post__author author vcard inline-items">
-            <img src="{{ asset('theme/socialyte/img/author-page.jpg') }}" alt="author">
+            <img src="{{ getAvatar(auth()->user()->avatar) }}" alt="{{ auth()->user()->name }}">
 
             <div class="form-group with-icon-right ">
                 <textarea class="form-control comment-content" placeholder=""></textarea>
-                <div class="add-options-message">
-                    <a href="#" class="options-message" data-toggle="modal" data-target="#update-header-photo">
-                        <svg class="olymp-camera-icon">
-                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use>
-                        </svg>
-                    </a>
-                </div>
             </div>
         </div>
 

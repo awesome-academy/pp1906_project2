@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Models\Comment;
 use App\Services\ActivityService;
@@ -26,20 +27,26 @@ class CommentService
      */
     public function storeComment($data)
     {
+        $senderId = $data['user_id'];
+
         $post = Post::findOrFail($data['post_id']);
 
+        $receiverId = $post->user->id;
+
         $activityData = [
-            'user_id' => $data['user_id'],
+            'user_id' => $senderId,
             'post_id' => $data['post_id'],
         ];
 
         $activityData['type'] = config('activity.type.comment');
 
         $notificationData = [
-            'sender_id' => $data['user_id'],
-            'receiver_id' => $post->user->id,
+            'sender_id' => $senderId,
+            'receiver_id' => $receiverId,
             'post_id' => $data['post_id'],
         ];
+
+        DB::beginTransaction();
 
         try {
             $comment = Comment::create($data);
@@ -58,10 +65,16 @@ class CommentService
                 $notificationData['receiver_id'] = $parentComment->user_id;
             }
 
-            $this->notificationService->storeNotification($notificationData);
-            $this->activityService->storeActivity($activityData);
+            if ($senderId != $receiverId) {
+                $this->notificationService->storeNotification($notificationData);
+                $this->activityService->storeActivity($activityData);
+            }
+
+            DB::commit();
         } catch (\Throwable $th) {
             Log::error($th);
+
+            DB::rollBack();
 
             return false;
         }

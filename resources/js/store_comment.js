@@ -5,6 +5,21 @@ $(document).ready(function () {
         }
     });
 
+    $('body').on('click', '.add-comment-button', function (event) {
+        event.preventDefault();
+        var postId = $(this).data('post-id');
+
+        commentForm = $('body').find('.comment-form.post-' + postId);
+
+        commentForm.show();
+
+        $('html, body').animate({
+            scrollTop: commentForm.offset().top - 500
+        });
+
+        commentForm.find('.comment-content').focus();
+    });
+
     $('body').on('click', '.store-comment', function (event) {
         event.preventDefault();
 

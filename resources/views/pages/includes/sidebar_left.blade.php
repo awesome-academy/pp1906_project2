@@ -12,8 +12,8 @@
         <div class="mCustomScrollbar" data-mcs-theme="dark">
             <ul class="left-menu">
                 <li>
-                    <a href="{{ route('user.profile', auth()->user()->username) }}" title="@lang('Profile')">
-                        <img src="{{ asset('theme/socialyte/svg-icons/sidebar_left/newsfeed.svg') }}">
+                    <a href="{{ route('user.profile', auth()->user()->username) }}" title="@lang('Profile')" class="profile-icon">
+                        <i class="far fa-address-card" data-fa-transform="grow-10"></i>
                     </a>
                 </li>
                 <li>
