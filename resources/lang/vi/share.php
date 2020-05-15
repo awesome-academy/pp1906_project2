@@ -11,5 +11,6 @@ return [
     'delete' => [
         'success' => 'Bài chia sẻ của bạn đã bị xóa!',
     ],
-    'title' => "đã chia sẻ <a href='/posts/:post_id'>bài viết</a> của <a href='/:username'>:name</a>"
+    'title' => "đã chia sẻ <a href='/posts/:post_id'>bài viết</a> của <a href='/:username'>:name</a>",
+    'title_self' => "đã chia sẻ <a href='/posts/:post_id'>bài viết</a> của chính mình"
 ];

@@ -84,4 +84,25 @@ class UserService
             ->where('name', 'LIKE', '%' . $inputString . '%')
             ->paginate(config('user.search'));
     }
+
+    /**
+     * Force delete a user in database.
+     *
+     * @param Int $id
+     * @return Boolean
+     */
+    public function forceDeleteUser($id)
+    {
+        $user = User::findOrFail($id);
+
+        try {
+            $user->forceDelete();
+        } catch (\Throwable $th) {
+            Log::error($th);
+
+            return false;
+        }
+
+        return true;
+    }
 }

@@ -22,18 +22,7 @@ Route::get('/newsfeed', function () {
     return view('pages.newsfeed.index');
 });
 
-
-Route::get('/profile/about', function () {
-    return view('pages.profile.about.index');
-});
-
-Route::get('/profile/photos', function () {
-    return view('pages.profile.photos.index');
-});
-
-Route::get('/profile/videos', function () {
-    return view('pages.profile.videos.index');
-});
+Route::get('/clear-cache', 'HomeController@clearViewCache')->name('cache.clear');
 
 Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
@@ -45,7 +34,6 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
 
 
     Route::post('/settings/update', 'UserController@updateInformation')->name('user.updateInformation');
-
 
     Route::get('/settings/language', 'UserController@showLanguage')->name('user.showLanguage');
 
@@ -110,8 +98,4 @@ Route::middleware(['auth', 'verified', 'language'])->group(function () {
     Route::post('/{username}/reject-friend', 'FriendController@removeRequest')->name('friend.rejectRequest');
 
     Route::post('/{username}/un-friend', 'FriendController@removeFriend')->name('friend.unFriend');
-});
-
-Route::get('/settings/requests', function () {
-    return view('pages.settings.request.index');
 });

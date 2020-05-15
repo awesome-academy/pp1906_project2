@@ -3,7 +3,7 @@
         <div class="post__author author vcard inline-items">
             <img src="{{ getAvatar($post->user->avatar) }}" alt="{{ $post->user->name }}">
             <div class="author-date">
-                <a class="h6 post__author-name fn" href="#">{{ $post->user->name }}</a>
+                <a class="h6 post__author-name fn" href="{{ route('user.profile', $post->user->username ) }}">{{ $post->user->name }}</a>
                 <div class="post-type-icon post__date">
                     <a class="show-post" href="{{ route('posts.show', $post->id) }}">
                         <time class="published" datetime="2004-07-24T18:18">{{ getCreatedFromTime($post) }}</time>
