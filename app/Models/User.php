@@ -55,11 +55,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $dates = ['deleted_at'];
 
-    public function newQuery($excludeDeleted = true) {
-        return parent::newQuery($excludeDeleted)
-            ->whereNotNull('email_verified_at');
-    }
-
     /**
      * relationship with friends
      */
@@ -102,6 +97,17 @@ class User extends Authenticatable implements MustVerifyEmail
     public function scopeIsCurrentUser()
     {
         return $this->id == auth()->id();
+    }
+
+    /**
+     * Scope verified user.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Http\Response
+     */
+    public function scopeIsVerified($query)
+    {
+        return $query->whereNotNull('email_verified_at');
     }
 
     /**

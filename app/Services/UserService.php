@@ -58,13 +58,13 @@ class UserService
     /**
      * Get list not friend database.
      *
-     * @param Int $user
+     * @param App\Models\User $user
      * @return Collection
      */
     public function getListNotFriend($user, $limit = 1)
     {
         $listFriendId = $user->friends->pluck('id')->push($user->id);
-        $suggestionFriend = User::whereNotIn('id', $listFriendId)
+        $suggestionFriend = User::isVerified()->whereNotIn('id', $listFriendId)
             ->inRandomOrder()
             ->limit($limit)
             ->get();
@@ -80,7 +80,7 @@ class UserService
      */
     public function getSearchPeopleList($inputString)
     {
-        return User::where('id', '!=', auth()->id())
+        return User::isVerified()->where('id', '!=', auth()->id())
             ->where('name', 'LIKE', '%' . $inputString . '%')
             ->paginate(config('user.search'));
     }
