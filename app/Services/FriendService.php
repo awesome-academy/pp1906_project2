@@ -105,25 +105,48 @@ class FriendService
     /**
      * Get list friend of a user.
      *
-     * @param Int $user
-     * @param String $date
+     * @param App\Models\User $user
+     * @param Carbon $date
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getListFriendBirthdays($user, $date)
     {
         $date = new Carbon($date);
 
+        $checkBirthday = $this->checkIsBirthdayDate(auth()->user(), now());
+
         $friendBirthdays = $user->friends()->whereMonth('birthday', $date->month)
             ->whereDay('birthday', $date->day)
             ->get();
 
-        $currentUserBirthday = new Carbon($user->birthday);
-
-        if ($currentUserBirthday->day == $date->day && $currentUserBirthday->month == $date->month) {
-            return $friendBirthdays->push($user);
+        if ($checkBirthday) {
+            $friendBirthdays->push($user);
         }
 
         return $friendBirthdays;
+    }
+
+    /**
+     * Check if birthday of a user is in specific date.
+     *
+     * @param  App\Models\User $user
+     * @param Carbon $date
+     * @return Boolean
+     */
+    public function checkIsBirthdayDate($user, $date)
+    {
+        $date = new Carbon($date);
+
+        if (is_null($user->birthday)) {
+            return false;
+        }
+
+        $birthday = new Carbon($user->birthday);
+
+        $birthdayDate = $birthday->format('d');
+        $birthdayMonth = $birthday->format('m');
+
+        return ($birthdayDate == $date->format('d') && $birthdayMonth == $date->format('m')) ? true : false;
     }
 
     /**
